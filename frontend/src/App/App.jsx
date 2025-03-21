@@ -1,4 +1,4 @@
-import PageHome from "../pages/PageHome/PageHome";
+import PageHome from "../pages/PageHome/PageHome.jsx";
 
 import "./app.css";
 
