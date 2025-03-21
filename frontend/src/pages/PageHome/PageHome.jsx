@@ -3,7 +3,7 @@ import "./PageHome.css";
 const PageHome = () => {
   return (
     <>
-      <div>bob</div>
+      <div>PageHome</div>
     </>
   );
 };

@@ -1,11 +1,15 @@
+import Header from "../widgets/Header/Header.jsx";
 import PageHome from "../pages/PageHome/PageHome.jsx";
 
-import "./app.css";
+import "./App.scss";
 
 function App() {
   return (
     <>
-      <PageHome />
+      <div className="container">
+        <Header />
+        <PageHome />
+      </div>
     </>
   );
 }
