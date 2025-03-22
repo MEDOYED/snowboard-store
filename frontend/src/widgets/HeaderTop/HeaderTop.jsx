@@ -14,10 +14,11 @@ const HeaderTop = () => {
           <div className="header-top__content--left">
             <IconGpsMark />
             <span>Choose your city:</span>
-            <span>test1</span>
-            <span>test2</span>
-            <span>test3</span>
-            <span>test4</span>
+            <ul className="header-top__content__list">
+              <li className="header-top__item">Stores</li>
+              <li className="header-top__item">Help</li>
+              <li className="header-top__item">Blogs</li>
+            </ul>
           </div>
           <div className="header-top__content--right">
             <RowIconText Icon={IconDelivery} text={"Free delivery*"} />
