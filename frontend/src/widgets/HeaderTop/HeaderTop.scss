@@ -1,12 +1,12 @@
 .header-top {
-  position: absolute;
+  position: relative;
 
-  top: 0;
-  left: 0;
-  width: 100%;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
   padding: 1.5rem 0;
 
-  color: #fff;
+  color: #f2f2f2;
   background-color: rgb(0, 0, 0);
 
   &__content {
@@ -16,6 +16,11 @@
 
     &--left {
       display: flex;
+      gap: 3.5rem;
+    }
+
+    &__list {
+      display: flex;
       gap: 2.6rem;
     }
 
@@ -24,4 +29,6 @@
       gap: 3.3rem;
     }
   }
+
+
 }
