@@ -1,0 +1,15 @@
+.button-drop-down-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+
+  &__shevron {
+    display: flex;
+    align-items: center;
+
+    transform: translateY(25%);
+
+    height: auto;
+    width: 1.2rem;
+  }
+}

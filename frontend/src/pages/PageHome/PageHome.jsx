@@ -1,4 +1,4 @@
-import "./PageHome.css";
+import "./PageHome.scss";
 
 const PageHome = () => {
   return (

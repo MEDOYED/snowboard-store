@@ -2,8 +2,9 @@ import IconDelivery from "../../shared/UI/icons/IconDelivery/IconDelivery";
 import IconPaymentLocation from "../../shared/UI/icons/IconPaymentLocation/IconPaymentLocation";
 import IconProductReturn from "../../shared/UI/icons/IconProductReturn/IconProductReturn";
 import IconGpsMark from "../../shared/UI/icons/IconGpsMark/IconGpsMark";
-
 import RowIconText from "../../shared/components/RowIconText/RowIconText";
+import ButtonDropDownMenu from "../../shared/components/buttons/ButtonDropDownMenu/ButtonDropDownMenu";
+
 import "./HeaderTop.scss";
 
 const HeaderTop = () => {
@@ -12,8 +13,8 @@ const HeaderTop = () => {
       <div className="header-top">
         <div className="header-top__content container">
           <div className="header-top__content--left">
-            <IconGpsMark />
-            <span>Choose your city:</span>
+            <ButtonDropDownMenu Icon={IconGpsMark} text={"Choose your city:"} />
+
             <ul className="header-top__content__list">
               <li className="header-top__item">Stores</li>
               <li className="header-top__item">Help</li>
