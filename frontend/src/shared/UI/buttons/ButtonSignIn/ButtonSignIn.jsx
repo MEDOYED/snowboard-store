@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { toggleSignIn } from "../../../../App/store/signInSlice";
 
 import { User } from "lucide-react";
 
 import "./ButtonSignIn.scss";
 
 const ButtonSignIn = () => {
-  const [isActive, setIsActive] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    setIsActive(!isActive);
+    dispatch(toggleSignIn());
   };
-  console.log(isActive);
 
   return (
     <li className="button-sign-in" onClick={handleClick}>
