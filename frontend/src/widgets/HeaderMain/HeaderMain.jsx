@@ -1,10 +1,40 @@
+import { User, Star, ShoppingCart, Search } from "lucide-react";
+
+import ButtonLink from "../../shared/UI/buttons/ButtonLink/ButtonLink";
+import logo from "../../App/img/logo/logo.svg";
+
 import "./HeaderMain.scss";
 
 const HeaderMain = () => {
   return (
-    <>
-      <div>HeaderMain</div>
-    </>
+    <div className="header-main">
+      <ul className="header-main__filters">
+        <ButtonLink text={"For Men"} />
+        <ButtonLink text={"For Women"} />
+        <ButtonLink text={"For Kids"} />
+      </ul>
+
+      <img src={logo} alt="Brand Logo" />
+
+      <ul className="header-main__list list">
+        <li className="header-main__list__item">
+          <User className="header-main__list__icon" />
+          <span>Sign in</span>
+        </li>
+        <li className="header-main__list__item">
+          <Star className="header-main__list__icon" />
+          <span>Favorites</span>
+        </li>
+        <li className="header-main__list__item">
+          <ShoppingCart className="header-main__list__icon" />
+          <span>Cart</span>
+        </li>
+        <li className="header-main__list__item">
+          <Search className="header-main__list__icon" />
+          <span>Search</span>
+        </li>
+      </ul>
+    </div>
   );
 };
 

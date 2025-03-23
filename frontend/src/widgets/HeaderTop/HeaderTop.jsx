@@ -3,7 +3,7 @@ import IconPaymentLocation from "../../shared/UI/icons/IconPaymentLocation/IconP
 import IconProductReturn from "../../shared/UI/icons/IconProductReturn/IconProductReturn";
 import IconGpsMark from "../../shared/UI/icons/IconGpsMark/IconGpsMark";
 import RowIconText from "../../shared/components/RowIconText/RowIconText";
-import ButtonDropDownMenu from "../../shared/components/buttons/ButtonDropDownMenu/ButtonDropDownMenu";
+import ButtonDropDownMenu from "../../shared/UI/buttons/ButtonDropDownMenu/ButtonDropDownMenu";
 
 import "./HeaderTop.scss";
 
