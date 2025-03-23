@@ -1,6 +1,6 @@
 git clone https://github.com/MEDOYED/harmonia --> для того чтобы стянуть репозиторий с GitHub
 
-git init git add . git commit -m " " git branch -M main git remote add origin https://github.com/MEDOYED/harmonia git push -u origin main
+gmt init git add . git commit -m " " git branch -M main git remote add origin https://github.com/MEDOYED/harmonia git push -u origin main
 
 git init
 
@@ -37,3 +37,6 @@ git checkout -- . --> Возвращает к последнему комиту
 git rebase main --> Сливает изменения с ветки main на ветку на которой сейчас находишься
 
 git reset --hard origin/main --> когда находимся на ветке main и у нас есть изминения в коде и нам надо сделать git pull и не получается. С помощью етой команди можно стянуть код с репозитория
+
+- `git commit --amend --no-edit`
+  - внести изменения в последний комит
