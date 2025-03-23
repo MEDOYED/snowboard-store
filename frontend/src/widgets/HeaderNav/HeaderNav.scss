@@ -1,0 +1,16 @@
+.header-nav {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+
+  background-color: #f9f9f9;
+
+  padding: 18px 0;
+
+  &__list {
+    display: flex;
+    line-height: 25px;
+    gap: 25px;
+  }
+}
