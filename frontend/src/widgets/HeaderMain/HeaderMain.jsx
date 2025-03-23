@@ -1,6 +1,8 @@
-import { User, Star, ShoppingCart, Search } from "lucide-react";
+import { Star, ShoppingCart, Search } from "lucide-react";
 
 import ButtonLink from "../../shared/UI/buttons/ButtonLink/ButtonLink";
+import ButtonSignIn from "../../shared/UI/buttons/ButtonSignIn/ButtonSignIn";
+
 import logo from "../../App/img/logo/logo.svg";
 
 import "./HeaderMain.scss";
@@ -17,10 +19,7 @@ const HeaderMain = () => {
       <img src={logo} alt="Brand Logo" />
 
       <ul className="header-main__list list">
-        <li className="header-main__list__item">
-          <User className="header-main__list__icon" />
-          <span>Sign in</span>
-        </li>
+        <ButtonSignIn />
         <li className="header-main__list__item">
           <Star className="header-main__list__icon" />
           <span>Favorites</span>

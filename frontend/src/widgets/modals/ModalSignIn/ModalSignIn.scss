@@ -1,0 +1,33 @@
+.modal-sign-in {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 23;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    position: relative;
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__sign-in {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__registration {
+    display: flex;
+    justify-content: center;
+  }
+}
