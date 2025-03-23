@@ -17,11 +17,6 @@
     display: flex;
     gap: 2.5rem;
 
-    &__icon {
-      height: 2.8rem;
-      width: 2.8rem;
-    }
-
     &__item {
       display: flex;
       flex-direction: column;
@@ -30,6 +25,11 @@
 
       font-size: 1.6rem;
       font-weight: 500;
+    }
+
+    &__icon {
+      height: 2.8rem;
+      width: 2.8rem;
     }
   }
 }
