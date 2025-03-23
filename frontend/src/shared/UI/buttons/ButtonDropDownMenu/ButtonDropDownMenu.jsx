@@ -1,4 +1,4 @@
-import IconChevronDown from "../../../UI/icons/IconChevronDown/IconChevronDown";
+import IconChevronDown from "../../icons/IconChevronDown/IconChevronDown";
 
 import "./ButtonDropDownMenu.scss";
 
