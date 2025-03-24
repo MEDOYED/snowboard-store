@@ -1,4 +1,4 @@
-import ButtonLink from "../../shared/UI/buttons/ButtonLink/ButtonLink";
+import ButtonLink from "../../../shared/UI/buttons/ButtonLink/ButtonLink";
 
 import "./HeaderNav.scss";
 

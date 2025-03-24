@@ -1,9 +1,9 @@
 import { Star, ShoppingCart, Search } from "lucide-react";
 
-import ButtonLink from "../../shared/UI/buttons/ButtonLink/ButtonLink";
-import ButtonSignIn from "../../shared/UI/buttons/ButtonSignIn/ButtonSignIn";
+import ButtonLink from "../../../shared/UI/buttons/ButtonLink/ButtonLink";
+import ButtonSignIn from "../../../shared/UI/buttons/ButtonSignIn/ButtonSignIn";
 
-import logo from "../../App/img/logo/logo.svg";
+import logo from "../../../App/img/logo/logo.svg";
 
 import "./HeaderMain.scss";
 
