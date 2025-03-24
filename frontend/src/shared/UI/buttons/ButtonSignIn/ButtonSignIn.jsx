@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { toggleSignIn } from "../../../../App/store/signInSlice";
+import { toggleSignIn } from "../../../../app/store/signInSlice";
 
 import { User } from "lucide-react";
 
