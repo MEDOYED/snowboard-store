@@ -22,12 +22,22 @@
 
 
   &__content {
+
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     height: 55rem;
-
   }
+
+  &__auth-part {
+    transition: all .5s;
+  }
+
+  &__content:has(&__auth-part:hover) &__auth-part:not(:hover) {
+    filter: blur(.2rem);
+    background-color: #e5e5e5;
+  }
+
 
   &__sign-in {
     @include authenticationBlock();
@@ -37,10 +47,11 @@
   }
 
   &__sign-up {
-    @include authenticationBlock(#f9f9f9);
+    @include authenticationBlock();
 
     width: 50rem;
   }
+
 
   &__heading-wrapper {
     position: relative;
