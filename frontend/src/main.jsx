@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { StrictMode } from "react";
 import { Provider } from "react-redux";
-import { store } from "./App/store/index.js";
+import { store } from "./app/store/index.js";
 
-import App from "./App/App.jsx";
+import App from "./app/App.jsx";
 
 import "./main.scss";
 

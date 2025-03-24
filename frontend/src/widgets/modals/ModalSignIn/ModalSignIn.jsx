@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setSignInState } from "../../../App/store/signInSlice";
+import { setSignInState } from "../../../app/store/signInSlice";
 import "./ModalSignIn.scss";
 
 const ModalSignIn = () => {

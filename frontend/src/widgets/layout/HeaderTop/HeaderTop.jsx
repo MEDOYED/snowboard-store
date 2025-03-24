@@ -1,9 +1,9 @@
-import IconDelivery from "../../shared/UI/icons/IconDelivery/IconDelivery";
-import IconPaymentLocation from "../../shared/UI/icons/IconPaymentLocation/IconPaymentLocation";
-import IconProductReturn from "../../shared/UI/icons/IconProductReturn/IconProductReturn";
-import IconGpsMark from "../../shared/UI/icons/IconGpsMark/IconGpsMark";
-import RowIconText from "../../shared/components/RowIconText/RowIconText";
-import ButtonDropDownMenu from "../../shared/UI/buttons/ButtonDropDownMenu/ButtonDropDownMenu";
+import IconDelivery from "../../../shared/UI/icons/IconDelivery/IconDelivery";
+import IconPaymentLocation from "../../../shared/UI/icons/IconPaymentLocation/IconPaymentLocation";
+import IconProductReturn from "../../../shared/UI/icons/IconProductReturn/IconProductReturn";
+import IconGpsMark from "../../../shared/UI/icons/IconGpsMark/IconGpsMark";
+import RowIconText from "../../../shared/components/RowIconText/RowIconText";
+import ButtonDropDownMenu from "../../../shared/UI/buttons/ButtonDropDownMenu/ButtonDropDownMenu";
 
 import "./HeaderTop.scss";
 
@@ -23,14 +23,8 @@ const HeaderTop = () => {
           </div>
           <div className="header-top__content--right">
             <RowIconText Icon={IconDelivery} text={"Free delivery*"} />
-            <RowIconText
-              Icon={IconPaymentLocation}
-              text={"Payment upon receipt"}
-            />
-            <RowIconText
-              Icon={IconProductReturn}
-              text={"Return within 14 days"}
-            />
+            <RowIconText Icon={IconPaymentLocation} text={"Payment upon receipt"} />
+            <RowIconText Icon={IconProductReturn} text={"Return within 14 days"} />
           </div>
         </div>
       </div>

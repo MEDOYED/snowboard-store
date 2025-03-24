@@ -1,0 +1,19 @@
+.footer {
+  background-image: url("./footer-bg.svg");
+  height: 800px;
+
+  // image on 100vw
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+
+  color: #fff;
+
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 18rem;
+  }
+}
