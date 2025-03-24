@@ -1,11 +1,13 @@
-import React from "react";
-
 import logo from "/logo/logo.svg";
 
-const MainLogo = () => {
+import "./MainLogo.scss";
+
+const MainLogo = ({ reverse }) => {
+  const className = reverse ? "main-logo__reverse" : "main-logo";
+
   return (
     <>
-      <img src={logo} alt="Brand Logo" />
+      <img src={logo} className={className} alt="Brand Logo" />
     </>
   );
 };
