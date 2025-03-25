@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./app/App.jsx";
 import PageFAQ from "./pages/PageFAQ/PageFAQ.jsx";
+import Page404 from "./pages/Page404/Page404.jsx";
 
 import "./main.scss";
 
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <div>404 Error(temp)</div>,
+    errorElement: <Page404 />,
   },
   {
     path: "/FAQ",
