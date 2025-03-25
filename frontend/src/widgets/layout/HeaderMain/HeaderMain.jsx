@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Star, ShoppingCart, Search } from "lucide-react";
 
 import ButtonLink from "../../../shared/UI/buttons/ButtonLink/ButtonLink";
@@ -16,7 +17,9 @@ const HeaderMain = () => {
         <ButtonLink text={"For Kids"} />
       </ul>
 
-      <img src={logo} alt="Brand Logo" />
+      <Link to="/">
+        <img src={logo} alt="Brand Logo" />
+      </Link>
 
       <ul className="header-main__list list">
         <ButtonSignIn />

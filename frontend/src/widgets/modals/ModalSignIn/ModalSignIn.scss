@@ -80,7 +80,8 @@
     background-color: #000;
 
     &:hover {
-      filter: invert(1);
+      color: #000;
+      background-color: #fff;
     }
 
     .modal-sign-in__X-icon {
@@ -90,100 +91,136 @@
     &:hover .modal-sign-in__X-icon {
       rotate: 90deg;
     }
-  }
 
-  &__input-fields {
+    .corner {
+      position: absolute;
+      display: inline-block;
+      transition: all .3s linear;
+
+      width: 1.25rem;
+      height: 1.25rem;
+      transform: scale(0);
+
+      background-color: transparent;
+    }
+
+    &:hover .corner {
+      transform: scale(1);
+    }
+
+    $bd-size: 2px;
+    $bd-color: #000;
+
+    $corners: (
+      top-left: (top, left, border-top, border-left, top left),
+      top-right: (top, right, border-top, border-right, top right),
+      bottom-left: (bottom, left, border-bottom, border-left, bottom left),
+      bottom-right:(bottom, right, border-bottom, border-right, bottom right)
+    );
+
+  @each $name, $values in $corners {
+    .#{$name} {
+      #{nth($values, 1)}: 0;
+      #{nth($values, 2)}: 0;
+      #{nth($values, 3)}: $bd-size solid $bd-color;
+      #{nth($values, 4)}: $bd-size solid $bd-color;
+      transform-origin: #{nth($values, 5)};
+    }
+  }
+}
+
+&__input-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  margin-bottom: 1.7rem;
+
+  label {
+    text-align: left;
+
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 0.5rem;
 
-    margin-bottom: 1.7rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
 
-    label {
-      text-align: left;
-
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-
-      font-size: 1.4rem;
-      line-height: 2rem;
-
-      color: rgb(130, 139, 141);
-    }
-
-    input:is([type="text"], [type="password"], [type="email"], [type="tel"]) {
-      width: 100%;
-      height: 5rem;
-      border: 2px solid rgb(206, 212, 215);
-      padding: 1.2rem;
-      font-size: 1.6rem;
-      font-weight: 400;
-    }
+    color: rgb(130, 139, 141);
   }
 
-  &__checkbox-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 4rem;
-  }
-
-  &__checkbox-label {
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    font-size: 1.6rem;
-
-    input[type="checkbox"] {
-      appearance: none;
-      cursor: inherit;
-      transition: all .3s;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      width: 1.8rem;
-      height: 1.8rem;
-      border: 2px solid #000;
-    }
-
-    input[type="checkbox"]:checked {
-      background-color: #000;
-    }
-
-    input[type="checkbox"]:checked::after {
-      content: '✓';
-
-      font-size: 1.8rem;
-      font-weight: 700;
-
-      color: #fff;
-    }
-  }
-
-  &__forgot-password-link {
-    font-size: 1.6rem;
-
-    color: #828b8d;
-  }
-
-  &__auth-btn {
-    text-align: center;
-    transition: all .3s;
-
+  input:is([type="text"], [type="password"], [type="email"], [type="tel"]) {
     width: 100%;
     height: 5rem;
+    border: 2px solid rgb(206, 212, 215);
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+}
+
+&__checkbox-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 4rem;
+}
+
+&__checkbox-label {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  font-size: 1.6rem;
+
+  input[type="checkbox"] {
+    appearance: none;
+    cursor: inherit;
+    transition: all .3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 1.8rem;
+    height: 1.8rem;
     border: 2px solid #000;
   }
 
-  &__auth-btn:is(:hover, :active) {
-    color: #fff;
+  input[type="checkbox"]:checked {
     background-color: #000;
   }
+
+  input[type="checkbox"]:checked::after {
+    content: '✓';
+
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    color: #fff;
+  }
+}
+
+&__forgot-password-link {
+  font-size: 1.6rem;
+
+  color: #828b8d;
+}
+
+&__auth-btn {
+  text-align: center;
+  transition: all .3s;
+
+  width: 100%;
+  height: 5rem;
+  border: 2px solid #000;
+}
+
+&__auth-btn:is(:hover, :active) {
+  color: #fff;
+  background-color: #000;
+}
 }
