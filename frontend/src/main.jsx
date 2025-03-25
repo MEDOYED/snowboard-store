@@ -15,9 +15,17 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <Page404 />,
+    // if want to route to a children element,
+    // instead of new page
+    //  children: [
+    //    {
+    //      path: "/FAQ/:FAQSection",
+    //      element: <PageFAQ />,
+    //    },
+    //  ],
   },
   {
-    path: "/FAQ/:FAQInfo",
+    path: "/FAQ/:FAQSection",
     element: <PageFAQ />,
   },
 ]);
