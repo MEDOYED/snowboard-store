@@ -14,21 +14,21 @@
     justify-content: space-between;
     align-items: center;
 
-    &--left {
-      display: flex;
-      gap: 3.5rem;
-    }
+    $wrappers: (
+      --left: (display, align-items, (gap: 3.5rem)),
+      __list: (display, align-items, (gap: 2.6rem)),
+      --right: (display, align-items, (gap: 3.3rem)),
+    );
 
-    &__list {
-      display: flex;
-      gap: 2.6rem;
-    }
+  @each $selector, $properties in $wrappers {
+    &#{$selector} {
+      #{nth($properties, 1)}: flex;
+      #{nth($properties, 2)}: center;
 
-    &--right {
-      display: flex;
-      gap: 3.3rem;
+      @each $gap, $amount in nth($properties, 3) {
+        #{$gap}: $amount;
+      }
     }
   }
-
-
+}
 }

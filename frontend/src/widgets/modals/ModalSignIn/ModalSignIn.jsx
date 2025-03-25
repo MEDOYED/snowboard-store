@@ -8,7 +8,7 @@ const ModalSignIn = () => {
   const dispatch = useDispatch();
   const isActive = useSelector((state) => state.signIn.isActive);
 
-  const handleClick = () => {
+  const handleCloseModalWindow = () => {
     dispatch(setSignInState(false));
   };
 
@@ -52,9 +52,14 @@ const ModalSignIn = () => {
                 <h3 className="modal-sign-in__heading">Create account</h3>
                 <button
                   className="modal-sign-in__close-btn"
-                  onClick={handleClick}
+                  onClick={handleCloseModalWindow}
                 >
                   <X className="modal-sign-in__X-icon" />
+
+                  <span className="corner top-left"></span>
+                  <span className="corner top-right"></span>
+                  <span className="corner bottom-left"></span>
+                  <span className="corner bottom-right"></span>
                 </button>
               </div>
 

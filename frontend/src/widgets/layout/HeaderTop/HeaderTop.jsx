@@ -6,6 +6,7 @@ import RowIconText from "../../../shared/components/RowIconText/RowIconText";
 import ButtonDropDownMenu from "../../../shared/UI/buttons/ButtonDropDownMenu/ButtonDropDownMenu";
 
 import "./HeaderTop.scss";
+import { Link } from "react-router-dom";
 
 const HeaderTop = () => {
   return (
@@ -22,9 +23,21 @@ const HeaderTop = () => {
             </ul>
           </div>
           <div className="header-top__content--right">
-            <RowIconText Icon={IconDelivery} text={"Free delivery*"} />
-            <RowIconText Icon={IconPaymentLocation} text={"Payment upon receipt"} />
-            <RowIconText Icon={IconProductReturn} text={"Return within 14 days"} />
+            <Link to="/FAQ/delivery-info">
+              <RowIconText Icon={IconDelivery} text={"Free delivery*"} />
+            </Link>
+            <Link to="/FAQ/payment-info">
+              <RowIconText
+                Icon={IconPaymentLocation}
+                text={"Payment upon receipt"}
+              />
+            </Link>
+            <Link to="/FAQ/return-info">
+              <RowIconText
+                Icon={IconProductReturn}
+                text={"Return within 14 days"}
+              />
+            </Link>
           </div>
         </div>
       </div>
