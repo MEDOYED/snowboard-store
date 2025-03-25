@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     errorElement: <Page404 />,
   },
   {
-    path: "/FAQ",
+    path: "/FAQ/:FAQInfo",
     element: <PageFAQ />,
   },
 ]);
