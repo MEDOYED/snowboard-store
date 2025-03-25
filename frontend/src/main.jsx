@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./app/App.jsx";
 import PageFAQ from "./pages/PageFAQ/PageFAQ.jsx";
 import Page404 from "./pages/Page404/Page404.jsx";
+import PageHome from "./pages/PageHome/PageHome.jsx";
 
 import "./main.scss";
 
@@ -17,16 +18,16 @@ const router = createBrowserRouter([
     errorElement: <Page404 />,
     // if want to route to a children element,
     // instead of new page
-    //  children: [
-    //    {
-    //      path: "/FAQ/:FAQSection",
-    //      element: <PageFAQ />,
-    //    },
-    //  ],
-  },
-  {
-    path: "/FAQ/:FAQSection",
-    element: <PageFAQ />,
+    children: [
+      {
+        index: true, // this renders when path is exactly "/"
+        element: <PageHome />, // or whatever component you want
+      },
+      {
+        path: "/FAQ/:FAQSection",
+        element: <PageFAQ />,
+      },
+    ],
   },
 ]);
 

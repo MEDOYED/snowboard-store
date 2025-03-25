@@ -1,4 +1,7 @@
-import PageHome from "../pages/PageHome/PageHome.jsx";
+import { Outlet } from "react-router-dom";
+
+import Header from "../widgets/layout/Header/Header.jsx";
+import ModalSignIn from "../widgets/modals/ModalSignIn/ModalSignIn.jsx";
 
 import "./App.scss";
 
@@ -6,7 +9,9 @@ function App() {
   return (
     <>
       <div className="container">
-        <PageHome />
+        <Header />
+        <Outlet />
+        <ModalSignIn />
       </div>
     </>
   );
