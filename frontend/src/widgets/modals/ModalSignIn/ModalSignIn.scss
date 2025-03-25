@@ -80,7 +80,8 @@
     background-color: #000;
 
     &:hover {
-      filter: invert(1);
+      color: #000;
+      background-color: #fff;
     }
 
     .modal-sign-in__X-icon {
@@ -89,6 +90,57 @@
 
     &:hover .modal-sign-in__X-icon {
       rotate: 90deg;
+    }
+
+    .corner {
+      position: absolute;
+      display: inline-block;
+      transition: all .3s linear;
+
+      width: 1.25rem;
+      height: 1.25rem;
+      transform: scale(0);
+
+      background-color: transparent;
+    }
+
+    &:hover .corner {
+      transform: scale(1);
+    }
+
+    $bd-size: 2px;
+    $bd-color: #000;
+
+    .top-left {
+      top: 0;
+      left: 0;
+      border-top: $bd-size solid $bd-color;
+      border-left: $bd-size solid $bd-color;
+      transform-origin: top left;
+    }
+
+    .top-right {
+      top: 0;
+      right: 0;
+      border-top: $bd-size solid $bd-color;
+      border-right: $bd-size solid $bd-color;
+      transform-origin: top right;
+    }
+
+    .bottom-left {
+      bottom: 0;
+      left: 0;
+      border-bottom: $bd-size solid $bd-color;
+      border-left: $bd-size solid $bd-color;
+      transform-origin: bottom left;
+    }
+
+    .bottom-right {
+      bottom: 0;
+      right: 0;
+      border-bottom: $bd-size solid $bd-color;
+      border-right: $bd-size solid $bd-color;
+      transform-origin: bottom right;
     }
   }
 
