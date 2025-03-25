@@ -78,10 +78,18 @@
 
     color: #fff;
     background-color: #000;
-  }
 
-  &__close-btn:is(:hover, :active) {
-    filter: invert(1);
+    &:hover {
+      filter: invert(1);
+    }
+
+    .modal-sign-in__X-icon {
+      transition: all .3s ease;
+    }
+
+    &:hover .modal-sign-in__X-icon {
+      rotate: 90deg;
+    }
   }
 
   &__input-fields {

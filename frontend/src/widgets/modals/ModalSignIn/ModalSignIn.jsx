@@ -54,7 +54,7 @@ const ModalSignIn = () => {
                   className="modal-sign-in__close-btn"
                   onClick={handleClick}
                 >
-                  <X />
+                  <X className="modal-sign-in__X-icon" />
                 </button>
               </div>
 
