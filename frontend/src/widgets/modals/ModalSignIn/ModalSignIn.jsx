@@ -1,8 +1,10 @@
-import { X, Eye, EyeOff } from "lucide-react";
 import { useEffect, useState } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 import { setSignInState } from "../../../app/store/signInSlice";
+import { Eye, EyeOff } from "lucide-react";
+
+import ButtonCloseModal from "../../../shared/UI/buttons/ButtonCloseModal/ButtonCloseModal";
+
 import "./ModalSignIn.scss";
 
 const ModalSignIn = () => {
@@ -81,17 +83,7 @@ const ModalSignIn = () => {
             <div className="modal-sign-in__sign-up modal-sign-in__auth-part">
               <div className="modal-sign-in__heading-wrapper">
                 <h3 className="modal-sign-in__heading">Create account</h3>
-                <button
-                  className="modal-sign-in__close-btn"
-                  onClick={handleCloseModalWindow}
-                >
-                  <X className="modal-sign-in__X-icon" />
-
-                  <span className="corner top-left"></span>
-                  <span className="corner top-right"></span>
-                  <span className="corner bottom-left"></span>
-                  <span className="corner bottom-right"></span>
-                </button>
+                <ButtonCloseModal className="modal-sign-in__close-modal-btn" />
               </div>
 
               <form action="#" className="modal-sign-in__form">

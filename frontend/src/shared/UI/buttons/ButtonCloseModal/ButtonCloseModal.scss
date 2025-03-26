@@ -1,0 +1,64 @@
+@use 'sass:list';
+
+.button-close-modal {
+  transition: all .3s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 4rem;
+  height: 4rem;
+
+  color: #fff;
+  background-color: #000;
+
+  &:hover {
+    color: #000;
+    background-color: #fff;
+  }
+
+  &__X-icon {
+    transition: all .3s ease;
+  }
+
+  &:hover &__X-icon {
+    rotate: 90deg;
+  }
+
+  .corner {
+    position: absolute;
+    display: inline-block;
+    transition: all .3s linear;
+
+    width: 1.25rem;
+    height: 1.25rem;
+    transform: scale(0);
+
+    background-color: transparent;
+  }
+
+  &:hover .corner {
+    transform: scale(1);
+  }
+
+  $bd-size: 2px;
+  $bd-color: #000;
+
+  $corners: (
+    top-left: (top, left, border-top, border-left, top left),
+    top-right: (top, right, border-top, border-right, top right),
+    bottom-left: (bottom, left, border-bottom, border-left, bottom left),
+    bottom-right:(bottom, right, border-bottom, border-right, bottom right)
+  );
+
+@each $name, $values in $corners {
+  .#{$name} {
+    #{list.nth($values, 1)}: 0;
+    #{list.nth($values, 2)}: 0;
+    #{list.nth($values, 3)}: $bd-size solid $bd-color;
+    #{list.nth($values, 4)}: $bd-size solid $bd-color;
+    transform-origin: #{list.nth($values, 5)};
+  }
+}
+}
