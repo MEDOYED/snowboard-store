@@ -159,6 +159,21 @@
     font-size: 1.6rem;
     font-weight: 400;
   }
+
+  &__pass-input-wrapper {
+    position: relative;
+
+    button {
+      position: absolute;
+      top: 50%;
+      right: 4%;
+      translate: 0 -50%;
+
+      svg {
+        display: block;
+      }
+    }
+  }
 }
 
 &__checkbox-row {

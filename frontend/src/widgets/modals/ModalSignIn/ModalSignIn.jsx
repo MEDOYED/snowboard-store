@@ -1,4 +1,5 @@
-import { X } from "lucide-react";
+import { X, Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setSignInState } from "../../../app/store/signInSlice";
@@ -10,6 +11,13 @@ const ModalSignIn = () => {
 
   const handleCloseModalWindow = () => {
     dispatch(setSignInState(false));
+  };
+
+  const [showPass, setShowPass] = useState(false);
+
+  const togglePassVisability = (e) => {
+    e.preventDefault();
+    setShowPass((prevState) => !prevState);
   };
 
   return (
@@ -28,7 +36,12 @@ const ModalSignIn = () => {
 
                   <label>
                     <span>Password</span>
-                    <input type="password" required />
+                    <div className="modal-sign-in__input-fields__pass-input-wrapper">
+                      <input type={showPass ? "text" : "password"} required />
+                      <button type="button" onClick={togglePassVisability}>
+                        {showPass ? <Eye /> : <EyeOff />}
+                      </button>
+                    </div>
                   </label>
                 </div>
 
