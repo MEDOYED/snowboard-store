@@ -23,8 +23,11 @@ const ModalSignIn = () => {
   return (
     <>
       {isActive === true && (
-        <div className="modal-sign-in">
-          <div className="modal-sign-in__content">
+        <div className="modal-sign-in" onClick={handleCloseModalWindow}>
+          <div
+            className="modal-sign-in__content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="modal-sign-in__sign-in modal-sign-in__auth-part">
               <h3 className="modal-sign-in__heading">Sign in</h3>
               <form action="#" className="modal-sign-in__form">
