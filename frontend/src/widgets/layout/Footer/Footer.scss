@@ -11,9 +11,12 @@
   color: #fff;
 
   .footer__container {
+    padding-top: 18rem;
+  }
+
+  &__content {
     display: flex;
     justify-content: space-between;
-
-    padding-top: 18rem;
+    margin: 3rem 0;
   }
 }
