@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSignInState } from "../../../../app/store/signInSlice";
 import { X } from "lucide-react";
 
