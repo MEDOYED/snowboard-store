@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 .header-top {
   position: relative;
 
@@ -14,6 +16,7 @@
     justify-content: space-between;
     align-items: center;
 
+
     $wrappers: (
       --left: (display, align-items, (gap: 3.5rem)),
       __list: (display, align-items, (gap: 2.6rem)),
@@ -22,10 +25,10 @@
 
   @each $selector, $properties in $wrappers {
     &#{$selector} {
-      #{nth($properties, 1)}: flex;
-      #{nth($properties, 2)}: center;
+      #{list.nth($properties, 1)}: flex;
+      #{list.nth($properties, 2)}: center;
 
-      @each $gap, $amount in nth($properties, 3) {
+      @each $gap, $amount in list.nth($properties, 3) {
         #{$gap}: $amount;
       }
     }
