@@ -1,5 +1,5 @@
 import { X, Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setSignInState } from "../../../app/store/signInSlice";
@@ -8,17 +8,32 @@ import "./ModalSignIn.scss";
 const ModalSignIn = () => {
   const dispatch = useDispatch();
   const isActive = useSelector((state) => state.signIn.isActive);
+  const [showPass, setShowPass] = useState(false);
 
   const handleCloseModalWindow = () => {
     dispatch(setSignInState(false));
   };
 
-  const [showPass, setShowPass] = useState(false);
-
   const togglePassVisability = (e) => {
     e.preventDefault();
     setShowPass((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModalWindow();
+      }
+    };
+
+    if (isActive) {
+      document.addEventListener("keydown", handleEscKey);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isActive]);
 
   return (
     <>
