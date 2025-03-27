@@ -15,7 +15,8 @@
 
   .text {
     h2 {
-      font-size: 3rem;
+      min-width: 180px;
+      text-wrap: nowrap;
     }
   }
 }
