@@ -17,12 +17,13 @@ const Footer = () => {
 
         <div className="footer__content">
           <div className="footer__content__links">
-            <h2 className="footer__content__title">Access to early releases in the app</h2>
-            <div>
+            <h2 className="footer__content__links-title">Access to early releases in the app</h2>
+            <div className="footer__content__links-buttons-link">
+              <ButtonAppDownload />
               <ButtonAppDownload />
             </div>
           </div>
-          <div className="footer__content__contacts"></div>
+          <div className="footer__content__contacts" center></div>
           <div className="footer__content__help"></div>
           <div className="footer__content__company"></div>
           <div className="footer__content__inc"></div>
