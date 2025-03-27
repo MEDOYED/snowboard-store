@@ -1,14 +1,19 @@
-import IconAppleIphone from "../../icons/IconAppleIphone/IconAppleIphone";
-
 import "./ButtonAppDownload.scss";
 
-const ButtonAppDownload = () => {
+const ButtonAppDownload = ({ Icon, text, title, fontSize }) => {
+  console.log(Icon);
+
   return (
     <a href="#" className="button-app-download">
-      <IconAppleIphone className={"icon"} />
+      <Icon className="icon" />
       <div className="text">
-        <p>Download on the</p>
-        <h2>App Store</h2>
+        <p>{text}</p>
+        <h2
+          style={{
+            fontSize: `${fontSize}px`,
+          }}>
+          {title}
+        </h2>
       </div>
     </a>
   );

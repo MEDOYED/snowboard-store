@@ -4,7 +4,7 @@
   display: flex;
   width: fit-content;
   padding: 0.8rem 2rem 0.8rem 1.2rem;
-  gap: 0.8rem;
+  gap: 1.5rem;
 
   .icon {
     height: 4rem;
@@ -14,8 +14,15 @@
   }
 
   .text {
+    min-width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 5px 0;
+
     h2 {
-      font-size: 3rem;
+      transition: font-size 0.2s ease;
+      line-height: 1;
+      width: max-content;
     }
   }
 }

@@ -1,6 +1,8 @@
 import MainLogo from "../../../shared/UI/layout/MainLogo/MainLogo";
 import LineDivider from "../../../shared/UI/lines/LineDivider/LineDivider";
 import ButtonAppDownload from "../../../shared/UI/buttons/ButtonAppDownload/ButtonAppDownload";
+import IconAppleIphone from "../../../shared/UI/icons/IconAppleIphone/IconAppleIphone";
+import IconGooglePlay from "../../../shared/UI/icons/IconGooglePlay/IconGooglePlay";
 
 import "./Footer.scss";
 
@@ -17,9 +19,20 @@ const Footer = () => {
 
         <div className="footer__content">
           <div className="footer__content__links">
-            <h2 className="footer__content__title">Access to early releases in the app</h2>
-            <div>
-              <ButtonAppDownload />
+            <h2 className="footer__content__links-title">Access to early releases in the app</h2>
+            <div className="footer__content__links-buttons-link">
+              <ButtonAppDownload
+                Icon={IconAppleIphone}
+                text="Download on the"
+                title="App Store"
+                fontSize="38"
+              />
+              <ButtonAppDownload
+                Icon={IconGooglePlay}
+                text="Get it on"
+                title="Google Play"
+                fontSize="31"
+              />
             </div>
           </div>
           <div className="footer__content__contacts"></div>

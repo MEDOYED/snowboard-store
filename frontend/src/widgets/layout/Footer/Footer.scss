@@ -18,5 +18,16 @@
     display: flex;
     justify-content: space-between;
     margin: 3rem 0;
+
+    &__links {
+      &-title {
+      }
+
+      &-buttons-link {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
   }
 }
