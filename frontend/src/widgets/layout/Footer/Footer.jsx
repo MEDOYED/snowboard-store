@@ -21,8 +21,18 @@ const Footer = () => {
           <div className="footer__content__links">
             <h2 className="footer__content__links-title">Access to early releases in the app</h2>
             <div className="footer__content__links-buttons-link">
-              <ButtonAppDownload Icon={IconAppleIphone} text="Download on the" title="App Store" />
-              <ButtonAppDownload Icon={IconGooglePlay} text="Get it on" title="Google Play" />
+              <ButtonAppDownload
+                Icon={IconAppleIphone}
+                text="Download on the"
+                title="App Store"
+                fontSize="38"
+              />
+              <ButtonAppDownload
+                Icon={IconGooglePlay}
+                text="Get it on"
+                title="Google Play"
+                fontSize="31"
+              />
             </div>
           </div>
           <div className="footer__content__contacts"></div>
