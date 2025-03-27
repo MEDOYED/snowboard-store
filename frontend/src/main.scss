@@ -18,12 +18,20 @@
 
 :focus,
 :active {
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 a:focus,
 a:active {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+:focus-visible {
   outline: none;
+  box-shadow: 0 0 0 .3rem rgba(107, 114, 128, 1);
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 nav,
