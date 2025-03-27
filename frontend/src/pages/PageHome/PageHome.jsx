@@ -5,10 +5,14 @@ import "./PageHome.scss";
 
 const PageHome = () => {
   return (
-    <>
-      <SectionFeaturedIn />
-      <SectionSalesCards />
-    </>
+    <div className="home-page">
+      <div className="home-page__featured-in">
+        <SectionFeaturedIn />
+      </div>
+      <div className="home-page__sales-cards">
+        <SectionSalesCards />
+      </div>
+    </div>
   );
 };
 
