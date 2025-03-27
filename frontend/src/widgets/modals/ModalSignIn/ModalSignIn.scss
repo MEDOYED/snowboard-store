@@ -98,6 +98,14 @@
       font-weight: 400;
     }
 
+    input:user-valid {
+      box-shadow: 0 0 0 .3rem rgba(21, 128, 61, .8);
+    }
+
+    input:user-invalid {
+      box-shadow: 0 0 0 .3rem rgba(185, 28, 28, .8);
+    }
+
     &__pass-input-wrapper {
       position: relative;
 
