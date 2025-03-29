@@ -4,7 +4,7 @@ const IconGooglePlay = ({ className }) => {
       className={className}
       width="120px"
       height="120px"
-      viewBox="0 0 32 32"
+      viewBox="3 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <g id="SVGRepo_bgCarrier" strokeWidth="0" />
