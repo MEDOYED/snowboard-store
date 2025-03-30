@@ -1,16 +1,13 @@
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import SectionFaq from "../../widgets/sections/SectionFaq/SectionFaq";
 
 import "./PageFAQ.scss";
 
 const PageFAQ = () => {
-  const params = useParams();
-
   return (
     <>
-      <div>FAQ page</div>
-      <p>section is: {params.FAQSection}</p>
-      <Link to="/">Get back</Link>
+      <div className="page-faq">
+        <SectionFaq />
+      </div>
     </>
   );
 };
