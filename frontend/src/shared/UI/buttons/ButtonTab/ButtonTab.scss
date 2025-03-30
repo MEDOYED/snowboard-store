@@ -1,0 +1,30 @@
+.button-tab {
+  cursor: pointer;
+  position: relative;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+
+  &--header {
+    &::after {
+      content: "";
+      position: absolute;
+      transition: all .3s ease;
+
+      display: inline-block;
+
+      width: 110%;
+      height: 2px;
+      bottom: -35%;
+      left: 0;
+      translate: -5% 0;
+      transform: scaleX(0);
+
+      background-color: #000;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
