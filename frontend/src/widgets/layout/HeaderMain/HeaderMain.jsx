@@ -11,9 +11,9 @@ const HeaderMain = () => {
   return (
     <div className="header-main">
       <menu className="header-main__filters">
-        <ButtonTab>For Men</ButtonTab>
-        <ButtonTab>For Women</ButtonTab>
-        <ButtonTab>For Kids</ButtonTab>
+        <ButtonTab isHeader>For Men</ButtonTab>
+        <ButtonTab isHeader>For Women</ButtonTab>
+        <ButtonTab isHeader>For Kids</ButtonTab>
       </menu>
 
       <Link to="/">
