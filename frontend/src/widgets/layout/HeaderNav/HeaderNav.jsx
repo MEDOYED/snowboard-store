@@ -1,4 +1,4 @@
-import ButtonLink from "../../../shared/UI/buttons/ButtonLink/ButtonLink";
+import ButtonTab from "../../../shared/UI/buttons/ButtonTab/ButtonTab";
 
 import "./HeaderNav.scss";
 
@@ -24,19 +24,19 @@ const HeaderNav = () => {
   return (
     <nav className="header-nav">
       <ul className="header-nav__list container">
-        <ButtonLink text={"New"} />
-        <ButtonLink text={"Snowboard"} />
-        <ButtonLink text={"Ski"} />
-        <ButtonLink text={"Skate"} />
-        <ButtonLink text={"Longboard"} />
-        <ButtonLink text={"Wakeboard"} />
-        <ButtonLink text={"Surf"} />
-        <ButtonLink text={"Sup"} />
-        <ButtonLink text={"Clothes"} />
-        <ButtonLink text={"Shoes"} />
-        <ButtonLink text={"Accessories"} />
-        <ButtonLink text={"Brands"} />
-        <ButtonLink text={"Sale"} />
+        <ButtonTab text={"New"} />
+        <ButtonTab text={"Snowboard"} />
+        <ButtonTab text={"Ski"} />
+        <ButtonTab text={"Skate"} />
+        <ButtonTab text={"Longboard"} />
+        <ButtonTab text={"Wakeboard"} />
+        <ButtonTab text={"Surf"} />
+        <ButtonTab text={"Sup"} />
+        <ButtonTab text={"Clothes"} />
+        <ButtonTab text={"Shoes"} />
+        <ButtonTab text={"Accessories"} />
+        <ButtonTab text={"Brands"} />
+        <ButtonTab text={"Sale"} />
       </ul>
     </nav>
   );
