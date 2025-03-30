@@ -1,8 +1,16 @@
+import classNames from "classnames";
+
 import "./ButtonTab.scss";
 
-const ButtonTab = ({ children, onClick, isHeader }) => {
+const ButtonTab = ({ children, onClick, isHeader, className }) => {
   return (
-    <li className={`button-tab ${isHeader ? "button-tab--header" : ""}`}>
+    <li
+      className={classNames(
+        "button-tab",
+        { "button-tab--header": isHeader },
+        className,
+      )}
+    >
       <button onClick={onClick}>{children}</button>
     </li>
   );
