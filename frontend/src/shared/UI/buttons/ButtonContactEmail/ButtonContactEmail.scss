@@ -1,0 +1,10 @@
+.button-contact-email {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+  }
+}

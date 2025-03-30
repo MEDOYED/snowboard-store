@@ -1,32 +1,87 @@
 .footer {
   background-image: url("./footer-bg.svg");
-  height: 800px;
 
-  // image on 100vw
   position: relative;
   left: 50%;
   width: 100vw;
   margin-left: -50vw;
 
+  height: 800px;
   color: #fff;
+  padding-top: 18rem;
 
-  .footer__container {
-    padding-top: 18rem;
-  }
-
-  &__content {
+  &__top {
     display: flex;
     justify-content: space-between;
     margin: 3rem 0;
+  }
 
-    &__links {
-      &-title {
+  &__content {
+    margin: 3rem 0 0 0;
+
+    display: grid;
+    grid-template-columns: 44rem 1fr 1fr 1fr 1fr;
+    width: 100%;
+    gap: 1rem;
+
+    .links {
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        margin-bottom: 3rem;
       }
 
-      &-buttons-link {
+      &__btns-and-qr {
+        display: flex;
+        align-items: stretch;
+        gap: 3rem;
+      }
+
+      &__buttons-link {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+      }
+
+      &__qr-wrapper {
+        display: flex;
+      }
+
+      &__qr {
+        aspect-ratio: 1;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .contacts {
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+
+      &__title {
+        margin-bottom: 3rem;
+      }
+
+      &__phone {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem 0;
+      }
+
+      &__text {
+        display: flex;
+        font-size: 14px;
+        width: 75%;
+        align-self: self-end;
+        line-height: 20px;
+        color: #bdbdbd;
+      }
+
+      &__email {
+        display: flex;
+        flex-direction: column;
       }
     }
   }
