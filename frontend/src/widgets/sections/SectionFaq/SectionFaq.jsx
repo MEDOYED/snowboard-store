@@ -22,8 +22,10 @@ const SectionFaq = () => {
       <TabSidebar entries={faqEntries} onTabChange={handleClick}>
         FAQ Section
       </TabSidebar>
+
       <div className="faq-section__info">
         <h3 className="faq-section__info-title">{selectedTab.title}</h3>
+
         <dl className="faq-section__list">
           {questionsArr.map((element) => {
             return (
@@ -31,10 +33,8 @@ const SectionFaq = () => {
                 <dt className="faq-section__list-question">
                   {element.question}
                 </dt>
-                <dd
-                  className="faq-section__list-answer"
-                  dangerouslySetInnerHTML={{ __html: element.answer }}
-                ></dd>
+
+                <dd className="faq-section__list-answer">{element.answer}</dd>
               </Fragment>
             );
           })}

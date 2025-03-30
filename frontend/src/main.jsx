@@ -5,7 +5,7 @@ import { store } from "./app/store/index.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./app/App.jsx";
-import PageFAQ from "./pages/PageFAQ/PageFAQ.jsx";
+import PageHelpCenter from "./pages/PageHelpCenter/PageHelpCenter.jsx";
 import Page404 from "./pages/Page404/Page404.jsx";
 import PageHome from "./pages/PageHome/PageHome.jsx";
 
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
         element: <PageHome />, // or whatever component you want
       },
       {
-        path: "/FAQ/:FAQSection",
-        element: <PageFAQ />,
+        path: "/help-center/:FAQSection",
+        element: <PageHelpCenter />,
       },
     ],
   },

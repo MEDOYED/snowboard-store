@@ -8,6 +8,7 @@ const TabSidebar = ({ children, entries, onTabChange }) => {
       <h2 className="tab-sidebar__heading">{children}</h2>
 
       <menu className="tab-sidebar__tab-menu">
+        {/* TODO: FIX "list should have unique key prop" */}
         {entries.map((element) => {
           return (
             <ButtonTab
