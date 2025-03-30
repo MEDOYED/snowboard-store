@@ -3,6 +3,8 @@ import LineDivider from "../../../shared/UI/lines/LineDivider/LineDivider";
 import ButtonAppDownload from "../../../shared/UI/buttons/ButtonAppDownload/ButtonAppDownload";
 import IconAppleIphone from "../../../shared/UI/icons/IconAppleIphone/IconAppleIphone";
 import IconGooglePlay from "../../../shared/UI/icons/IconGooglePlay/IconGooglePlay";
+import ButtonContactPhone from "../../../shared/UI/buttons/ButtonContactPhone/ButtonContactPhone";
+import ButtonContactEmail from "../../../shared/UI/buttons/ButtonContactEmail/ButtonContactEmail";
 
 import imgQR from "/footer/qr-code.png";
 
@@ -12,7 +14,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer__container container">
-        <div className="footer__content">
+        <div className="footer__top">
           <MainLogo reverse />
           <div>Подпишись на рассылку и получи -10% скидку</div>
         </div>
@@ -20,7 +22,7 @@ const Footer = () => {
         <LineDivider />
 
         <div className="footer__content">
-          <div className="footer__content  links">
+          <div className="links">
             <h2 className="links__title">Access to early releases in the app</h2>
             <div className="links__btns-and-qr">
               <div className="links__buttons-link">
@@ -42,10 +44,43 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="footer__content contacts"></div>
-          <div className="footer__content help"></div>
-          <div className="footer__content company"></div>
-          <div className="footer__content inc"></div>
+
+          <div className="contacts">
+            <h2 className="contacts__title">Contacts</h2>
+            <div className="contacts__phone">
+              <ButtonContactPhone />
+              <span className="contacts__text">Бесплатная горячая линия Ежедневно с 9 до 21</span>
+            </div>
+
+            <div className="contacts__email">
+              <ButtonContactEmail />
+              <span className="contacts__text">info@brd.ru</span>
+            </div>
+          </div>
+
+          <div className="help">
+            <h2 className="contacts__title">Contacts</h2>
+            <div className="contacts__phone">
+              <ButtonContactPhone />
+              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
+            </div>
+          </div>
+
+          <div className="company">
+            <h2 className="contacts__title">Contacts</h2>
+            <div className="contacts__phone">
+              <ButtonContactPhone />
+              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
+            </div>
+          </div>
+
+          <div className="inc">
+            <h2 className="contacts__title">Contacts</h2>
+            <div className="contacts__phone">
+              <ButtonContactPhone />
+              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

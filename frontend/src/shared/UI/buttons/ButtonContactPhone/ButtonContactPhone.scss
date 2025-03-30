@@ -1,0 +1,10 @@
+.button-contact-phone {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}

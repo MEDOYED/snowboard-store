@@ -8,15 +8,21 @@
 
   height: 800px;
   color: #fff;
+  padding-top: 18rem;
 
-  .footer__container {
-    padding-top: 18rem;
-  }
-
-  &__content {
+  &__top {
     display: flex;
     justify-content: space-between;
     margin: 3rem 0;
+  }
+
+  &__content {
+    margin: 3rem 0 0 0;
+
+    display: grid;
+    grid-template-columns: 44rem 1fr 1fr 1fr 1fr;
+    width: 100%;
+    gap: 1rem;
 
     .links {
       display: flex;
@@ -46,6 +52,36 @@
         aspect-ratio: 1;
         height: 100%;
         object-fit: cover;
+      }
+    }
+
+    .contacts {
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+
+      &__title {
+        margin-bottom: 3rem;
+      }
+
+      &__phone {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem 0;
+      }
+
+      &__text {
+        display: flex;
+        font-size: 14px;
+        width: 75%;
+        align-self: self-end;
+        line-height: 20px;
+        color: #bdbdbd;
+      }
+
+      &__email {
+        display: flex;
+        flex-direction: column;
       }
     }
   }
