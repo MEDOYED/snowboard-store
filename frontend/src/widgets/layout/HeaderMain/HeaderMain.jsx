@@ -10,11 +10,11 @@ import "./HeaderMain.scss";
 const HeaderMain = () => {
   return (
     <div className="header-main">
-      <ul className="header-main__filters">
-        <ButtonTab text={"For Men"} />
-        <ButtonTab text={"For Women"} />
-        <ButtonTab text={"For Kids"} />
-      </ul>
+      <menu className="header-main__filters">
+        <ButtonTab>For Men</ButtonTab>
+        <ButtonTab>For Women</ButtonTab>
+        <ButtonTab>For Kids</ButtonTab>
+      </menu>
 
       <Link to="/">
         <MainLogo />

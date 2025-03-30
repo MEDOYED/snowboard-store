@@ -1,7 +1,11 @@
 import "./ButtonTab.scss";
 
-const ButtonTab = ({ text }) => {
-  return <li className="button-tab">{text}</li>;
+const ButtonTab = ({ children, onClick }) => {
+  return (
+    <li className="button-tab">
+      <button onClick={onClick}>{children}</button>
+    </li>
+  );
 };
 
 export default ButtonTab;

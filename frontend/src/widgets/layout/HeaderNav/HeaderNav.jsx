@@ -23,21 +23,21 @@ import "./HeaderNav.scss";
 const HeaderNav = () => {
   return (
     <nav className="header-nav">
-      <ul className="header-nav__list container">
-        <ButtonTab text={"New"} />
-        <ButtonTab text={"Snowboard"} />
-        <ButtonTab text={"Ski"} />
-        <ButtonTab text={"Skate"} />
-        <ButtonTab text={"Longboard"} />
-        <ButtonTab text={"Wakeboard"} />
-        <ButtonTab text={"Surf"} />
-        <ButtonTab text={"Sup"} />
-        <ButtonTab text={"Clothes"} />
-        <ButtonTab text={"Shoes"} />
-        <ButtonTab text={"Accessories"} />
-        <ButtonTab text={"Brands"} />
-        <ButtonTab text={"Sale"} />
-      </ul>
+      <menu className="header-nav__list container">
+        <ButtonTab>New</ButtonTab>
+        <ButtonTab>Snowboard</ButtonTab>
+        <ButtonTab>Ski</ButtonTab>
+        <ButtonTab>Skate</ButtonTab>
+        <ButtonTab>Longboard</ButtonTab>
+        <ButtonTab>Wakeboard</ButtonTab>
+        <ButtonTab>Surf</ButtonTab>
+        <ButtonTab>Sup</ButtonTab>
+        <ButtonTab>Clothes</ButtonTab>
+        <ButtonTab>Shoes</ButtonTab>
+        <ButtonTab>Accessories</ButtonTab>
+        <ButtonTab>Brands</ButtonTab>
+        <ButtonTab>Sale</ButtonTab>
+      </menu>
     </nav>
   );
 };
