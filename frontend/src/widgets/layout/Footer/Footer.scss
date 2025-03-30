@@ -1,13 +1,12 @@
 .footer {
   background-image: url("./footer-bg.svg");
-  height: 800px;
 
-  // image on 100vw
   position: relative;
   left: 50%;
   width: 100vw;
   margin-left: -50vw;
 
+  height: 800px;
   color: #fff;
 
   .footer__container {
@@ -19,14 +18,34 @@
     justify-content: space-between;
     margin: 3rem 0;
 
-    &__links {
-      &-title {
+    .links {
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        margin-bottom: 3rem;
       }
 
-      &-buttons-link {
+      &__btns-and-qr {
+        display: flex;
+        align-items: stretch;
+        gap: 3rem;
+      }
+
+      &__buttons-link {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+      }
+
+      &__qr-wrapper {
+        display: flex;
+      }
+
+      &__qr {
+        aspect-ratio: 1;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }

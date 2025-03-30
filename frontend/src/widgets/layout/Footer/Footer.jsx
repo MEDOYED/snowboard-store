@@ -4,6 +4,8 @@ import ButtonAppDownload from "../../../shared/UI/buttons/ButtonAppDownload/Butt
 import IconAppleIphone from "../../../shared/UI/icons/IconAppleIphone/IconAppleIphone";
 import IconGooglePlay from "../../../shared/UI/icons/IconGooglePlay/IconGooglePlay";
 
+import imgQR from "/footer/qr-code.png";
+
 import "./Footer.scss";
 
 const Footer = () => {
@@ -18,27 +20,32 @@ const Footer = () => {
         <LineDivider />
 
         <div className="footer__content">
-          <div className="footer__content__links">
-            <h2 className="footer__content__links-title">Access to early releases in the app</h2>
-            <div className="footer__content__links-buttons-link">
-              <ButtonAppDownload
-                Icon={IconAppleIphone}
-                text="Download on the"
-                title="App Store"
-                fontSize="38"
-              />
-              <ButtonAppDownload
-                Icon={IconGooglePlay}
-                text="Get it on"
-                title="Google Play"
-                fontSize="31"
-              />
+          <div className="footer__content  links">
+            <h2 className="links__title">Access to early releases in the app</h2>
+            <div className="links__btns-and-qr">
+              <div className="links__buttons-link">
+                <ButtonAppDownload
+                  Icon={IconAppleIphone}
+                  text="Download on the"
+                  title="App Store"
+                  fontSize="38"
+                />
+                <ButtonAppDownload
+                  Icon={IconGooglePlay}
+                  text="Get it on"
+                  title="Google Play"
+                  fontSize="31"
+                />
+              </div>
+              <div className="links__qr-wrapper">
+                <img src={imgQR} className="links__qr" alt="QR code" />
+              </div>
             </div>
           </div>
-          <div className="footer__content__contacts"></div>
-          <div className="footer__content__help"></div>
-          <div className="footer__content__company"></div>
-          <div className="footer__content__inc"></div>
+          <div className="footer__content contacts"></div>
+          <div className="footer__content help"></div>
+          <div className="footer__content company"></div>
+          <div className="footer__content inc"></div>
         </div>
       </div>
     </div>
