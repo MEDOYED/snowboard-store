@@ -6,6 +6,8 @@ import IconGooglePlay from "../../../shared/UI/icons/IconGooglePlay/IconGooglePl
 import ButtonContactPhone from "../../../shared/UI/buttons/ButtonContactPhone/ButtonContactPhone";
 import ButtonContactEmail from "../../../shared/UI/buttons/ButtonContactEmail/ButtonContactEmail";
 
+import SectionFooterHelp from "./sections/SectionFooterHelp/SectionFooterHelp";
+
 import imgQR from "/footer/qr-code.png";
 
 import "./Footer.scss";
@@ -58,13 +60,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="help">
-            <h2 className="contacts__title">Contacts</h2>
-            <div className="contacts__phone">
-              <ButtonContactPhone />
-              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
-            </div>
-          </div>
+          <SectionFooterHelp />
 
           <div className="company">
             <h2 className="contacts__title">Contacts</h2>
