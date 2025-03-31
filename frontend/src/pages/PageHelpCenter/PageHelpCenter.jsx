@@ -4,8 +4,10 @@ import "./PageHelpCenter.scss";
 
 const PageHelpCenter = () => {
   return (
-    <div className="page-faq">
-      <SectionFaq />
+    <div className="help-center-page">
+      <div className="help-center-page__faq-section">
+        <SectionFaq />
+      </div>
     </div>
   );
 };

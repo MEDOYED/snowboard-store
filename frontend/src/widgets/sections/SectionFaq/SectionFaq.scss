@@ -1,23 +1,32 @@
 .faq-section {
-  display: grid;
-  grid-template-columns: 1fr 2.5fr;
+  display: flex;
+  gap: 2rem;
 
-  &__info-title {
-    margin-bottom: 1.6rem;
+
+  &__sidebar {
+    min-width: 22rem;
+    flex-shrink: 0;
   }
 
-  &__list {
+  .info {
 
-    &-question {
-      margin-bottom: 0.5rem;
+    &__title {
+      margin-bottom: 1.6rem;
     }
 
-    &-answer {
-      margin-bottom: 2rem;
-    }
+    &__list {
 
-    a {
-      text-decoration: underline;
+      .question {
+        margin-bottom: 0.5rem;
+      }
+
+      .answer {
+        margin-bottom: 2.4rem;
+      }
+
+      a {
+        text-decoration: underline;
+      }
     }
   }
 }

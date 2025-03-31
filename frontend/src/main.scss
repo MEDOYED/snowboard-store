@@ -18,13 +18,13 @@
 
 :focus,
 :active {
-  outline: 2px solid transparent;
+  outline: transparent;
   outline-offset: 2px;
 }
 
 a:focus,
 a:active {
-  outline: 2px solid transparent;
+  outline: transparent;
   outline-offset: 2px;
 }
 
