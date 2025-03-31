@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <PageHome />, // or whatever component you want
       },
       {
-        path: "/help-center/:FAQSection",
+        path: "/help-center/:FaqEntry",
         element: <PageHelpCenter />,
       },
     ],

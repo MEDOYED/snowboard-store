@@ -23,16 +23,16 @@ const HeaderTop = () => {
             </ul>
           </div>
           <div className="header-top__content--right">
-            <Link to="/FAQ/delivery-info">
+            <Link to="/help-center/delivery-info">
               <RowIconText Icon={IconDelivery} text={"Free delivery*"} />
             </Link>
-            <Link to="/FAQ/payment-info">
+            <Link to="/help-center/payment-info">
               <RowIconText
                 Icon={IconPaymentLocation}
                 text={"Payment upon receipt"}
               />
             </Link>
-            <Link to="/FAQ/return-info">
+            <Link to="/help-center/return-info">
               <RowIconText
                 Icon={IconProductReturn}
                 text={"Return within 14 days"}
