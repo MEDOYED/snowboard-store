@@ -1,0 +1,15 @@
+.section-footer-inc {
+  &__title {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.2rem;
+    color: #bdbdbd;
+    font-weight: 500;
+  }
+}

@@ -8,6 +8,7 @@ import ButtonContactEmail from "../../../shared/UI/buttons/ButtonContactEmail/Bu
 
 import SectionFooterHelp from "./sections/SectionFooterHelp/SectionFooterHelp";
 import SectionFooterCompany from "./sections/SectionFooterCompany/SectionFooterCompany";
+import SectionFooterInc from "./sections/SectionFooterInc/SectionFooterInc";
 
 import imgQR from "/footer/qr-code.png";
 
@@ -15,7 +16,7 @@ import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__container container">
         <div className="footer__top">
           <MainLogo reverse />
@@ -65,16 +66,10 @@ const Footer = () => {
 
           <SectionFooterCompany />
 
-          <div className="inc">
-            <h2 className="contacts__title">Contacts</h2>
-            <div className="contacts__phone">
-              <ButtonContactPhone />
-              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
-            </div>
-          </div>
+          <SectionFooterInc />
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
