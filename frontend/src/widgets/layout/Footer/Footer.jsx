@@ -6,13 +6,18 @@ import IconGooglePlay from "../../../shared/UI/icons/IconGooglePlay/IconGooglePl
 import ButtonContactPhone from "../../../shared/UI/buttons/ButtonContactPhone/ButtonContactPhone";
 import ButtonContactEmail from "../../../shared/UI/buttons/ButtonContactEmail/ButtonContactEmail";
 
+import SectionFooterHelp from "./sections/SectionFooterHelp/SectionFooterHelp";
+import SectionFooterCompany from "./sections/SectionFooterCompany/SectionFooterCompany";
+import SectionFooterInc from "./sections/SectionFooterInc/SectionFooterInc";
+import SectionFooterBottom from "./sections/SectionFooterBottom/SectionFooterBottom";
+
 import imgQR from "/footer/qr-code.png";
 
 import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__container container">
         <div className="footer__top">
           <MainLogo reverse />
@@ -58,32 +63,18 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="help">
-            <h2 className="contacts__title">Contacts</h2>
-            <div className="contacts__phone">
-              <ButtonContactPhone />
-              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
-            </div>
-          </div>
+          <SectionFooterHelp />
 
-          <div className="company">
-            <h2 className="contacts__title">Contacts</h2>
-            <div className="contacts__phone">
-              <ButtonContactPhone />
-              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
-            </div>
-          </div>
+          <SectionFooterCompany />
 
-          <div className="inc">
-            <h2 className="contacts__title">Contacts</h2>
-            <div className="contacts__phone">
-              <ButtonContactPhone />
-              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
-            </div>
-          </div>
+          <SectionFooterInc />
         </div>
+
+        <LineDivider />
+
+        <SectionFooterBottom />
       </div>
-    </div>
+    </footer>
   );
 };
 
