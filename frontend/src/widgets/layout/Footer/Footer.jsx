@@ -7,6 +7,7 @@ import ButtonContactPhone from "../../../shared/UI/buttons/ButtonContactPhone/Bu
 import ButtonContactEmail from "../../../shared/UI/buttons/ButtonContactEmail/ButtonContactEmail";
 
 import SectionFooterHelp from "./sections/SectionFooterHelp/SectionFooterHelp";
+import SectionFooterCompany from "./sections/SectionFooterCompany/SectionFooterCompany";
 
 import imgQR from "/footer/qr-code.png";
 
@@ -62,13 +63,7 @@ const Footer = () => {
 
           <SectionFooterHelp />
 
-          <div className="company">
-            <h2 className="contacts__title">Contacts</h2>
-            <div className="contacts__phone">
-              <ButtonContactPhone />
-              <span>Бесплатная горячая линия Ежедневно с 9 до 21</span>
-            </div>
-          </div>
+          <SectionFooterCompany />
 
           <div className="inc">
             <h2 className="contacts__title">Contacts</h2>
