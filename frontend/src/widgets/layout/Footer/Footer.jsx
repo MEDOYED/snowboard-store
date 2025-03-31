@@ -9,6 +9,7 @@ import ButtonContactEmail from "../../../shared/UI/buttons/ButtonContactEmail/Bu
 import SectionFooterHelp from "./sections/SectionFooterHelp/SectionFooterHelp";
 import SectionFooterCompany from "./sections/SectionFooterCompany/SectionFooterCompany";
 import SectionFooterInc from "./sections/SectionFooterInc/SectionFooterInc";
+import SectionFooterBottom from "./sections/SectionFooterBottom/SectionFooterBottom";
 
 import imgQR from "/footer/qr-code.png";
 
@@ -68,6 +69,10 @@ const Footer = () => {
 
           <SectionFooterInc />
         </div>
+
+        <LineDivider />
+
+        <SectionFooterBottom />
       </div>
     </footer>
   );
