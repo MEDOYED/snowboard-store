@@ -3,7 +3,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import "./SliderPromo.scss";
 
-const PAGE_WIDTH = 450;
+const PAGE_WIDTH = 1600;
 
 const SliderPromo = ({ children }) => {
   const [items, setItems] = useState([]);
@@ -37,7 +37,7 @@ const SliderPromo = ({ children }) => {
 
   return (
     <div className="slider-promo">
-      <FaChevronLeft className="slider-promo__arrow" onClick={handleLeftArrowClick} />
+      <FaChevronLeft className="slider-promo__arrow left" onClick={handleLeftArrowClick} />
       <div className="slider-promo__window">
         <div
           className="slider-promo__all-items-container"
@@ -45,7 +45,7 @@ const SliderPromo = ({ children }) => {
           {items}
         </div>
       </div>
-      <FaChevronRight className="slider-promo__arrow" onClick={handleRightArrowClick} />
+      <FaChevronRight className="slider-promo__arrow right" onClick={handleRightArrowClick} />
     </div>
   );
 };
