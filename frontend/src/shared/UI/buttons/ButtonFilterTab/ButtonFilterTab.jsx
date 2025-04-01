@@ -2,22 +2,9 @@ import classNames from "classnames";
 
 import "./ButtonFilterTab.scss";
 
-const ButtonFilterTab = ({
-  children,
-  onClick,
-  isHeader,
-  isActive,
-  className,
-}) => {
+const ButtonFilterTab = ({ children, onClick, className }) => {
   return (
-    <li
-      className={classNames(
-        "button-filter-tab",
-        { "button-tab--header": isHeader },
-        { "button-tab--active": isActive },
-        className,
-      )}
-    >
+    <li className={classNames("button-filter-tab", className)}>
       <button onClick={onClick}>{children}</button>
     </li>
   );

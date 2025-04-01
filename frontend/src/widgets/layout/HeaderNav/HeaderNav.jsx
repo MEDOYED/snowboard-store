@@ -24,9 +24,7 @@ const HeaderNav = () => {
       <menu className="header-nav__list container">
         {menuItems.map((element) => {
           return (
-            <ButtonFilterTab isHeader key={element.text}>
-              {element.text}
-            </ButtonFilterTab>
+            <ButtonFilterTab key={element.text}>{element.text}</ButtonFilterTab>
           );
         })}
       </menu>
