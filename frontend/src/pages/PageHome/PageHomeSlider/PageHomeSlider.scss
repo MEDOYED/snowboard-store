@@ -1,0 +1,20 @@
+.page-home-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+
+  gap: 1rem;
+
+  &.item-1 {
+    background-color: cornflowerblue;
+  }
+
+  &.item-2 {
+    background-color: coral;
+  }
+
+  &.item-3 {
+    background-color: darkseagreen;
+  }
+}

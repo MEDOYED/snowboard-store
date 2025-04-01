@@ -1,4 +1,9 @@
 .home-page {
+  &__slider {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+  }
 
   &__featured-in {
     padding: 5rem 0;
