@@ -2,12 +2,12 @@ import classNames from "classnames";
 
 import "./ButtonTab.scss";
 
-const ButtonTab = ({ children, onClick, isHeader, className }) => {
+const ButtonTab = ({ children, onClick, isActive, className }) => {
   return (
     <li
       className={classNames(
         "button-tab",
-        { "button-tab--header": isHeader },
+        { "button-tab--active": isActive },
         className,
       )}
     >

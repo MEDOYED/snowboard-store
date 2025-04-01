@@ -19,22 +19,26 @@ const SectionFaq = () => {
 
   return (
     <section className="faq-section">
-      <TabSidebar entries={faqEntries} onTabChange={handleClick}>
-        FAQ Section
-      </TabSidebar>
+      <div className="faq-section__sidebar">
+        <TabSidebar
+          entries={faqEntries}
+          onTabChange={handleClick}
+          selectedTab={selectedTab}
+        >
+          FAQ Section
+        </TabSidebar>
+      </div>
 
-      <div className="faq-section__info">
-        <h3 className="faq-section__info-title">{selectedTab.title}</h3>
+      <div className="faq-section__info info">
+        <h3 className="info__title">{selectedTab.title}</h3>
 
-        <dl className="faq-section__list">
+        <dl className="info__list">
           {questionsArr.map((element) => {
             return (
               <Fragment key={element.question}>
-                <dt className="faq-section__list-question">
-                  {element.question}
-                </dt>
+                <dt className="info__list question">{element.question}</dt>
 
-                <dd className="faq-section__list-answer">{element.answer}</dd>
+                <dd className="info__list answer">{element.answer}</dd>
               </Fragment>
             );
           })}

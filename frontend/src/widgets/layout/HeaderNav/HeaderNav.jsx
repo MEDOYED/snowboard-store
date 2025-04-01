@@ -1,4 +1,4 @@
-import ButtonTab from "../../../shared/UI/buttons/ButtonTab/ButtonTab";
+import ButtonFilterTab from "../../../shared/UI/buttons/ButtonFilterTab/ButtonFilterTab";
 
 import "./HeaderNav.scss";
 
@@ -24,9 +24,7 @@ const HeaderNav = () => {
       <menu className="header-nav__list container">
         {menuItems.map((element) => {
           return (
-            <ButtonTab isHeader key={element.text}>
-              {element.text}
-            </ButtonTab>
+            <ButtonFilterTab key={element.text}>{element.text}</ButtonFilterTab>
           );
         })}
       </menu>
