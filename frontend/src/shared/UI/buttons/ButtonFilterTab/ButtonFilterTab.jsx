@@ -1,12 +1,18 @@
 import classNames from "classnames";
 
-import "./ButtonTab.scss";
+import "./ButtonFilterTab.scss";
 
-const ButtonTab = ({ children, onClick, isHeader, isActive, className }) => {
+const ButtonFilterTab = ({
+  children,
+  onClick,
+  isHeader,
+  isActive,
+  className,
+}) => {
   return (
     <li
       className={classNames(
-        "button-tab",
+        "button-filter-tab",
         { "button-tab--header": isHeader },
         { "button-tab--active": isActive },
         className,
@@ -17,4 +23,4 @@ const ButtonTab = ({ children, onClick, isHeader, isActive, className }) => {
   );
 };
 
-export default ButtonTab;
+export default ButtonFilterTab;

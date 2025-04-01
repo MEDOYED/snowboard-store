@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Star, ShoppingCart, Search } from "lucide-react";
 
-import ButtonTab from "../../../shared/UI/buttons/ButtonTab/ButtonTab";
+import ButtonFilterTab from "../../../shared/UI/buttons/ButtonFilterTab/ButtonFilterTab";
 import ButtonSignIn from "../../../shared/UI/buttons/ButtonSignIn/ButtonSignIn";
 import MainLogo from "../../../shared/UI/layout/MainLogo/MainLogo";
 
@@ -11,9 +11,9 @@ const HeaderMain = () => {
   return (
     <div className="header-main">
       <menu className="header-main__filters">
-        <ButtonTab isHeader>For Men</ButtonTab>
-        <ButtonTab isHeader>For Women</ButtonTab>
-        <ButtonTab isHeader>For Kids</ButtonTab>
+        <ButtonFilterTab isHeader>For Men</ButtonFilterTab>
+        <ButtonFilterTab isHeader>For Women</ButtonFilterTab>
+        <ButtonFilterTab isHeader>For Kids</ButtonFilterTab>
       </menu>
 
       <Link to="/">

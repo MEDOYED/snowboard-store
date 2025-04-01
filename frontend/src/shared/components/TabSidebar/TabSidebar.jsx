@@ -1,4 +1,4 @@
-import ButtonTab from "../../UI/buttons/ButtonTab/ButtonTab";
+import ButtonFilterTab from "../../UI/buttons/ButtonFilterTab/ButtonFilterTab";
 
 import "./TabSidebar.scss";
 
@@ -10,14 +10,14 @@ const TabSidebar = ({ children, entries, onTabChange, selectedTab }) => {
       <menu className="tab-sidebar__tab-menu">
         {entries.map((element) => {
           return (
-            <ButtonTab
+            <ButtonFilterTab
               className="tab-sidebar__button"
               onClick={() => onTabChange(element)}
               isActive={selectedTab.title === element.title}
               key={element.title}
             >
               {element.title}
-            </ButtonTab>
+            </ButtonFilterTab>
           );
         })}
       </menu>
