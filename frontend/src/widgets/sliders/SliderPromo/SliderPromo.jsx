@@ -1,16 +1,18 @@
 import { useState, useEffect, Children, cloneElement } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import useWindowWidth from "../../../shared/hooks/useWindowWidth";
 
 import "./SliderPromo.scss";
 
 const PAGE_WIDTH = 1600;
 const PAGE_GAP = 25;
-const WINDOW_WIDTH = window.innerWidth;
-const PAGE_LEFT_MARGIN = (WINDOW_WIDTH - PAGE_WIDTH) / 2;
 
 const SliderPromo = ({ children }) => {
   const [items, setItems] = useState([]);
   const [offset, setOffset] = useState(-1200);
+
+  const WINDOW_WIDTH = useWindowWidth();
+  const PAGE_LEFT_MARGIN = (WINDOW_WIDTH - PAGE_WIDTH) / 2;
 
   const handleLeftArrowClick = () => {
     console.log("handleLeftArrowClick");
@@ -62,7 +64,7 @@ const SliderPromo = ({ children }) => {
 
     setItems(clonedItems);
     setOffset(-((PAGE_WIDTH + PAGE_GAP) * 1) + PAGE_LEFT_MARGIN);
-  }, [children]);
+  }, [children, PAGE_LEFT_MARGIN]);
 
   useEffect(() => {
     const maxOffset = -((PAGE_WIDTH + PAGE_GAP) * (items.length - 2));
@@ -84,7 +86,7 @@ const SliderPromo = ({ children }) => {
         disableTransition();
       }, 300);
     }
-  }, [offset, items]);
+  }, [offset, items, PAGE_LEFT_MARGIN]);
 
   const disableTransition = () => {
     const container = document.querySelector(".slider-promo__all-items-container");
