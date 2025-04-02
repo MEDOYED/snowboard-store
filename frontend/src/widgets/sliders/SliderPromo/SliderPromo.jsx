@@ -6,7 +6,6 @@ import "./SliderPromo.scss";
 const PAGE_WIDTH = 1600;
 const PAGE_GAP = 25;
 const WINDOW_WIDTH = window.innerWidth;
-
 const PAGE_LEFT_MARGIN = (WINDOW_WIDTH - PAGE_WIDTH) / 2;
 
 const SliderPromo = ({ children }) => {
