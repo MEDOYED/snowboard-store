@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
 
-  height: 450px;
+  height: 550px;
   width: 100vw;
   position: relative;
 
@@ -32,7 +32,7 @@
   &__all-items-container {
     height: 100%;
     display: flex;
-    gap: 2rem;
+    // gap in SliderPromo.jsx as const PAGE_GAP
 
     transition: transform 0.3s ease;
   }
