@@ -13,7 +13,8 @@
     color: #414647;
   }
 
-  &--active {
+  &--active,
+  &--active:is(:hover, :active) {
     color: #000;
   }
 }
