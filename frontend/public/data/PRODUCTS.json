@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "brand": "LIB TECH",
+    "title": "Men's snowboard",
+    "price": 349,
+    "currency": "$",
+    "isFavorite": true,
+    "discount": null,
+    "originalPrice": null,
+    "image": "/product-imgs/libtech-board-black-n-white.jpeg",
+    "altImage": "libtech black n white board",
+    "category": "snowboard"
+  }
+]
