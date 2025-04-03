@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setSignInState } from "../../../app/store/signInSlice";
 import { Eye, EyeOff } from "lucide-react";
@@ -12,9 +12,9 @@ const ModalSignIn = () => {
   const isActive = useSelector((state) => state.signIn.isActive);
   const [showPass, setShowPass] = useState(false);
 
-  const handleCloseModalWindow = () => {
+  const handleCloseModalWindow = useCallback(() => {
     dispatch(setSignInState(false));
-  };
+  }, [dispatch]);
 
   const togglePassVisability = (e) => {
     e.preventDefault();
@@ -35,16 +35,13 @@ const ModalSignIn = () => {
     return () => {
       document.removeEventListener("keydown", handleEscKey);
     };
-  }, [isActive]);
+  }, [isActive, handleCloseModalWindow]);
 
   return (
     <>
       {isActive === true && (
         <div className="modal-sign-in" onClick={handleCloseModalWindow}>
-          <div
-            className="modal-sign-in__content"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="modal-sign-in__content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-sign-in__sign-in modal-sign-in__auth-part">
               <h3 className="modal-sign-in__heading">Sign in</h3>
               <form action="#" className="modal-sign-in__form">
@@ -111,9 +108,7 @@ const ModalSignIn = () => {
                   </label>
                 </div>
 
-                <button className="modal-sign-in__auth-btn">
-                  Create account
-                </button>
+                <button className="modal-sign-in__auth-btn">Create account</button>
               </form>
             </div>
           </div>
