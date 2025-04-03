@@ -3,23 +3,30 @@
   align-items: center;
   justify-content: space-between;
 
+  position: relative;
+
   height: 550px;
   width: 100vw;
-  position: relative;
 
   &__arrow {
     cursor: pointer;
-    position: absolute;
+    background: #fafafa;
+    padding: 4rem 0.8rem;
+    border-radius: 0.3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 100;
-    background-color: #ffffff;
-    scale: 1.4;
 
     &.left {
-      left: 20px;
+      position: absolute;
+      left: 0px;
     }
 
     &.right {
-      right: 20px;
+      position: absolute;
+      right: 0px;
     }
   }
 
