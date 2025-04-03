@@ -1,6 +1,7 @@
 import SectionFeaturedIn from "../../widgets/sections/SectionFeaturedIn/SectionFeaturedIn.jsx";
 import PageHomeSlider from "./PageHomeSlider/PageHomeSlider.jsx";
 import SectionSalesCards from "../../widgets/sections/SectionSalesCards/SectionSalesCards.jsx";
+import SectionProductSlider from "../../widgets/sections/SectionProductSlider/SectionProductSlider.jsx";
 
 import "./PageHome.scss";
 
@@ -17,6 +18,10 @@ const PageHome = () => {
 
       <div className="home-page__sales-cards">
         <SectionSalesCards />
+      </div>
+
+      <div className="home-page__section-product-slider">
+        <SectionProductSlider />
       </div>
     </div>
   );
