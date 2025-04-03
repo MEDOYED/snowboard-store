@@ -8,6 +8,8 @@ import { faqEntries } from "../../../shared/data/faqEntries";
 import "./SectionFaq.scss";
 
 const SectionFaq = () => {
+  // TODO:
+  // configure useParams
   const params = useParams();
   const [selectedTab, setSelectedTab] = useState(faqEntries[0]);
 
