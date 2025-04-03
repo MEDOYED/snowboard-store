@@ -1,4 +1,4 @@
-import { useState, useEffect, Children, cloneElement } from "react";
+import { useState, useEffect, useRef, Children, cloneElement } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useWindowWidth from "../../../shared/hooks/useWindowWidth";
 
@@ -99,13 +99,31 @@ const SliderPromo = ({ children }) => {
     }
   };
 
+  // auto-scroll every 5s
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(handleRightArrowClick, 5000);
+
+    disableTransition();
+
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, []);
+
   return (
     <div className="slider-promo">
       <div className="slider-promo__arrow left" onClick={handleLeftArrowClick}>
         <FaChevronLeft className="slider-promo__icon" />
       </div>
 
-      <div className="slider-promo__window">
+      <div
+        className="slider-promo__window"
+        onMouseEnter={() => clearInterval(intervalRef.current)}
+        onMouseLeave={() => {
+          intervalRef.current = setInterval(handleRightArrowClick, 5000);
+        }}>
         <div
           className="slider-promo__all-items-container"
           style={{ transform: `translateX(${offset}px)`, gap: `${PAGE_GAP}px` }}>
