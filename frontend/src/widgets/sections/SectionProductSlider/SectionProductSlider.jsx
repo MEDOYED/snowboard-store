@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
-import "./SectionProductSlider.scss";
 import CardProduct from "../../../shared/cards/CardProduct/CardProduct";
+
+import "./SectionProductSlider.scss";
 
 const SectionProductSlider = () => {
   const [products, setProducts] = useState([]);
@@ -15,13 +16,15 @@ const SectionProductSlider = () => {
   return (
     <section className="section-product-slider">
       <h2 className="section-product-slider__heading">New Products</h2>
-      {products.map((element) => (
-        <CardProduct
-          brand={element.brand}
-          title={element.title}
-          key={element.id}
-        />
-      ))}
+      <div className="section-product-slider__cards">
+        {products.map((element) => (
+          <CardProduct
+            brand={element.brand}
+            title={element.title}
+            key={element.id}
+          />
+        ))}
+      </div>
     </section>
   );
 };
