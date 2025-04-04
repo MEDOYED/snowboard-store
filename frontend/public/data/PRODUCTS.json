@@ -7,7 +7,7 @@
     "currency": "$",
     "isFavorite": true,
     "discount": null,
-    "originalPrice": null,
+    "discountedPrice": null,
     "image": "/product-imgs/libtech-board-black-n-white.jpeg",
     "altImage": "libtech black n white board",
     "category": "snowboard"
@@ -16,8 +16,8 @@
     "id": 2,
     "brand": "CAPiTA",
     "title": "Men's snowboard",
-    "price": 174,
-    "originalPrice": 349,
+    "price": 349,
+    "discountedPrice": 174,
     "currency": "$",
     "discount": "50%",
     "isFavorite": false,
@@ -33,7 +33,7 @@
     "currency": "$",
     "isFavorite": false,
     "discount": null,
-    "originalPrice": null,
+    "discountedPrice": null,
     "image": "/product-imgs/libtech-board-fire.jpeg",
     "altImage": "libtech snowboard with flame graphics",
     "category": "snowboard"
@@ -46,9 +46,9 @@
     "currency": "$",
     "isFavorite": false,
     "discount": null,
-    "originalPrice": null,
+    "discountedPrice": null,
     "image": "/product-imgs/libtech-ski-blue.jpeg",
     "altImage": "libtech snowboard with blue finish",
-    "category": "snowboard"
+    "category": "ski"
   }
 ]

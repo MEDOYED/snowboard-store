@@ -17,11 +17,17 @@ const SectionProductSlider = () => {
     <section className="section-product-slider">
       <h2 className="section-product-slider__heading">New Products</h2>
       <div className="section-product-slider__cards">
-        {products.map((element) => (
+        {products.map((product) => (
           <CardProduct
-            brand={element.brand}
-            title={element.title}
-            key={element.id}
+            img={product.image}
+            alt={product.altImage}
+            discount={product.discount}
+            brand={product.brand}
+            title={product.title}
+            price={product.price}
+            currency={product.currency}
+            discountedPrice={product.discountedPrice}
+            key={product.id}
           />
         ))}
       </div>
