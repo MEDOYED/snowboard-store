@@ -12,6 +12,7 @@
   &__cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    column-gap: 2.6rem;
 
     margin-bottom: 7.5rem;
   }
