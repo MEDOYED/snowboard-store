@@ -4,6 +4,9 @@ import SectionSalesCards from "../../widgets/sections/SectionSalesCards/SectionS
 import SectionProductSlider from "../../widgets/sections/SectionProductSlider/SectionProductSlider.jsx";
 import PageHomeBanner from "./PageHomeBanner/PageHomeBanner.jsx";
 
+// temp import
+import SectionProductCategories from "../../widgets/sections/SectionProductCategories/SectionProductCategories.jsx";
+
 import "./PageHome.scss";
 
 const PageHome = () => {
@@ -28,6 +31,10 @@ const PageHome = () => {
       <div className="home-page__section-banner">
         <PageHomeBanner />
       </div>
+
+      {/* temp */}
+      <SectionProductCategories />
+      {/* temp */}
     </div>
   );
 };
