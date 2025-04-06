@@ -8,9 +8,7 @@ import "./PageHomeBanner.scss";
 const PageHomeBanner = () => {
   return (
     <div className="page-home-banner">
-      <div className="page-home-banner__banner">
-        <SectionBanner srcLogo={logoImg} srcBackgroung={bgImg} />
-      </div>
+      <SectionBanner srcLogo={logoImg} srcBackgroung={bgImg} />
       <h2 className="page-home-banner__title">Название Акции</h2>
       <p className="page-home-banner__text">
         Меня не спрашивали, а надо было спросить, что означает имя Заратустры именно в моих устах —

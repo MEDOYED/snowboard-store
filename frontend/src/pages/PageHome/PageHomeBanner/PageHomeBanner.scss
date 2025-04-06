@@ -2,12 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  &__banner {
-    margin-bottom: 3rem;
-  }
 
   &__title {
     margin-bottom: 3rem;
+    margin-top: 3rem;
 
     font-size: 3rem;
     font-weight: 500;
