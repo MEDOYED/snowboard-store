@@ -83,4 +83,42 @@
       background-color: #eb5757;
     }
   }
+
+  .describtion {
+
+    &__brand-name {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+
+    &__title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+
+      color: #828b8d;
+    }
+
+    &__price {
+      display: flex;
+      gap: 1.3rem;
+
+      font-size: 2rem;
+      font-weight: 600;
+
+      strong {
+        font-weight: inherit;
+      }
+
+      &--original {
+        text-decoration: line-through;
+        text-decoration-thickness: .2rem;
+      }
+
+      &--discounted {
+        color: #eb5757;
+      }
+    }
+  }
 }

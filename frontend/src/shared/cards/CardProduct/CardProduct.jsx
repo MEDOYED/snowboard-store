@@ -47,12 +47,14 @@ const CardProduct = ({
           <strong
             className={discount ? "describtion__price--original" : undefined}
           >
-            {price} {currency}
+            {price}
+            {currency}
           </strong>
 
           {discount && (
             <strong className="describtion__price--discounted">
-              {discountedPrice} {currency}
+              {discountedPrice}
+              {currency}
             </strong>
           )}
         </p>
