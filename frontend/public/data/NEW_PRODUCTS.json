@@ -8,7 +8,7 @@
     "isFavorite": true,
     "discount": null,
     "discountedPrice": null,
-    "image": "/product-imgs/libtech-board-black-n-white.jpeg",
+    "image": "/new-product-imgs/libtech-board-black-n-white.svg",
     "altImage": "libtech black n white board",
     "category": "snowboard"
   },
@@ -19,9 +19,9 @@
     "price": 349,
     "discountedPrice": 174,
     "currency": "$",
-    "discount": "50%",
+    "discount": "-50%",
     "isFavorite": false,
-    "image": "/product-imgs/capita-board-vanilla.jpeg",
+    "image": "/new-product-imgs/capita-board-vanilla.svg",
     "altImage": "capita snowboard with discount",
     "category": "snowboard"
   },
@@ -34,7 +34,7 @@
     "isFavorite": false,
     "discount": null,
     "discountedPrice": null,
-    "image": "/product-imgs/libtech-board-fire.jpeg",
+    "image": "/new-product-imgs/libtech-board-fire.svg",
     "altImage": "libtech snowboard with flame graphics",
     "category": "snowboard"
   },
@@ -47,7 +47,7 @@
     "isFavorite": false,
     "discount": null,
     "discountedPrice": null,
-    "image": "/product-imgs/libtech-ski-blue.jpeg",
+    "image": "/new-product-imgs/libtech-ski-blue.svg",
     "altImage": "libtech snowboard with blue finish",
     "category": "ski"
   }

@@ -1,11 +1,14 @@
-import classNames from "classnames";
+import { IoStarOutline, IoStarSharp } from "react-icons/io5";
+
 import "./CardProduct.scss";
+import classNames from "classnames";
 
 const CardProduct = ({
   brand,
   title,
   img,
   alt,
+  isFavorite,
   discount,
   price,
   currency,
@@ -15,7 +18,25 @@ const CardProduct = ({
     <article className="card-product">
       <figure className="card-product__product-photo product-photo">
         <img src={img} alt={alt} className="product-photo__img" />
-        <figcaption className="product-photo__caption">{discount}</figcaption>
+
+        <button
+          className={classNames("product-photo__favorite-btn favorite-btn", {
+            "favorite-btn--is-favorite": isFavorite,
+          })}
+          aria-label="Toggle favorite"
+        >
+          {isFavorite ? (
+            <IoStarSharp className="favorite-btn__icon" />
+          ) : (
+            <IoStarOutline className="favorite-btn__icon" />
+          )}
+        </button>
+
+        {discount && (
+          <figcaption className="product-photo__discount">
+            {discount}
+          </figcaption>
+        )}
       </figure>
 
       <div className="card-product__describtion describtion">
@@ -26,12 +47,14 @@ const CardProduct = ({
           <strong
             className={discount ? "describtion__price--original" : undefined}
           >
-            {price} {currency}
+            {price}
+            {currency}
           </strong>
 
           {discount && (
             <strong className="describtion__price--discounted">
-              {discountedPrice} {currency}
+              {discountedPrice}
+              {currency}
             </strong>
           )}
         </p>

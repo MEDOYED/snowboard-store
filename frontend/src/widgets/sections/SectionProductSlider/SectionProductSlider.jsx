@@ -8,7 +8,7 @@ const SectionProductSlider = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("/data/PRODUCTS.json")
+    fetch("/data/NEW_PRODUCTS.json")
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
@@ -21,6 +21,7 @@ const SectionProductSlider = () => {
           <CardProduct
             img={product.image}
             alt={product.altImage}
+            isFavorite={product.isFavorite}
             discount={product.discount}
             brand={product.brand}
             title={product.title}
