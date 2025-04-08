@@ -19,6 +19,7 @@ const SectionProductSlider = () => {
       <div className="section-product-slider__cards">
         {products.map((product) => (
           <CardProduct
+            linkSlug={product.slug}
             img={product.image}
             alt={product.altImage}
             isFavorite={product.isFavorite}
@@ -28,7 +29,7 @@ const SectionProductSlider = () => {
             price={product.price}
             currency={product.currency}
             discountedPrice={product.discountedPrice}
-            key={product.id}
+            key={product.slug}
           />
         ))}
       </div>

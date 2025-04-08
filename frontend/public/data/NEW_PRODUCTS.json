@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "slug": "libtech-black-white-snowboard",
     "brand": "LIB TECH",
     "title": "Men's snowboard",
     "price": 349,
@@ -14,6 +15,7 @@
   },
   {
     "id": 2,
+    "slug": "capita-vanilla-snowboard",
     "brand": "CAPiTA",
     "title": "Men's snowboard",
     "price": 349,
@@ -27,6 +29,7 @@
   },
   {
     "id": 3,
+    "slug": "libtech-fire-snowboard",
     "brand": "LIB TECH",
     "title": "Men's snowboard",
     "price": 349,
@@ -40,6 +43,7 @@
   },
   {
     "id": 4,
+    "slug": "libtech-blue-ski",
     "brand": "LIB TECH",
     "title": "Men's snowboard",
     "price": 349,

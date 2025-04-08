@@ -2,8 +2,10 @@ import { IoStarOutline, IoStarSharp } from "react-icons/io5";
 
 import "./CardProduct.scss";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 const CardProduct = ({
+  linkSlug,
   brand,
   title,
   img,
@@ -16,28 +18,30 @@ const CardProduct = ({
 }) => {
   return (
     <article className="card-product">
-      <figure className="card-product__product-photo product-photo">
-        <img src={img} alt={alt} className="product-photo__img" />
+      <Link to={`/product/${linkSlug}`}>
+        <figure className="card-product__product-photo product-photo">
+          <img src={img} alt={alt} className="product-photo__img" />
 
-        <button
-          className={classNames("product-photo__favorite-btn favorite-btn", {
-            "favorite-btn--is-favorite": isFavorite,
-          })}
-          aria-label="Toggle favorite"
-        >
-          {isFavorite ? (
-            <IoStarSharp className="favorite-btn__icon" />
-          ) : (
-            <IoStarOutline className="favorite-btn__icon" />
+          {discount && (
+            <figcaption className="product-photo__discount">
+              {discount}
+            </figcaption>
           )}
-        </button>
+        </figure>
+      </Link>
 
-        {discount && (
-          <figcaption className="product-photo__discount">
-            {discount}
-          </figcaption>
+      <button
+        className={classNames("card-product_favorite-btn favorite-btn", {
+          "favorite-btn--is-favorite": isFavorite,
+        })}
+        aria-label="Toggle favorite"
+      >
+        {isFavorite ? (
+          <IoStarSharp className="favorite-btn__icon" />
+        ) : (
+          <IoStarOutline className="favorite-btn__icon" />
         )}
-      </figure>
+      </button>
 
       <div className="card-product__describtion describtion">
         <h3 className="describtion__brand-name">{brand}</h3>

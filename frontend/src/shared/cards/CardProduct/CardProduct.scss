@@ -1,4 +1,7 @@
+@use "sass:color";
+
 .card-product {
+  position: relative;
 
   .product-photo {
     position: relative;
@@ -17,58 +20,6 @@
       height: 27rem;
     }
 
-    .favorite-btn {
-      $bgc_btn: #fff;
-      $bgc_is_fav_btn: #000;
-
-      transition: all .15s ease;
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      width: 4rem;
-      height: 4rem;
-      border-radius: 50%;
-      border: 2px solid rgb(242, 242, 242);
-
-      background-color: $bgc_btn;
-
-      &:hover {
-        background-color: darken($color: $bgc_btn, $amount: 5%);
-      }
-
-      &:active {
-        background-color: darken($color: $bgc_btn, $amount: 20%);
-      }
-
-      &__icon {
-        display: block;
-
-        width: 2.3rem;
-        height: 2.3rem;
-      }
-
-      &--is-favorite {
-        background-color: $bgc_is_fav_btn;
-
-        &:hover {
-          background-color: lighten($color: $bgc_is_fav_btn, $amount: 15%);
-        }
-
-        &:active {
-          background-color: lighten($color: $bgc_is_fav_btn, $amount: 25%);
-        }
-
-        .favorite-btn__icon {
-          color: #fff;
-        }
-      }
-    }
-
     &__discount {
       position: absolute;
       left: 0;
@@ -81,6 +32,57 @@
 
       color: #f2f2f2;
       background-color: #eb5757;
+    }
+  }
+
+  .favorite-btn {
+    $bgc_btn: #fff;
+    $bgc_is_fav_btn: #000;
+
+    transition: all .15s ease;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 2px solid rgb(242, 242, 242);
+
+    background-color: $bgc_btn;
+
+    &:hover {
+      background-color: color.adjust($bgc_btn, $lightness: -5%);
+    }
+
+    &:active {
+      background-color: color.adjust($bgc_btn, $lightness: -20%);
+    }
+
+    &__icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      translate: -50% -50%;
+
+      width: 2.3rem;
+      height: 2.3rem;
+    }
+
+    &--is-favorite {
+      background-color: $bgc_is_fav_btn;
+
+      &:hover {
+        background-color: color.adjust($bgc_is_fav_btn, $lightness: 15%);
+      }
+
+      &:active {
+        background-color: color.adjust($bgc_is_fav_btn, $lightness: 25%);
+      }
+
+      .favorite-btn__icon {
+        color: #fff;
+      }
     }
   }
 
