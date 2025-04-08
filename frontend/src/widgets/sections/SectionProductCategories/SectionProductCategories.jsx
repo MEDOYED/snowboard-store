@@ -1,46 +1,58 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import dataProductCategories from "../../../shared/data/dataProductCategories";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import "./SectionProductCategories.scss";
 
 const SectionProductCategories = () => {
-  const itemsPerSlide = 9;
+  const listRef = useRef(null);
+  const listItemRef = useRef(null);
+
   const [startIndex, setStartIndex] = useState(0);
+  const [listItemWidth, setListItemWidth] = useState(0);
 
-  const canGoPrev = startIndex > 0;
-  const canGoNext = startIndex + itemsPerSlide < dataProductCategories.length;
+  const visibleItems = 9;
+  const maxStartIndex = dataProductCategories.length - visibleItems;
 
-  const currentItems = dataProductCategories.slice(startIndex, startIndex + itemsPerSlide);
+  // list item width
+  useEffect(() => {
+    if (listItemRef.current) setListItemWidth(listItemRef.current.offsetWidth);
+  }, []);
 
+  // click on left arrow
   const handlePrev = () => {
-    if (canGoPrev) {
-      setStartIndex((prev) => prev - 1);
-    }
+    setStartIndex((prev) => Math.max(prev - 1, 0));
   };
 
+  // click on right arrow
   const handleNext = () => {
-    if (canGoNext) {
-      setStartIndex((prev) => prev + 1);
-    }
+    setStartIndex((prev) => Math.min(prev + 1, maxStartIndex));
   };
 
   return (
     <section className="section-product-categories">
       <div className="slider">
-        <button onClick={handlePrev} disabled={!canGoPrev}>
-          ←
+        <button onClick={handlePrev} aria-label="previous slide">
+          <FaChevronLeft />
         </button>
 
-        <ul className="list">
-          {currentItems.map((item, index) => (
-            <li key={index} className="list__item">
-              <img src={item.src} alt={item.alt} />
-            </li>
-          ))}
-        </ul>
+        <div className="slider__viewport">
+          <ul
+            className="slider__list"
+            ref={listRef}
+            style={{
+              transform: `translateX(-${startIndex * listItemWidth}px)`,
+            }}>
+            {dataProductCategories.map((item, index) => (
+              <li key={index} className="slider__list-item" ref={listItemRef}>
+                <img src={item.src} alt={item.alt} />
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <button onClick={handleNext} disabled={!canGoNext}>
-          →
+        <button onClick={handleNext}>
+          <FaChevronRight />
         </button>
       </div>
     </section>
