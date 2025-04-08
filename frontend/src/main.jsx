@@ -8,6 +8,7 @@ import App from "./app/App.jsx";
 import PageHelpCenter from "./pages/PageHelpCenter/PageHelpCenter.jsx";
 import Page404 from "./pages/Page404/Page404.jsx";
 import PageHome from "./pages/PageHome/PageHome.jsx";
+import PageProduct from "./pages/PageProduct/PageProduct.jsx";
 
 import "./main.scss";
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/help-center/:FaqEntry",
         element: <PageHelpCenter />,
+      },
+      {
+        path: "/product/:productSlug",
+        element: <PageProduct />,
       },
     ],
   },
