@@ -32,7 +32,11 @@ const SectionProductCategories = () => {
   return (
     <section className="section-product-categories">
       <div className="slider">
-        <button className="slider__arrow-left" onClick={handlePrev} aria-label="previous slide">
+        <button
+          className="slider__arrow left"
+          onClick={handlePrev}
+          aria-label="previous slide"
+          disabled={startIndex === 0}>
           <FaChevronLeft />
         </button>
 
@@ -51,7 +55,11 @@ const SectionProductCategories = () => {
           </ul>
         </div>
 
-        <button className="slider__arrow-right" onClick={handleNext}>
+        <button
+          className="slider__arrow right"
+          onClick={handleNext}
+          aria-label="next slide"
+          disabled={startIndex === maxStartIndex}>
           <FaChevronRight />
         </button>
       </div>

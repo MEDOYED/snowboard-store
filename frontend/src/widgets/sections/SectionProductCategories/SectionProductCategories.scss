@@ -1,17 +1,33 @@
 .section-product-categories {
   .slider {
     position: relative;
-    &__arrow-left {
+
+    &__arrow {
       position: absolute;
-      left: -5rem;
+
       top: 50%;
       transform: translateY(-50%);
       width: 5rem;
       height: 5rem;
 
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
       svg {
         width: 3rem;
         height: 3rem;
+      }
+
+      &.left {
+        position: absolute;
+        left: -5rem;
+      }
+
+      &.right {
+        position: absolute;
+        right: -5rem;
       }
     }
 
@@ -45,20 +61,6 @@
           width: calc(1700px / 9);
           height: auto;
         }
-      }
-    }
-
-    &__arrow-right {
-      position: absolute;
-      right: -5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 5rem;
-      height: 5rem;
-
-      svg {
-        width: 3rem;
-        height: 3rem;
       }
     }
   }
