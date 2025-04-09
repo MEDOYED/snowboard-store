@@ -25,6 +25,7 @@
     &__list {
       display: flex;
       width: fit-content;
+      transition: transform 0.3s ease-in-out;
 
       &-item {
         background-color: #f9f9f9;
