@@ -1,5 +1,20 @@
 .section-product-categories {
   .slider {
+    position: relative;
+    &__arrow-left {
+      position: absolute;
+      left: -5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5rem;
+      height: 5rem;
+
+      svg {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
     &__viewport {
       overflow: hidden;
       height: 20rem;
@@ -29,6 +44,20 @@
           width: calc(1700px / 9);
           height: auto;
         }
+      }
+    }
+
+    &__arrow-right {
+      position: absolute;
+      right: -5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5rem;
+      height: 5rem;
+
+      svg {
+        width: 3rem;
+        height: 3rem;
       }
     }
   }
