@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "motion/react";
+import { IoChevronBackSharp, IoChevronForward } from "react-icons/io5";
 
 import CardProduct from "../../../shared/cards/CardProduct/CardProduct";
 
@@ -6,6 +8,20 @@ import "./SectionProductSlider.scss";
 
 const SectionProductSlider = () => {
   const [products, setProducts] = useState([]);
+  const [cardWidth, setCardWidth] = useState(0);
+  const cardsRef = useRef(null);
+
+  useEffect(() => {
+    //  setCardWidth(cardRef.current.offsetWidth);
+    if (!products.length) return;
+
+    const cardsContainer = cardsRef.current;
+    const card = cardsContainer.querySelector(".card-product");
+    console.log("HERE!!!!!!!!");
+    console.log(card);
+    setCardWidth(card.offsetWidth);
+    console.log(cardWidth);
+  }, [products]);
 
   useEffect(() => {
     fetch("/data/NEW_PRODUCTS.json")
@@ -13,10 +29,24 @@ const SectionProductSlider = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  const handlePrev = () => {
+    cardsRef.current.scrollBy({ left: -cardWidth, behaviour: "smooth" });
+  };
+
+  const handleNext = () => {
+    cardsRef.current.scrollBy({ left: cardWidth });
+  };
+
   return (
     <section className="section-product-slider">
       <h2 className="section-product-slider__heading">New Products</h2>
-      <div className="section-product-slider__cards">
+      <motion.div
+        className="section-product-slider__cards"
+        ref={cardsRef}
+        initial={{ x: -100, opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        animate={{ x: 0, opacity: 1 }}
+      >
         {products.map((product) => (
           <CardProduct
             linkSlug={product.slug}
@@ -32,7 +62,20 @@ const SectionProductSlider = () => {
             key={product.slug}
           />
         ))}
-      </div>
+      </motion.div>
+
+      <button
+        onClick={handlePrev}
+        className="section-product-slider__button section-product-slider__button--left"
+      >
+        <IoChevronBackSharp />
+      </button>
+      <button
+        onClick={handleNext}
+        className="section-product-slider__button section-product-slider__button--right"
+      >
+        <IoChevronForward />
+      </button>
     </section>
   );
 };

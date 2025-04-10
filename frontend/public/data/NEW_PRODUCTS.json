@@ -54,5 +54,61 @@
     "image": "/new-product-imgs/libtech-ski-blue.svg",
     "altImage": "libtech snowboard with blue finish",
     "category": "ski"
+  },
+  {
+    "id": 1,
+    "slug": "2libtech-black-white-snowboard",
+    "brand": "LIB TECH",
+    "title": "Men's snowboard",
+    "price": 349,
+    "currency": "$",
+    "isFavorite": true,
+    "discount": null,
+    "discountedPrice": null,
+    "image": "/new-product-imgs/libtech-board-black-n-white.svg",
+    "altImage": "libtech black n white board",
+    "category": "snowboard"
+  },
+  {
+    "id": 2,
+    "slug": "2capita-vanilla-snowboard",
+    "brand": "CAPiTA",
+    "title": "Men's snowboard",
+    "price": 349,
+    "discountedPrice": 174,
+    "currency": "$",
+    "discount": "-50%",
+    "isFavorite": false,
+    "image": "/new-product-imgs/capita-board-vanilla.svg",
+    "altImage": "capita snowboard with discount",
+    "category": "snowboard"
+  },
+  {
+    "id": 3,
+    "slug": "2libtech-fire-snowboard",
+    "brand": "LIB TECH",
+    "title": "Men's snowboard",
+    "price": 349,
+    "currency": "$",
+    "isFavorite": false,
+    "discount": null,
+    "discountedPrice": null,
+    "image": "/new-product-imgs/libtech-board-fire.svg",
+    "altImage": "libtech snowboard with flame graphics",
+    "category": "snowboard"
+  },
+  {
+    "id": 4,
+    "slug": "2libtech-blue-ski",
+    "brand": "LIB TECH",
+    "title": "Men's snowboard",
+    "price": 349,
+    "currency": "$",
+    "isFavorite": false,
+    "discount": null,
+    "discountedPrice": null,
+    "image": "/new-product-imgs/libtech-ski-blue.svg",
+    "altImage": "libtech snowboard with blue finish",
+    "category": "ski"
   }
 ]

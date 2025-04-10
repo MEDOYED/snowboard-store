@@ -1,8 +1,8 @@
 import { IoStarOutline, IoStarSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import "./CardProduct.scss";
-import classNames from "classnames";
-import { Link } from "react-router-dom";
 
 const CardProduct = ({
   linkSlug,

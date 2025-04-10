@@ -36,7 +36,8 @@ const SectionProductCategories = () => {
           className="slider__arrow left"
           onClick={handlePrev}
           aria-label="previous slide"
-          disabled={startIndex === 0}>
+          disabled={startIndex === 0}
+        >
           <FaChevronLeft />
         </button>
 
@@ -46,7 +47,8 @@ const SectionProductCategories = () => {
             ref={listRef}
             style={{
               transform: `translateX(-${startIndex * listItemWidth}px)`,
-            }}>
+            }}
+          >
             {dataProductCategories.map((item, index) => (
               <li key={index} className="slider__list-item" ref={listItemRef}>
                 <img src={item.src} alt={item.alt} />
@@ -59,7 +61,8 @@ const SectionProductCategories = () => {
           className="slider__arrow right"
           onClick={handleNext}
           aria-label="next slide"
-          disabled={startIndex === maxStartIndex}>
+          disabled={startIndex === maxStartIndex}
+        >
           <FaChevronRight />
         </button>
       </div>
