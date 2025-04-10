@@ -1,7 +1,48 @@
 .card-discount {
-  img {
+  position: relative;
+
+  &__background {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  &__content {
+    position: absolute;
+
+    top: 25rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &-logo {
+      display: flex;
+      justify-self: center;
+
+      width: 8rem;
+      height: auto;
+
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    &-title {
+      text-align: center;
+      color: rgb(255, 255, 255);
+
+      font-size: 4rem;
+      font-weight: 700;
+
+      margin-bottom: 2rem;
+    }
+
+    &-text {
+      text-align: center;
+
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 500;
+
+      margin-bottom: 2.5rem;
+    }
   }
 }
