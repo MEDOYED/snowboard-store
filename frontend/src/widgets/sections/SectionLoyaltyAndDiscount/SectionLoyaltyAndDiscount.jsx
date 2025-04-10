@@ -5,9 +5,9 @@ import "./SectionLoyaltyAndDiscount.scss";
 
 const SectionLoyaltyAndDiscount = () => {
   return (
-    <section>
-      <CardDiscount />
+    <section className="section-loyalty-and-discount">
       <CardLoyalty />
+      <CardDiscount />
     </section>
   );
 };

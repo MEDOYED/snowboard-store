@@ -1,10 +1,12 @@
-import React from "react";
+import discountImg from "../../assets/img/discount-img.png";
+
+import "./CardDiscount.scss";
 
 const CardDiscount = () => {
   return (
-    <>
-      <div>CardDiscount</div>
-    </>
+    <article className="card-discount">
+      <img src={discountImg} alt="" />
+    </article>
   );
 };
 
