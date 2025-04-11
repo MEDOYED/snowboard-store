@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
-import { IoChevronBackSharp, IoChevronForward } from "react-icons/io5";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
 import CardProduct from "../../../shared/cards/CardProduct/CardProduct";
 
@@ -12,15 +12,11 @@ const SectionProductSlider = () => {
   const cardsRef = useRef(null);
 
   useEffect(() => {
-    //  setCardWidth(cardRef.current.offsetWidth);
     if (!products.length) return;
 
     const cardsContainer = cardsRef.current;
     const card = cardsContainer.querySelector(".card-product");
-    console.log("HERE!!!!!!!!");
-    console.log(card);
     setCardWidth(card.offsetWidth);
-    console.log(cardWidth);
   }, [products]);
 
   useEffect(() => {
@@ -34,41 +30,42 @@ const SectionProductSlider = () => {
   };
 
   const handleNext = () => {
-    cardsRef.current.scrollBy({ left: cardWidth });
+    cardsRef.current.scrollBy({ left: cardWidth, behaviour: "smooth" });
   };
 
   return (
     <section className="section-product-slider">
       <h2 className="section-product-slider__heading">New Products</h2>
-      <motion.div
+      <motion.ul
         className="section-product-slider__cards"
         ref={cardsRef}
         initial={{ x: -100, opacity: 0 }}
-        transition={{ duration: 0.5 }}
         animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1.5 }}
       >
         {products.map((product) => (
-          <CardProduct
-            linkSlug={product.slug}
-            img={product.image}
-            alt={product.altImage}
-            isFavorite={product.isFavorite}
-            discount={product.discount}
-            brand={product.brand}
-            title={product.title}
-            price={product.price}
-            currency={product.currency}
-            discountedPrice={product.discountedPrice}
-            key={product.slug}
-          />
+          <li key={product.slug}>
+            <CardProduct
+              linkSlug={product.slug}
+              img={product.image}
+              alt={product.altImage}
+              isFavorite={product.isFavorite}
+              discount={product.discount}
+              brand={product.brand}
+              title={product.title}
+              price={product.price}
+              currency={product.currency}
+              discountedPrice={product.discountedPrice}
+            />
+          </li>
         ))}
-      </motion.div>
+      </motion.ul>
 
       <button
         onClick={handlePrev}
         className="section-product-slider__button section-product-slider__button--left"
       >
-        <IoChevronBackSharp />
+        <IoChevronBack />
       </button>
       <button
         onClick={handleNext}
