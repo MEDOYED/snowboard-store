@@ -1,0 +1,68 @@
+.form-email-subscribe {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  justify-self: center;
+
+  input {
+    padding: 1rem 3.5rem;
+  }
+
+  &__email-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+  }
+
+  &__plane-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+
+    &.plane-animation {
+      animation-name: plane;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+  }
+}
+
+@keyframes plane {
+  from {
+    transform-origin: bottom right;
+    transform: rotate(0);
+  }
+
+  20% {
+    transform-origin: bottom right;
+    transform: translateX(60px) translateY(-15px) rotate(90deg);
+  }
+
+  40% {
+    transform-origin: bottom right;
+    transform: translateX(60px) translateY(-15px) rotate(360deg);
+  }
+
+  50% {
+    transform-origin: bottom right;
+    transform: translateX(100px) translateY(-30px) rotate(480deg);
+  }
+
+  68% {
+    transform-origin: bottom right;
+    transform: translateX(100px) translateY(-30px) rotate(600deg);
+  }
+
+  85% {
+    transform: translateX(10px) translateY(-30%) rotate(650deg);
+  }
+
+  to {
+    transform-origin: bottom right;
+    transform: translateX(0px) translateY(-50%) rotate(720deg);
+  }
+}
