@@ -8,6 +8,11 @@ import ButtonShowMore from "../../../shared/UI/buttons/ButtonShowMore/ButtonShow
 
 import "./SectionProductSlider.scss";
 
+const btnVariants = {
+  enabled: { opacity: 1, scale: 1 },
+  disabled: { opacity: 0.4, scale: 0.9 },
+};
+
 const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
   const [products, setProducts] = useState([]);
   const [cardWidth, setCardWidth] = useState(0);
@@ -17,11 +22,6 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
   });
   const cardsRef = useRef(null);
 
-  const btnVariants = {
-    enabled: { opacity: 1, scale: 1 },
-    disabled: { opacity: 0.4, scale: 0.9 },
-  };
-
   // fetches products json
   useEffect(() => {
     if (!productsJsonPath) return;
@@ -30,6 +30,17 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
       .then((data) => setProducts(data))
       .catch((error) => console.error("Failed to fetch products json", error));
   }, [productsJsonPath]);
+
+  // TODO: add useCallback to prevent unnecessary rerenders of the all cards
+  const toggleFavorite = (slug) => {
+    setProducts((prevProducts) => {
+      return prevProducts.map((product) => {
+        return product.slug === slug
+          ? { ...product, isFavorite: !product.isFavorite }
+          : product;
+      });
+    });
+  };
 
   // finds the width of one card
   // may need adjustments if card will change its width
@@ -90,7 +101,10 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
                 linkSlug={product.slug}
                 img={product.image}
                 alt={product.altImage}
-                isFavorite={product.isFavorite}
+                isFavoriteStateManagment={{
+                  isFavorite: product.isFavorite,
+                  toggleFavorite: () => toggleFavorite(product.slug),
+                }}
                 discount={product.discount}
                 brand={product.brand}
                 title={product.title}
