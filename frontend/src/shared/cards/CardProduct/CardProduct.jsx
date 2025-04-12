@@ -1,21 +1,41 @@
 import { IoStarOutline, IoStarSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "motion/react";
 import classNames from "classnames";
 
 import "./CardProduct.scss";
 
+const MotionStarOutline = motion(IoStarOutline);
+const MotionStarFilled = motion(IoStarSharp);
+
+const iconVariants = {
+  initial: { scale: 0.5, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  exit: { scale: 0.5, opacity: 0 },
+};
+
+const setUpIconAnimations = {
+  variants: iconVariants,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+};
+
+// TODO: use memo() to prevent unnecessary rerenders when isFavorite is toggled
 const CardProduct = ({
   linkSlug,
   brand,
   title,
   img,
   alt,
-  isFavorite,
+  isFavoriteStateManagment,
   discount,
   price,
   currency,
   discountedPrice,
 }) => {
+  const { isFavorite, toggleFavorite } = isFavoriteStateManagment;
+
   return (
     <article className="card-product">
       <Link to={`/product/${linkSlug}`}>
@@ -35,17 +55,30 @@ const CardProduct = ({
           "favorite-btn--is-favorite": isFavorite,
         })}
         aria-label="Toggle favorite"
+        onClick={toggleFavorite}
       >
-        {isFavorite ? (
-          <IoStarSharp className="favorite-btn__icon" />
-        ) : (
-          <IoStarOutline className="favorite-btn__icon" />
-        )}
+        <AnimatePresence>
+          {isFavorite ? (
+            <MotionStarFilled
+              className="favorite-btn__icon"
+              key="star-filled"
+              {...setUpIconAnimations}
+            />
+          ) : (
+            <MotionStarOutline
+              className="favorite-btn__icon"
+              key="star-outline"
+              {...setUpIconAnimations}
+            />
+          )}
+        </AnimatePresence>
       </button>
 
       <div className="card-product__describtion describtion">
-        <h3 className="describtion__brand-name">{brand}</h3>
-        <p className="describtion__title">{title}</p>
+        <Link className="describtion__link" to={`/product/${linkSlug}`}>
+          <h3 className="describtion__brand-name">{brand}</h3>
+          <p className="describtion__title">{title}</p>
+        </Link>
 
         <p className="describtion__price">
           <strong

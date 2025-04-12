@@ -1,5 +1,4 @@
 .section-product-slider {
-  position: relative;
 
   &__heading {
     text-align: center;
@@ -10,11 +9,16 @@
     margin-bottom: 5rem;
   }
 
+  &__slider-wrapper {
+    position: relative;
+    margin-bottom: 8rem;
+  }
+
   &__cards {
     overflow: auto hidden;
     scroll-behavior: smooth;
     scrollbar-width: none;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
 
     &::-webkit-scrollbar {
       display: none;
@@ -22,8 +26,6 @@
 
     display: flex;
     gap: 2.6rem;
-
-    margin-bottom: 7.5rem;
 
     &>* {
       scroll-snap-align: start;
@@ -33,9 +35,15 @@
   &__button {
     $arrow_offset: -6%;
 
+    transition: all .2s ease;
+
     position: absolute;
     top: 50%;
     translate: 0 -50%;
+
+    &:disabled {
+      cursor: default;
+    }
 
     svg {
       width: 3.5rem;
@@ -49,5 +57,9 @@
     &--right {
       right: $arrow_offset;
     }
+  }
+
+  &__show-more-btn {
+    text-align: center;
   }
 }
