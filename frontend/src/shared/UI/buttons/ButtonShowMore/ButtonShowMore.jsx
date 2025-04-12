@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 import "./ButtonShowMore.scss";
 
 const ButtonShowMore = ({ children }) => {
-  // TODO: ADD PATH FOR A LINK
+  const MotionLink = motion(Link);
+
+  // TODO: ADD ACTUAL PATH FOR A LINK
   return (
-    <Link to="/" className="btn-show-more">
+    <MotionLink
+      to="/help-center/tmp"
+      className="btn-show-more"
+      whileHover={{
+        color: "#000",
+        backgroundColor: "#fff",
+        boxShadow: "inset 0 0 0 3px #000",
+      }}
+      whileTap={{ backgroundColor: "#d4d4d8" }}
+    >
       {children}
-    </Link>
+    </MotionLink>
   );
 };
 
