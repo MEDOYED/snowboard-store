@@ -111,7 +111,8 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
           aria-label="Previous card button"
           disabled={!canScrollDirection.left}
           variants={btnVariants}
-          animate={canScrollDirection.left ? "enabled" : "disabled"}
+          initial={canScrollDirection.left ? "enabled" : ""}
+          animate={canScrollDirection.left ? "" : "disabled"}
           whileHover={
             canScrollDirection.left
               ? { scale: 1.2, transition: { duration: 0.2 } }
@@ -129,7 +130,8 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
           aria-label="Next card button"
           disabled={!canScrollDirection.right}
           variants={btnVariants}
-          animate={canScrollDirection.right ? "enabled" : "disabled"}
+          initial={canScrollDirection.right ? "enabled" : ""}
+          animate={canScrollDirection.right ? "" : "disabled"}
           whileHover={
             canScrollDirection.right
               ? { scale: 1.2, transition: { duration: 0.2 } }
