@@ -26,7 +26,10 @@ const PageHome = () => {
       </div>
 
       <div className="home-page__section-product-slider">
-        <SectionProductSlider />
+        <SectionProductSlider
+          sectionHeading={"New Products"}
+          productsJsonPath={"/data/NEW_PRODUCTS.json"}
+        />
       </div>
 
       <div className="home-page__section-banner">

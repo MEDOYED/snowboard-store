@@ -8,7 +8,7 @@ import ButtonShowMore from "../../../shared/UI/buttons/ButtonShowMore/ButtonShow
 
 import "./SectionProductSlider.scss";
 
-const SectionProductSlider = () => {
+const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
   const [products, setProducts] = useState([]);
   const [cardWidth, setCardWidth] = useState(0);
   const [canScrollDirection, setCanScrollDirection] = useState({
@@ -24,10 +24,12 @@ const SectionProductSlider = () => {
 
   // fetches products json
   useEffect(() => {
-    fetch("/data/NEW_PRODUCTS.json")
+    if (!productsJsonPath) return;
+    fetch(productsJsonPath)
       .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Failed to fetch products json", error));
+  }, [productsJsonPath]);
 
   // finds the width of one card
   // may need adjustments if card will change its width
@@ -73,7 +75,7 @@ const SectionProductSlider = () => {
 
   return (
     <section className="section-product-slider">
-      <h2 className="section-product-slider__heading">New Products</h2>
+      <h2 className="section-product-slider__heading">{sectionHeading}</h2>
       <div className="section-product-slider__slider-wrapper">
         <motion.ul
           className="section-product-slider__cards"
