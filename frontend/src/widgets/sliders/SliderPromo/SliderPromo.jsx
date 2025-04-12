@@ -15,20 +15,14 @@ const SliderPromo = ({ children }) => {
   const PAGE_LEFT_MARGIN = (WINDOW_WIDTH - PAGE_WIDTH) / 2;
 
   const handleLeftArrowClick = () => {
-    console.log("handleLeftArrowClick");
-
     setOffset((prev) => prev + (PAGE_WIDTH + PAGE_GAP));
   };
 
   const handleRightArrowClick = () => {
-    console.log("handleRightArrowClick");
-
     setOffset((prev) => prev - (PAGE_WIDTH + PAGE_GAP));
   };
 
   useEffect(() => {
-    console.log(children);
-
     const childrenArr = Children.toArray(children);
 
     const clonedItems = [
