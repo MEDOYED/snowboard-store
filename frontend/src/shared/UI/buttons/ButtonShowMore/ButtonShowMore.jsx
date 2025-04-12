@@ -3,14 +3,14 @@ import { motion } from "motion/react";
 
 import "./ButtonShowMore.scss";
 
-const ButtonShowMore = ({ children }) => {
-  const MotionLink = motion(Link);
+const MotionLink = motion(Link);
 
+const ButtonShowMore = ({ children }) => {
   // TODO: ADD ACTUAL PATH FOR A LINK
   return (
     <MotionLink
       to="/help-center/tmp"
-      className="btn-show-more"
+      className="button-show-more"
       whileHover={{
         color: "#000",
         backgroundColor: "#fff",
