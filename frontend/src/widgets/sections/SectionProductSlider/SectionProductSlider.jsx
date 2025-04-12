@@ -17,11 +17,20 @@ const SectionProductSlider = () => {
   });
   const cardsRef = useRef(null);
 
-  const btnVarants = {
+  const btnVariants = {
     enabled: { opacity: 1, scale: 1 },
     disabled: { opacity: 0.4, scale: 0.9 },
   };
 
+  // fetches products json
+  useEffect(() => {
+    fetch("/data/NEW_PRODUCTS.json")
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  // finds the width of one card
+  // may need adjustments if card will change its width
   useEffect(() => {
     if (!products.length) return;
 
@@ -30,12 +39,7 @@ const SectionProductSlider = () => {
     setCardWidth(card.offsetWidth);
   }, [products]);
 
-  useEffect(() => {
-    fetch("/data/NEW_PRODUCTS.json")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
-
+  // for disabling scroll btns when there is nothing left to scroll
   useEffect(() => {
     const container = cardsRef.current;
 
@@ -104,7 +108,7 @@ const SectionProductSlider = () => {
           )}
           aria-label="Previous card button"
           disabled={!canScrollDirection.left}
-          variants={btnVarants}
+          variants={btnVariants}
           animate={canScrollDirection.left ? "enabled" : "disabled"}
           whileHover={
             canScrollDirection.left
@@ -122,14 +126,13 @@ const SectionProductSlider = () => {
           )}
           aria-label="Next card button"
           disabled={!canScrollDirection.right}
-          variants={btnVarants}
+          variants={btnVariants}
           animate={canScrollDirection.right ? "enabled" : "disabled"}
           whileHover={
             canScrollDirection.right
               ? { scale: 1.2, transition: { duration: 0.2 } }
               : {}
           }
-          //transition={{ type: "spring", duration: 0.3 }}
         >
           <IoChevronForward />
         </motion.button>
