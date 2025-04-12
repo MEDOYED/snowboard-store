@@ -44,8 +44,10 @@ const CardProduct = ({
       </button>
 
       <div className="card-product__describtion describtion">
-        <h3 className="describtion__brand-name">{brand}</h3>
-        <p className="describtion__title">{title}</p>
+        <Link className="describtion__link" to={`/product/${linkSlug}`}>
+          <h3 className="describtion__brand-name">{brand}</h3>
+          <p className="describtion__title">{title}</p>
+        </Link>
 
         <p className="describtion__price">
           <strong
