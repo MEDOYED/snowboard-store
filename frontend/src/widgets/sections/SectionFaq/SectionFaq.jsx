@@ -22,11 +22,7 @@ const SectionFaq = () => {
   return (
     <section className="faq-section">
       <div className="faq-section__sidebar">
-        <TabSidebar
-          entries={faqEntries}
-          onTabChange={handleClick}
-          selectedTab={selectedTab}
-        >
+        <TabSidebar entries={faqEntries} onTabChange={handleClick} selectedTab={selectedTab}>
           FAQ Section
         </TabSidebar>
       </div>

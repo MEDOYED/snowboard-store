@@ -13,6 +13,10 @@
     transform-origin: left center;
   }
 
+  &__list-wrapper {
+    position: relative;
+  }
+
   &__list {
     display: flex;
     gap: 2.5rem;
@@ -31,5 +35,13 @@
       height: 2.8rem;
       width: 2.8rem;
     }
+  }
+
+  &__search-bar {
+    background-color: rgb(182, 182, 182);
+
+    position: absolute;
+
+    right: 0;
   }
 }
