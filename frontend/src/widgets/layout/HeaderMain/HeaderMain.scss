@@ -26,6 +26,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
+      cursor: pointer;
 
       font-size: 1.6rem;
       font-weight: 500;
@@ -38,10 +39,9 @@
   }
 
   &__search-bar {
-    background-color: rgb(182, 182, 182);
-
     position: absolute;
 
     right: 0;
+    top: 0;
   }
 }

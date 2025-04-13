@@ -39,15 +39,18 @@ const HeaderMain = () => {
             <ShoppingCart className="header-main__list__icon" />
             <span>Cart</span>
           </li>
-          <li className="header-main__list__item">
-            <Search className="header-main__list__icon" onClick={handleSearchClick} />
+          <li className="header-main__list__item" onClick={handleSearchClick}>
+            <Search className="header-main__list__icon" />
             <span>Search</span>
           </li>
         </ul>
 
         {isSerchBarOpen === true && (
           <>
-            <ModalSearchBar className={"header-main__search-bar"} />
+            <ModalSearchBar
+              className={"header-main__search-bar"}
+              onCrossClick={handleSearchClick}
+            />
           </>
         )}
       </div>
