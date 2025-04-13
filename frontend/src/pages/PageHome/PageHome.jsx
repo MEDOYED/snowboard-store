@@ -27,13 +27,20 @@ const PageHome = () => {
 
       <div className="home-page__section-product-slider">
         <SectionProductSlider
-          sectionHeading={"New Products"}
+          sectionHeading="New Products"
           productsJsonPath={"/data/NEW_PRODUCTS.json"}
         />
       </div>
 
       <div className="home-page__section-banner">
         <PageHomeBanner />
+      </div>
+
+      <div className="home-page__section-product-slider">
+        <SectionProductSlider
+          sectionHeading="DC Shoes popular in collection"
+          productsJsonPath={"/data/NEW_PRODUCTS.json"}
+        />
       </div>
 
       <div className="home-page__section-loyalty-and-discount">
