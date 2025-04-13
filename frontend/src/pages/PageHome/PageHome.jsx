@@ -36,7 +36,9 @@ const PageHome = () => {
         <PageHomeBanner />
       </div>
 
-      <SectionLoyaltyAndDiscount />
+      <div className="home-page__section-loyalty-and-discount">
+        <SectionLoyaltyAndDiscount />
+      </div>
 
       {/* temp */}
       <SectionProductCategories />
