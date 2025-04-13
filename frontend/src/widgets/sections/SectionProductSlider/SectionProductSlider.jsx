@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "motion/react";
 import classNames from "classnames";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
@@ -31,7 +31,8 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
       .catch((error) => console.error("Failed to fetch products json", error));
   }, [productsJsonPath]);
 
-  // TODO: add useCallback to prevent unnecessary rerenders of the all cards
+  // does not worth optimizing with memo, prolly may take some refactoring
+  // to not rerender all the cards on a single isFavorite toggle
   const toggleFavorite = (slug) => {
     setProducts((prevProducts) => {
       return prevProducts.map((product) => {
@@ -101,10 +102,8 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
                 linkSlug={product.slug}
                 img={product.image}
                 alt={product.altImage}
-                isFavoriteStateManagment={{
-                  isFavorite: product.isFavorite,
-                  toggleFavorite: () => toggleFavorite(product.slug),
-                }}
+                isFavorite={product.isFavorite}
+                toggleFavorite={() => toggleFavorite(product.slug)}
                 discount={product.discount}
                 brand={product.brand}
                 title={product.title}
@@ -123,6 +122,7 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
             "section-product-slider__button--left",
           )}
           aria-label="Previous card button"
+          // TODO: FIX? disabled does not prevent focusing with vimium
           disabled={!canScrollDirection.left}
           variants={btnVariants}
           initial={canScrollDirection.left ? "enabled" : ""}

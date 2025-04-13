@@ -1,3 +1,4 @@
+import React from "react";
 import { IoStarOutline, IoStarSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
@@ -21,21 +22,19 @@ const setUpIconAnimations = {
   exit: "exit",
 };
 
-// TODO: use memo() to prevent unnecessary rerenders when isFavorite is toggled
 const CardProduct = ({
   linkSlug,
   brand,
   title,
   img,
   alt,
-  isFavoriteStateManagment,
+  isFavorite,
+  toggleFavorite,
   discount,
   price,
   currency,
   discountedPrice,
 }) => {
-  const { isFavorite, toggleFavorite } = isFavoriteStateManagment;
-
   return (
     <article className="card-product">
       <Link to={`/product/${linkSlug}`}>
