@@ -9,12 +9,12 @@
 
   color: #828b8d;
 
-  &:is(:hover, :active) {
-    color: #414647;
-  }
-
-  &--active,
-  &--active:is(:hover, :active) {
-    color: #000;
-  }
+  // &:is(:hover, :active) {
+  //   color: #414647;
+  // }
+  //
+  // &--active,
+  // &--active:is(:hover, :active) {
+  //   color: #000;
+  // }
 }
