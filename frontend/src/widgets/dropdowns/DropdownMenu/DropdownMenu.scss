@@ -1,0 +1,11 @@
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 3rem;
+  background-color: #fff;
+  z-index: 10;
+
+  &__item {
+    margin-bottom: 0.5rem;
+  }
+}
