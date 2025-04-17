@@ -24,17 +24,7 @@ const ButtonFilterTab = ({ children, className }) => {
       <button onClick={onHandleClick}>{children}</button>
 
       <AnimatePresence>
-        {hasDropdown && isActive && (
-          <MotionDiv
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            exit={{ scaleY: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="dropdown-wrapper"
-            style={{ transformOrigin: "top", overflow: "hidden" }}>
-            <DropdownMenu items={matchedItem.dropdown} />
-          </MotionDiv>
-        )}
+        {hasDropdown && isActive && <DropdownMenu items={matchedItem.dropdown} />}
       </AnimatePresence>
     </li>
   );
