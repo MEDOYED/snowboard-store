@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
     "classnames": "^2.5.1",
+    "framer-motion": "^12.7.4",
     "lucide-react": "^0.483.0",
     "motion": "^12.6.3",
     "react": "^19.0.0",
