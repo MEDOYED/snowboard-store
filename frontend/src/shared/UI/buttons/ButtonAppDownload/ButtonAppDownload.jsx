@@ -8,7 +8,7 @@ const ButtonAppDownload = ({ Icon, text, title, fontSize }) => {
         <p>{text}</p>
         <h2
           style={{
-            fontSize: `${fontSize}px`,
+            fontSize: `${fontSize}rem`,
           }}
         >
           {title}
