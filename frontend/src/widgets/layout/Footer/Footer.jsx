@@ -11,7 +11,7 @@ import SectionFooterCompany from "./sections/SectionFooterCompany/SectionFooterC
 import SectionFooterInc from "./sections/SectionFooterInc/SectionFooterInc";
 import SectionFooterBottom from "./sections/SectionFooterBottom/SectionFooterBottom";
 
-import imgQR from "/footer/qr-code.png";
+import imgQR from "/footer/qr-code.svg";
 
 import "./Footer.scss";
 
