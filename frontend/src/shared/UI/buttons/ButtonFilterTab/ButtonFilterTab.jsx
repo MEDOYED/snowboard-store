@@ -7,6 +7,7 @@ import DropdownMenu from "../../../../widgets/dropdowns/DropdownMenu/DropdownMen
 import dataNavigation from "../../../data/dataNavigation";
 
 import "./ButtonFilterTab.scss";
+import { Link } from "react-router-dom";
 
 const MotionDiv = motion.div;
 
@@ -21,8 +22,9 @@ const ButtonFilterTab = ({ children, className }) => {
   };
   return (
     <li className={classNames("button-filter-tab", className)}>
-      <button onClick={onHandleClick}>{children}</button>
-
+      <Link to={"/categories"}>
+        <button onClick={onHandleClick}>{children}</button>
+      </Link>
       <AnimatePresence>
         {hasDropdown && isActive && <DropdownMenu items={matchedItem.dropdown} />}
       </AnimatePresence>
