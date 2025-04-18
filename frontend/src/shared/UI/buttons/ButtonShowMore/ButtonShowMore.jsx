@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 import "./ButtonShowMore.scss";
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 const ButtonShowMore = ({ children }) => {
   // TODO: ADD ACTUAL PATH FOR A LINK
