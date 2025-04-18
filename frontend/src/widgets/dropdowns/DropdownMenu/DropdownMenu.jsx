@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import "./DropdownMenu.scss";
 
@@ -19,7 +20,7 @@ const DropdownMenu = ({ items }) => {
       <ul className="dropdown-menu">
         {items.map((item, index) => (
           <li className="dropdown-menu__item" key={index}>
-            {item.title}
+            <Link to={"/categories" + item.url}>{item.title}</Link>
           </li>
         ))}
       </ul>
