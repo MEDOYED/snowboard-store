@@ -5,9 +5,6 @@ import SectionProductSlider from "../../widgets/sections/SectionProductSlider/Se
 import PageHomeBanner from "./PageHomeBanner/PageHomeBanner.jsx";
 import SectionLoyaltyAndDiscount from "../../widgets/sections/SectionLoyaltyAndDiscount/SectionLoyaltyAndDiscount.jsx";
 
-// temp import
-import SectionProductCategories from "../../widgets/sections/SectionProductCategories/SectionProductCategories.jsx";
-
 import "./PageHome.scss";
 
 const PageHome = () => {
@@ -46,10 +43,6 @@ const PageHome = () => {
       <div className="home-page__section-loyalty-and-discount">
         <SectionLoyaltyAndDiscount />
       </div>
-
-      {/* temp */}
-      <SectionProductCategories />
-      {/* temp */}
     </div>
   );
 };

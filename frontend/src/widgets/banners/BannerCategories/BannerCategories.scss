@@ -1,0 +1,15 @@
+.banner-categories {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+
+  background-color: #000;
+  color: #fff;
+
+  padding: 2rem 0;
+
+  &__path {
+    margin-bottom: 5rem;
+  }
+}

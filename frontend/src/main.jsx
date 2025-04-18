@@ -9,6 +9,7 @@ import PageHelpCenter from "./pages/PageHelpCenter/PageHelpCenter.jsx";
 import Page404 from "./pages/Page404/Page404.jsx";
 import PageHome from "./pages/PageHome/PageHome.jsx";
 import PageProduct from "./pages/PageProduct/PageProduct.jsx";
+import PageCategories from "./pages/PageCategories/PageCategories.jsx";
 
 import "./main.scss";
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path: "/product/:productSlug",
         element: <PageProduct />,
       },
+      {
+        path: "/categories",
+        element: <PageCategories />,
+      },
     ],
   },
 ]);
@@ -43,5 +48,5 @@ ReactDOM.createRoot(root).render(
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  </StrictMode>,
+  </StrictMode>
 );
