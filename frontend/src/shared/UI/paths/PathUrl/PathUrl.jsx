@@ -5,7 +5,6 @@ import "./PathUrl.scss";
 const PathUrl = () => {
   const location = useLocation();
   const locationPath = location.pathname;
-  console.log(locationPath);
 
   // Split by "/", filter out empty strings
   const locationParts = locationPath.split("/").filter(Boolean);

@@ -27,8 +27,6 @@ const ButtonFilterTab = ({ children, className }) => {
 
   if (filterItem) {
     mainCategory = filterItem.toLowerCase();
-  } else {
-    console.log("No category found");
   }
   return (
     <li className={classNames("button-filter-tab", className)}>
