@@ -5,7 +5,7 @@ import "./DropdownMenu.scss";
 
 const MotionDiv = motion.div;
 
-const DropdownMenu = ({ items }) => {
+const DropdownMenu = ({ items, mainCategory }) => {
   if (!items || items.length === 0) return null;
 
   return (
@@ -20,7 +20,7 @@ const DropdownMenu = ({ items }) => {
       <ul className="dropdown-menu">
         {items.map((item, index) => (
           <li className="dropdown-menu__item" key={index}>
-            <Link to={"/categories" + item.url}>{item.title}</Link>
+            <Link to={`/categories/${mainCategory}${item.url}`}>{item.title}</Link>
           </li>
         ))}
       </ul>
