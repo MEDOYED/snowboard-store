@@ -15,7 +15,7 @@ const PathUrl = () => {
     (word) => word.charAt(0).toUpperCase() + word.slice(1)
   );
 
-  const [firstWord, secondWord] = locationCapitalized;
+  const [firstWord, secondWord, thirdWord] = locationCapitalized;
 
   return (
     <p className="banner-categories__path">
@@ -24,6 +24,13 @@ const PathUrl = () => {
         <>
           <span>/</span>
           <span>{secondWord}</span>
+        </>
+      )}
+
+      {thirdWord && (
+        <>
+          <span>/</span>
+          <span>{thirdWord}</span>
         </>
       )}
     </p>
