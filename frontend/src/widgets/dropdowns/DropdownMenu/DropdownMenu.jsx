@@ -1,16 +1,13 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 
 import "./DropdownMenu.scss";
-
-const MotionDiv = motion.div;
 
 const DropdownMenu = ({ items, mainCategory }) => {
   if (!items || items.length === 0) return null;
 
   return (
-    // <motion.div
-    <MotionDiv
+    <motion.div
       initial={{ scaleY: 0 }}
       animate={{ scaleY: 1 }}
       exit={{ scaleY: 0 }}
@@ -24,8 +21,7 @@ const DropdownMenu = ({ items, mainCategory }) => {
           </li>
         ))}
       </ul>
-    </MotionDiv>
-    // </motion.div>
+    </motion.div>
   );
 };
 
