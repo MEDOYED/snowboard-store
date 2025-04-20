@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { Link } from "react-router-dom";
 
 import DropdownMenu from "../../../../widgets/dropdowns/DropdownMenu/DropdownMenu";

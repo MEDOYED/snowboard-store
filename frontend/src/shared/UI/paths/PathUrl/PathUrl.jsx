@@ -12,7 +12,7 @@ const PathUrl = () => {
   // Capitalize each word (make the first letter uppercase)
   const locationCapitalized = locationParts.map((word) => {
     const wordToString = String(word);
-    wordToString.charAt(0).toUpperCase() + word.slice(1);
+    return wordToString.charAt(0).toUpperCase() + word.slice(1);
   });
 
   const [firstWord, secondWord, thirdWord] = locationCapitalized;
