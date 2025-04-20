@@ -1,29 +1,25 @@
 .button-app-download {
+  display: flex;
+  gap: 1.5rem;
+
+  width: 22rem;
+  height: 7rem;
   border: 2px solid rgba(255, 255, 255, 0.15);
   border-radius: 0.8rem;
-  display: flex;
-  width: fit-content;
   padding: 0.8rem 2rem 0.8rem 1.2rem;
-  gap: 1.5rem;
-  height: 90px;
 
   .icon {
+    display: flex;
+
     height: 4rem;
     width: 4rem;
-    display: flex;
     margin: auto 0;
   }
 
   .text {
-    min-width: 170px;
     overflow: hidden;
     white-space: nowrap;
-    padding: 5px 0;
 
-    h2 {
-      transition: font-size 0.2s ease;
-      line-height: 1;
-      width: max-content;
-    }
+    padding: .5rem 0;
   }
 }

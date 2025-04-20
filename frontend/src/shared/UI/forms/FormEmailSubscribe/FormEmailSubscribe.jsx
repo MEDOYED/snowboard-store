@@ -25,8 +25,8 @@ const FormEmailSubscribe = () => {
 
   return (
     <form className="form-email-subscribe" action="" method="post">
-      <input type="email" placeholder="Email" />
       <IoMailSharp className="form-email-subscribe__email-icon" />
+      <input type="email" placeholder="Email" />
       <button type="submit" onClick={handleClickOnPlane}>
         <IoPaperPlane
           className={classNamePlane}

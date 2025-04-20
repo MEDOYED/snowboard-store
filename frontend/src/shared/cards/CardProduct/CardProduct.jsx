@@ -6,8 +6,8 @@ import classNames from "classnames";
 
 import "./CardProduct.scss";
 
-const MotionStarOutline = motion(IoStarOutline);
-const MotionStarFilled = motion(IoStarSharp);
+const MotionStarOutline = motion.create(IoStarOutline);
+const MotionStarFilled = motion.create(IoStarSharp);
 
 const iconVariants = {
   initial: { scale: 0.5, opacity: 0 },

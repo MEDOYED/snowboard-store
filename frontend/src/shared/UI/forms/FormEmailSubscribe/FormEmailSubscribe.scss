@@ -1,25 +1,13 @@
 .form-email-subscribe {
-  position: relative;
-  width: fit-content;
   display: flex;
-  justify-self: center;
+  align-items: center;
+  gap: 1.1rem;
 
-  input {
-    padding: 1rem 3.5rem;
-  }
+  padding: 1rem 1.5rem;
 
-  &__email-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 1rem;
-  }
+  background-color: #fff;
 
   &__plane-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 1rem;
 
     &.plane-animation {
       animation-name: plane;

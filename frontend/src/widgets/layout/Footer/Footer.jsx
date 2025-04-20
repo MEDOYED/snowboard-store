@@ -11,7 +11,7 @@ import SectionFooterCompany from "./sections/SectionFooterCompany/SectionFooterC
 import SectionFooterInc from "./sections/SectionFooterInc/SectionFooterInc";
 import SectionFooterBottom from "./sections/SectionFooterBottom/SectionFooterBottom";
 
-import imgQR from "/footer/qr-code.png";
+import imgQR from "/footer/qr-code.svg";
 
 import "./Footer.scss";
 
@@ -28,20 +28,22 @@ const Footer = () => {
 
         <div className="footer__content">
           <div className="links">
-            <h2 className="links__title">Access to early releases in the app</h2>
+            <h2 className="links__title">
+              Access to early releases in the app
+            </h2>
             <div className="links__btns-and-qr">
               <div className="links__buttons-link">
                 <ButtonAppDownload
                   Icon={IconAppleIphone}
                   text="Download on the"
                   title="App Store"
-                  fontSize="38"
+                  fontSize="2.3"
                 />
                 <ButtonAppDownload
                   Icon={IconGooglePlay}
                   text="Get it on"
                   title="Google Play"
-                  fontSize="31"
+                  fontSize="2"
                 />
               </div>
               <div className="links__qr-wrapper">
@@ -54,7 +56,9 @@ const Footer = () => {
             <h2 className="contacts__title">Contacts</h2>
             <div className="contacts__phone">
               <ButtonContactPhone />
-              <span className="contacts__text">Бесплатная горячая линия Ежедневно с 9 до 21</span>
+              <span className="contacts__text">
+                Бесплатная горячая линия Ежедневно с 9 до 21
+              </span>
             </div>
 
             <div className="contacts__email">
