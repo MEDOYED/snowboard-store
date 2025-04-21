@@ -21,6 +21,14 @@ const ButtonFilterTab = ({ children, className }) => {
     setIsActive((prev) => !prev);
   };
 
+  const onHandleMouseEnter = () => {
+    setIsActive(true);
+  };
+
+  const onHandleMouseLeave = () => {
+    setIsActive(false);
+  };
+
   // clicked filter
   let mainCategory = "";
   const filterItem = matchedItem?.navItem;
@@ -31,11 +39,17 @@ const ButtonFilterTab = ({ children, className }) => {
   return (
     <li className={classNames("button-filter-tab", className)}>
       <Link to={"/categories" + `/${mainCategory}`}>
-        <button onClick={onHandleClick}>{children}</button>
+        <button onClick={onHandleClick} onMouseEnter={onHandleMouseEnter}>
+          {children}
+        </button>
       </Link>
       <AnimatePresence>
         {hasDropdown && isActive && (
-          <DropdownMenu mainCategory={mainCategory} items={matchedItem.dropdown} />
+          <DropdownMenu
+            mainCategory={mainCategory}
+            items={matchedItem.dropdown}
+            onHandleMouseLeave={onHandleMouseLeave}
+          />
         )}
       </AnimatePresence>
     </li>
