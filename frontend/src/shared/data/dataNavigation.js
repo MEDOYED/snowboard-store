@@ -4,9 +4,43 @@ const dataNavigation = [
   },
   {
     navItem: "Snowboard",
+    CardSale: [
+      {
+        imageSrc: "/img/snowboard/1.jpeg",
+        alt: "DC snowboard and bindings promotion from Tech Guide",
+        saleDesc: "TechGuide snowboard promotion",
+      },
+      {
+        imageSrc: "/img/snowboard/2.jpeg",
+        alt: "Snowboarder performing a high jump trick in front of a mountain lodge",
+        saleDesc: "DC Lodge 43 promotion",
+      },
+      {
+        imageSrc: "/img/snowboard/3.jpeg",
+        alt: "Snowboarder performing trick promotion from Flow Boards",
+        saleDesc: "Flow Boards promotion",
+      },
+    ],
   },
   {
     navItem: "Ski",
+    CardSale: [
+      {
+        imageSrc: "/img/ski/1.webp",
+        alt: "Child skiing downhill in blue ski gear",
+        saleDesc: "Junior Ski Gear Deal",
+      },
+      {
+        imageSrc: "/img/ski/2.webp",
+        alt: "Skier in yellow jacket carving through snowy slope",
+        saleDesc: "Pro Performance Ski Sale",
+      },
+      {
+        imageSrc: "/img/ski/3.webp",
+        alt: "Man skiing fast in bright sunlight wearing green jacket",
+        saleDesc: "Sunlit Speed Ski Promo",
+      },
+    ],
   },
   {
     navItem: "Skate",
