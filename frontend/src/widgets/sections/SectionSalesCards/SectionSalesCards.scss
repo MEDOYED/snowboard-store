@@ -1,7 +1,13 @@
 .section-sales-cards {
   display: grid;
-  // grid-template-columns: 45% 10% 45%;
-  grid-template-columns: repeat(auto-fit, minmax(66rem, 1fr));
-  grid-template-columns: repeat(2, 1fr);
+
+  &.cards--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &.cards--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   gap: 2.6rem;
 }

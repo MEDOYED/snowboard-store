@@ -19,7 +19,7 @@ const PageHome = () => {
       </div>
 
       <div className="home-page__sales-cards">
-        <SectionSalesCards />
+        <SectionSalesCards numberOfCards={2} />
       </div>
 
       <div className="home-page__section-product-slider">
