@@ -9,7 +9,7 @@ const BannerCategories = () => {
       <div className="container">
         <PathUrl />
 
-        <SectionSalesCards />
+        <SectionSalesCards numberOfCards={3} />
       </div>
     </section>
   );
