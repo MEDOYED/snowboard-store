@@ -35,22 +35,16 @@ const ButtonFilterTab = ({ children, className }) => {
     mainCategory = filterItem.toLowerCase();
   }
   return (
-    <li className={classNames("button-filter-tab", className)}>
+    <li
+      className={classNames("button-filter-tab", className)}
+      onMouseLeave={onHandleMouseLeave}
+      onMouseEnter={onHandleMouseEnter}>
       <Link to={"/categories" + `/${mainCategory}`}>
-        <button
-          onClick={onHandleClick}
-          onMouseEnter={onHandleMouseEnter}
-          onMouseLeave={onHandleMouseLeave}>
-          {children}
-        </button>
+        <button onClick={onHandleClick}>{children}</button>
       </Link>
       <AnimatePresence>
         {hasDropdown && isActive && (
-          <DropdownMenu
-            mainCategory={mainCategory}
-            items={matchedItem.dropdown}
-            onHandleMouseLeave={onHandleMouseLeave}
-          />
+          <DropdownMenu mainCategory={mainCategory} items={matchedItem.dropdown} />
         )}
       </AnimatePresence>
     </li>
