@@ -37,7 +37,10 @@ const ButtonFilterTab = ({ children, className }) => {
   return (
     <li className={classNames("button-filter-tab", className)}>
       <Link to={"/categories" + `/${mainCategory}`}>
-        <button onClick={onHandleClick} onMouseEnter={onHandleMouseEnter}>
+        <button
+          onClick={onHandleClick}
+          onMouseEnter={onHandleMouseEnter}
+          onMouseLeave={onHandleMouseLeave}>
           {children}
         </button>
       </Link>
