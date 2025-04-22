@@ -8,21 +8,17 @@ const SectionBrands = () => {
   const { childSlug } = useParams();
   console.log(childSlug);
 
-  const childSlugCapitalized =
-    childSlug && childSlug.length > 0 ? childSlug[0].toUpperCase() + childSlug.slice(1) : "";
-
-  const currentElem = childSlugCapitalized
-    ? dataNavigation[11].dropdown.find((elem) => elem.title === childSlugCapitalized)
-    : "";
+  const currentElem = dataNavigation[11].dropdown.find((elem) => elem.url === `/${childSlug}`);
 
   return (
     <section className="section-brands">
       <div className="section-brands__title">
         {/* <img src="" alt="" /> */}
-        <h2 className="section-brands__title">bob</h2>
+        <h2 className="section-brands__title-text">{currentElem?.title || "Brand not found"}</h2>
       </div>
-      <p></p>
-      {currentElem.description}
+      <p className="section-brands__text">
+        {currentElem?.description || "No description avaliable"}
+      </p>
     </section>
   );
 };

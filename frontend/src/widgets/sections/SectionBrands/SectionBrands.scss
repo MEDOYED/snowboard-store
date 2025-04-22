@@ -1,0 +1,19 @@
+.section-brands {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  background-image: url("/img/banners/brands-bg.png");
+  height: 400px;
+  color: #fff;
+  padding: 7rem 0;
+  &__title {
+    &-text {
+      font-size: 4rem;
+    }
+  }
+
+  &__text {
+    max-width: 70rem;
+  }
+}
