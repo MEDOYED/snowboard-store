@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 
 import DropdownMenu from "../../../../widgets/dropdowns/DropdownMenu/DropdownMenu";
@@ -8,8 +8,6 @@ import DropdownMenu from "../../../../widgets/dropdowns/DropdownMenu/DropdownMen
 import dataNavigation from "../../../data/dataNavigation";
 
 import "./ButtonFilterTab.scss";
-
-const MotionDiv = motion.div;
 
 const ButtonFilterTab = ({ children, className }) => {
   const matchedItem = dataNavigation.find((elem) => elem.navItem === children);
@@ -37,19 +35,16 @@ const ButtonFilterTab = ({ children, className }) => {
     mainCategory = filterItem.toLowerCase();
   }
   return (
-    <li className={classNames("button-filter-tab", className)}>
+    <li
+      className={classNames("button-filter-tab", className)}
+      onMouseLeave={onHandleMouseLeave}
+      onMouseEnter={onHandleMouseEnter}>
       <Link to={"/categories" + `/${mainCategory}`}>
-        <button onClick={onHandleClick} onMouseEnter={onHandleMouseEnter}>
-          {children}
-        </button>
+        <button onClick={onHandleClick}>{children}</button>
       </Link>
       <AnimatePresence>
         {hasDropdown && isActive && (
-          <DropdownMenu
-            mainCategory={mainCategory}
-            items={matchedItem.dropdown}
-            onHandleMouseLeave={onHandleMouseLeave}
-          />
+          <DropdownMenu mainCategory={mainCategory} items={matchedItem.dropdown} />
         )}
       </AnimatePresence>
     </li>

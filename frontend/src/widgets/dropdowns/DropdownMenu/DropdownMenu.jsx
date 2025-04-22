@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./DropdownMenu.scss";
 
-const DropdownMenu = ({ items, mainCategory, onHandleMouseLeave }) => {
+const DropdownMenu = ({ items, mainCategory }) => {
   if (!items || items.length === 0) return null;
 
   return (
@@ -13,8 +13,7 @@ const DropdownMenu = ({ items, mainCategory, onHandleMouseLeave }) => {
       exit={{ scaleY: 0 }}
       transition={{ duration: 0.2, ease: "easeInOut" }}
       className="dropdown-menu__wrapper"
-      style={{ transformOrigin: "top", overflow: "hidden" }}
-      onMouseLeave={onHandleMouseLeave}>
+      style={{ transformOrigin: "top", overflow: "hidden" }}>
       <ul className="dropdown-menu">
         {items.map((item, index) => (
           <li className="dropdown-menu__item" key={index}>
