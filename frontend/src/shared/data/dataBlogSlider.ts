@@ -1,6 +1,6 @@
 import { BlogSlide } from "../types/typesBlogSlider";
 
-export const blogSlides: BlogSlide[] = [
+export const dataBlogSlides: BlogSlide[] = [
   {
     id: 1,
     mediaType: "image",
