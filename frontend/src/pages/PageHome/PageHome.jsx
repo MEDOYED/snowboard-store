@@ -1,4 +1,4 @@
-import SectionFeaturedIn from "../../widgets/sections/SectionFeaturedIn/SectionFeaturedIn.jsx";
+import SectionBrandsLogos from "../../widgets/sections/SectionBrandsLogos/SectionBrandsLogos.jsx";
 import PageHomeSlider from "./PageHomeSlider/PageHomeSlider.jsx";
 import SectionSalesCards from "../../widgets/sections/SectionSalesCards/SectionSalesCards.jsx";
 import SectionProductSlider from "../../widgets/sections/SectionProductSlider/SectionProductSlider.jsx";
@@ -15,7 +15,7 @@ const PageHome = () => {
       </div>
 
       <div className="home-page__featured-in">
-        <SectionFeaturedIn />
+        <SectionBrandsLogos />
       </div>
 
       <div className="home-page__sales-cards">

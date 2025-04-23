@@ -1,9 +1,6 @@
 import SectionProductCategories from "../../widgets/sections/SectionProductCategories/SectionProductCategories";
 import BannerCategories from "../../widgets/banners/BannerCategories/BannerCategories";
 
-// temp
-import SectionBrands from "../../widgets/sections/SectionBrands/SectionBrands";
-
 import "./PageCategories.scss";
 
 const PageCategories = () => {
@@ -12,8 +9,6 @@ const PageCategories = () => {
       <BannerCategories />
 
       <SectionProductCategories />
-
-      <SectionBrands />
     </main>
   );
 };

@@ -1,12 +1,16 @@
 .section-sales-cards {
   display: grid;
+  padding: 3rem 0;
 
   &.cards--2 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  &.cards--3 {
+  &__cards--3 {
+    display: grid;
+    grid-auto-flow: column;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
   gap: 2.6rem;
