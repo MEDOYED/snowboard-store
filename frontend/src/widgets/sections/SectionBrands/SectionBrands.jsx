@@ -17,7 +17,11 @@ const SectionBrands = () => {
       <div className="section-brands__content container">
         <PathUrl />
         <div className="section-brands__title">
-          {/* <img src="" alt="" /> */}
+          <img
+            className="section-brands__title-img"
+            src={currentElem?.img}
+            alt={currentElem?.imgAlt}
+          />
           <h2 className="section-brands__title-text">{currentElem?.title || "Brand not found"}</h2>
         </div>
         <p className="section-brands__text">
