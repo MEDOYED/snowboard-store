@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 
-import techGuidePromotion from "../../../app/img/sale-card-imgs/Tech_Guide-Promotion.jpeg";
-import flowBoardsPromotion from "../../../app/img/sale-card-imgs/Flow_Boards_promotion.jpeg";
 import CardSale from "../../../shared/cards/CardSale/CardSale";
+import PathUrl from "../../../shared/UI/paths/PathUrl/PathUrl";
 
 import dataNavigation from "../../../shared/data/dataNavigation";
+import flowBoardsPromotion from "../../../app/img/sale-card-imgs/Flow_Boards_promotion.jpeg";
+import techGuidePromotion from "../../../app/img/sale-card-imgs/Tech_Guide-Promotion.jpeg";
 
 import "./SectionSalesCards.scss";
 
@@ -37,14 +38,17 @@ const SectionSalesCards = ({ numberOfCards }) => {
 
       {numberOfCards === 3 && currentNavItem?.CardSale && (
         <>
-          {currentNavItem.CardSale.map((elem, index) => (
-            <CardSale
-              key={index}
-              imageSrc={elem.imageSrc}
-              alt={elem.alt}
-              saleDesc={elem.saleDesc}
-            />
-          ))}
+          <PathUrl />
+          <div className="section-sales-cards__cards--3">
+            {currentNavItem.CardSale.map((elem, index) => (
+              <CardSale
+                key={index}
+                imageSrc={elem.imageSrc}
+                alt={elem.alt}
+                saleDesc={elem.saleDesc}
+              />
+            ))}
+          </div>
         </>
       )}
     </section>

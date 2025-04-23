@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 
+import PathUrl from "../../../shared/UI/paths/PathUrl/PathUrl";
+
 import dataNavigation from "../../../shared/data/dataNavigation";
 
 import "./SectionBrands.scss";
@@ -12,6 +14,7 @@ const SectionBrands = () => {
 
   return (
     <section className="section-brands">
+      <PathUrl />
       <div className="section-brands__title">
         {/* <img src="" alt="" /> */}
         <h2 className="section-brands__title-text">{currentElem?.title || "Brand not found"}</h2>
