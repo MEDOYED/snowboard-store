@@ -14,14 +14,16 @@ const SectionBrands = () => {
 
   return (
     <section className="section-brands">
-      <PathUrl />
-      <div className="section-brands__title">
-        {/* <img src="" alt="" /> */}
-        <h2 className="section-brands__title-text">{currentElem?.title || "Brand not found"}</h2>
+      <div className="section-brands__content container">
+        <PathUrl />
+        <div className="section-brands__title">
+          {/* <img src="" alt="" /> */}
+          <h2 className="section-brands__title-text">{currentElem?.title || "Brand not found"}</h2>
+        </div>
+        <p className="section-brands__text">
+          {currentElem?.description || "No description avaliable"}
+        </p>
       </div>
-      <p className="section-brands__text">
-        {currentElem?.description || "No description avaliable"}
-      </p>
     </section>
   );
 };

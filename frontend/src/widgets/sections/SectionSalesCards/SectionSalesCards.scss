@@ -1,5 +1,6 @@
 .section-sales-cards {
   display: grid;
+  padding: 3rem 0;
 
   &.cards--2 {
     grid-template-columns: repeat(2, 1fr);
