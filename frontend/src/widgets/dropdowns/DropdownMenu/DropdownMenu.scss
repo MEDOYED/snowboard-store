@@ -9,10 +9,18 @@
     transition: opacity 0.2s ease;
   }
 
+  &__list {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__item {
     margin-bottom: 0.5rem;
     cursor: pointer;
     transition: opacity 0.2s ease;
+    margin: 6rem 0;
 
     &:hover {
       opacity: 1 !important;

@@ -44,7 +44,11 @@ const ButtonFilterTab = ({ children, className }) => {
       </Link>
       <AnimatePresence>
         {hasDropdown && isActive && (
-          <DropdownMenu mainCategory={mainCategory} items={matchedItem.dropdown} />
+          <DropdownMenu
+            mainCategory={mainCategory}
+            items={matchedItem.dropdown}
+            setIsActive={setIsActive}
+          />
         )}
       </AnimatePresence>
     </li>
