@@ -14,13 +14,17 @@ const DropdownMenu = ({ items, mainCategory }) => {
       transition={{ duration: 0.2, ease: "easeInOut" }}
       className="dropdown-menu__wrapper"
       style={{ transformOrigin: "top", overflow: "hidden" }}>
-      <ul className="dropdown-menu">
-        {items.map((item, index) => (
-          <li className="dropdown-menu__item" key={index}>
-            <Link to={`/categories/${mainCategory}${item.url}`}>{item.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className="dropdown-menu">
+        <ul className="dropdown-menu__list container">
+          {items.map((item, index) => (
+            <li className="dropdown-menu__item" key={index}>
+              <Link to={`/categories/${mainCategory}${item.url}`}>
+                <img src={item.img} alt="" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </motion.div>
   );
 };
