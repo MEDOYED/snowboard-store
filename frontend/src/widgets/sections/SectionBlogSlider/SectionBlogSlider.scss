@@ -1,0 +1,91 @@
+@mixin blog-link {
+  text-decoration: underline;
+}
+
+.section-blog-slider {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+
+  .slider-track {
+    overflow: hidden;
+    display: flex;
+
+    // transform: translateX(-170rem);
+
+    .slide {
+      display: flex;
+      min-width: 90vw;
+
+      color: #fff;
+
+      &__img {
+        object-fit: contain;
+
+        min-width: 50%;
+        height: auto;
+      }
+
+      .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 7.5rem;
+
+        padding: 5rem 7.5rem 7.5rem 5rem;
+
+        .blog-header {
+          display: flex;
+          justify-content: space-between;
+
+          &__link {
+            @include blog-link;
+          }
+        }
+
+        .blog-body {
+          margin-bottom: auto;
+
+          &__blog-title {
+            font-size: clamp(2rem, 1vw + 1.5rem, 4rem);
+            margin-bottom: 4rem;
+          }
+
+          &__blog-description {
+            $line-clamp: 6;
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: $line-clamp;
+            line-clamp: $line-clamp;
+            overflow: hidden;
+
+            color: #9b9b9b;
+          }
+        }
+
+        .blog-footer {
+
+          &__link {
+            @include blog-link;
+
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+
+
+            &::before {
+              content: "";
+              display: inline-block;
+
+              width: 3rem;
+              height: 1px;
+
+              background-color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
