@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./DropdownMenu.scss";
 
-const DropdownMenu = ({ items, mainCategory }) => {
+const DropdownMenu = ({ items, mainCategory, setIsActive }) => {
   if (!items || items.length === 0) return null;
 
   return (
@@ -17,7 +17,7 @@ const DropdownMenu = ({ items, mainCategory }) => {
       <div className="dropdown-menu">
         <ul className="dropdown-menu__list container">
           {items.map((item, index) => (
-            <li className="dropdown-menu__item" key={index}>
+            <li className="dropdown-menu__item" key={index} onClick={() => setIsActive(false)}>
               <Link to={`/categories/${mainCategory}${item.url}`}>
                 <img src={item.img} alt="" />
               </Link>
