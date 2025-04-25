@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
 import { BlogSlide } from "../../../shared/types/typesBlogSlider";
 
@@ -35,8 +36,8 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
                 className="slide__img"
               />
 
-              <div className="slide_text_wrapper text-wrapper">
-                <header className="text_wrapper__blog-header blog-header">
+              <div className="slide__text-wrapper text-wrapper">
+                <header className="text-wrapper__blog-header blog-header">
                   <h4 className="blog-header__section-heading">Blogs</h4>
                   <a href="#" className="blog-header__link">
                     All blogs
@@ -60,6 +61,14 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
           );
         })}
       </div>
+
+      <button className="section-blog-slider__slide-btn left">
+        <IoChevronBack />
+      </button>
+
+      <button className="section-blog-slider__slide-btn right">
+        <IoChevronForward />
+      </button>
     </section>
   );
 };

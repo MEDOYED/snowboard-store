@@ -88,4 +88,30 @@
       }
     }
   }
+
+  &__slide-btn {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+
+    padding: 3.5rem .3rem;
+    box-shadow: -4px 4px 4px 0px rgba(0, 0, 0, 0.05);
+
+    background-color: rgba(255, 255, 255, 0.9);
+
+    svg {
+      display: block;
+
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    &.left {
+      left: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
+  }
 }
