@@ -1,4 +1,4 @@
-import SectionProductCategories from "../../widgets/sections/SectionProductCategories/SectionProductCategories";
+import SliderProductCategories from "../../widgets/sliders/SliderProductCategories/SliderProductCategories";
 import BannerCategories from "../../widgets/banners/BannerCategories/BannerCategories";
 
 import "./PageCategories.scss";
@@ -8,7 +8,7 @@ const PageCategories = () => {
     <main className="page-categories">
       <BannerCategories />
 
-      <SectionProductCategories />
+      <SliderProductCategories />
     </main>
   );
 };
