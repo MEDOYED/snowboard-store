@@ -1,0 +1,54 @@
+.slider-product-categories {
+  position: relative;
+  .prev-button {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5rem;
+    height: 5rem;
+    left: -5rem;
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  .item {
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    transition: scale 0.2s ease;
+    scale: 0.8;
+    width: 15rem;
+    height: 15rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      scale: 0.95;
+    }
+
+    img {
+      width: 12rem;
+      height: 12rem;
+    }
+  }
+
+  .next-button {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5rem;
+    height: 5rem;
+    right: -5rem;
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+}
