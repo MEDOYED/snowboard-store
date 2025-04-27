@@ -4,6 +4,9 @@ import SectionSalesCards from "../../widgets/sections/SectionSalesCards/SectionS
 import SectionProductSlider from "../../widgets/sections/SectionProductSlider/SectionProductSlider.jsx";
 import PageHomeBanner from "./PageHomeBanner/PageHomeBanner.jsx";
 import SectionLoyaltyAndDiscount from "../../widgets/sections/SectionLoyaltyAndDiscount/SectionLoyaltyAndDiscount.jsx";
+import SectionBlogSlider from "../../widgets/sections/SectionBlogSlider/SectionBlogSlider.js";
+
+import { dataBlogSlides } from "../../shared/data/dataBlogSlider.js";
 
 import "./PageHome.scss";
 
@@ -38,6 +41,10 @@ const PageHome = () => {
           sectionHeading="DC Shoes popular in collection"
           productsJsonPath={"/data/NEW_PRODUCTS.json"}
         />
+      </div>
+
+      <div className="home-page__section_blog-slider">
+        <SectionBlogSlider slides={dataBlogSlides} />
       </div>
 
       <div className="home-page__section-loyalty-and-discount">
