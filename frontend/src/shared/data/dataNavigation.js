@@ -64,6 +64,23 @@ const dataNavigation = [
   },
   {
     navItem: "Longboard",
+    CardSale: [
+      {
+        imageSrc: "/img/longboard/1.jpg",
+        alt: "Longboard rider carving down a steep mountain road",
+        saleDesc: "EXTREME MOUNTAIN RIDE DEAL",
+      },
+      {
+        imageSrc: "/img/longboard/2.jpg",
+        alt: "Two longboarders racing downhill with sunset in the background",
+        saleDesc: "DOWNHILL DUO PROMO",
+      },
+      {
+        imageSrc: "/img/longboard/3.jpg",
+        alt: "Longboarder sliding on a sharp curve at sunset",
+        saleDesc: "SUNSET SLIDE SALE",
+      },
+    ],
   },
   {
     navItem: "Wakeboard",
