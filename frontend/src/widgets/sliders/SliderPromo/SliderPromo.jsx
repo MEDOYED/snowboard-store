@@ -107,17 +107,17 @@ const SliderPromo = ({ children }) => {
   }, []);
 
   return (
-    <div className="slider-promo">
+    <div
+      className="slider-promo"
+      onMouseEnter={() => clearInterval(intervalRef.current)}
+      onMouseLeave={() => {
+        intervalRef.current = setInterval(handleRightArrowClick, 5000);
+      }}>
       <div className="slider-promo__arrow left" onClick={handleLeftArrowClick}>
         <FaChevronLeft className="slider-promo__icon" />
       </div>
 
-      <div
-        className="slider-promo__window"
-        onMouseEnter={() => clearInterval(intervalRef.current)}
-        onMouseLeave={() => {
-          intervalRef.current = setInterval(handleRightArrowClick, 5000);
-        }}>
+      <div className="slider-promo__window">
         <div
           className="slider-promo__all-items-container"
           style={{ transform: `translateX(${offset}px)`, gap: `${PAGE_GAP}px` }}>
