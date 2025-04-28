@@ -1,6 +1,7 @@
 .section-sales-cards {
   display: grid;
   padding: 3rem 0;
+  gap: 2.6rem;
 
   &.cards--2 {
     grid-template-columns: repeat(2, 1fr);
@@ -12,6 +13,4 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
-
-  gap: 2.6rem;
 }
