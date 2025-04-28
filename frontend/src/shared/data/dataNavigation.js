@@ -44,6 +44,23 @@ const dataNavigation = [
   },
   {
     navItem: "Skate",
+    CardSale: [
+      {
+        imageSrc: "/img/skate/2.webp",
+        alt: "Skateboard lying on an empty bridge at sunset",
+        saleDesc: "URBAN SKATE STYLE DEAL",
+      },
+      {
+        imageSrc: "/img/skate/1.jpg",
+        alt: "Skater performing a trick during a pink sunset",
+        saleDesc: "SUNSET SKATE SALE",
+      },
+      {
+        imageSrc: "/img/skate/3.jpg",
+        alt: "Skater jumping with a skateboard against an orange sunset",
+        saleDesc: "EPIC AIR SKATE PROMO",
+      },
+    ],
   },
   {
     navItem: "Longboard",
