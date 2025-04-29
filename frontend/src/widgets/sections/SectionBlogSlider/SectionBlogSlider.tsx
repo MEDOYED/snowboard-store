@@ -10,11 +10,13 @@ import SlideBlog from "../../../shared/slides/SlideBlog/SlideBlog";
 
 import "./SectionBlogSlider.scss";
 
-type VisibleSlides<T> = [
-  CircularLinkedListNode<T>,
-  CircularLinkedListNode<T>,
-  CircularLinkedListNode<T>,
-];
+type VisibleSlides<T> = CircularLinkedListNode<T>[];
+
+// type VisibleSlides<T> = [
+//   CircularLinkedListNode<T>,
+//   CircularLinkedListNode<T>,
+//   CircularLinkedListNode<T>,
+// ];
 
 type Direction = "next" | "prev";
 
@@ -28,6 +30,11 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
     new CircularLinkedList(),
   );
   const slideDirectionRef = useRef<Direction | null>(null);
+  /** used to center slider only once, when visibleSlides is populated */
+  const hasAnimated = useRef<boolean>(false);
+  /** flag for next/prev slide functions */
+  const needsAnimating = useRef<boolean>(false);
+
   // const sliderRef = useRef<HTMLDivElement | null>(null);
   // const isAnimating = useRef<boolean>(true);
   const [scope, animate] = useAnimate();
@@ -37,7 +44,7 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
     const currentNode = listRef.current.getCurrentNode();
 
     setVisibleSlides([currentNode.prev!, currentNode, currentNode.next!]);
-  }, []);
+  }, [slides]);
 
   const getSlideWidth: () => number | null = () => {
     const slide = scope.current?.querySelector(
@@ -47,27 +54,100 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
   };
 
   useEffect(() => {
-    const slideWidth = getSlideWidth();
+    if (!hasAnimated.current && visibleSlides !== null) {
+      const slideWidth = getSlideWidth();
 
-    if (slideWidth) {
-      animate(scope.current, { x: -slideWidth }, { duration: 0 });
+      if (slideWidth) {
+        animate(scope.current, { x: -slideWidth }, { duration: 0 });
+      }
+
+      hasAnimated.current = true;
     }
   }, [visibleSlides]);
 
   const nextSlide = async () => {
-    const slideWidth = getSlideWidth();
-    slideDirectionRef.current = "next";
+    const slideWidth = getSlideWidth()!;
+    // slideDirectionRef.current = "next";
+    // needsAnimating.current = true;
+
+    setVisibleSlides((prevVisibleSlides) => {
+      const nextNextSlide =
+        prevVisibleSlides![prevVisibleSlides!.length - 1].next!;
+
+      // nextNextSlide.value.id = crypto.randomUUID();
+
+      return [...prevVisibleSlides!, nextNextSlide];
+    });
+
+    await new Promise((resolve) => requestAnimationFrame(resolve));
 
     await animate(
       scope.current,
-      { x: -slideWidth! * 2 },
+      { x: -2 * slideWidth },
       { type: "spring", stiffness: 300, damping: 30 },
     );
 
-    rotateBuffer();
+    setVisibleSlides((prevVisibleSlides) => {
+      const copy = [...prevVisibleSlides!];
+      copy.shift();
 
-    await animate(scope.current, { x: -slideWidth! }, { duration: 0 });
+      return copy;
+    });
+
+    // await new Promise((resolve) => requestAnimationFrame(resolve));
+
+    await animate(scope.current, { x: -slideWidth }, { duration: 0 });
   };
+
+  // const nextSlide = async () => {
+  //   const slideWidth = getSlideWidth();
+  //   slideDirectionRef.current = "next";
+  //   needsAnimating.current = true;
+  //
+  //   setVisibleSlides((prevVisibleSlides) => {
+  //     const [, current, next] = prevVisibleSlides!;
+  //
+  //     return [current, next, next.next!];
+  //   });
+
+  // await new Promise((resolve) => requestAnimationFrame(resolve));
+
+  // await animate(scope.current, { x: 0 }, { duration: 0 });
+  //
+  // await animate(
+  //   scope.current,
+  //   { x: -slideWidth! },
+  //   { type: "spring", stiffness: 300, damping: 30 },
+  // );
+
+  // rotateBuffer();
+
+  // await animate(scope.current, { x: -slideWidth! }, { duration: 0 });
+  // };
+
+  // useEffect(() => {
+  //   console.log("visibleSlides now:", visibleSlides);
+  // }, [visibleSlides]);
+  //
+  // useEffect(() => {
+  //   if (!needsAnimating.current) return;
+  //
+  //   const playAnimation = async () => {
+  //     const slideWidth = getSlideWidth();
+  //
+  //     await animate(scope.current, { x: 0 }, { duration: 0 });
+  //     console.log("useEffect called");
+  //
+  //     await animate(
+  //       scope.current,
+  //       { x: -slideWidth! },
+  //       { type: "spring", stiffness: 300, damping: 30 },
+  //     );
+  //   };
+  //
+  //   playAnimation();
+  //   needsAnimating.current = false;
+  // }, [visibleSlides]);
 
   const prevSlide = async () => {
     const slideWidth = getSlideWidth();
@@ -85,9 +165,6 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
   };
 
   const rotateBuffer = (): void => {
-    // setIsAnimating(false);
-    // isAnimating.current = false;
-    // setOffsetX(0);
     if (slideDirectionRef.current === "next") {
       setVisibleSlides((prevVisibleSlides) => {
         const [, current, next] = prevVisibleSlides!;
@@ -101,7 +178,6 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
         return [prev.prev!, prev, current];
       });
     }
-    // setIsAnimating(true);
   };
 
   // useEffect(() => {
@@ -126,8 +202,11 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
         ref={scope}
       >
         {visibleSlides &&
-          visibleSlides.map((slide) => (
-            <SlideBlog slide={slide.value} key={slide.value.id} />
+          visibleSlides.map((slide, i) => (
+            <SlideBlog
+              slide={slide.value}
+              key={i === 4 ? slide.value.id : slide.value.id + Math.random()}
+            />
           ))}
       </motion.div>
 
