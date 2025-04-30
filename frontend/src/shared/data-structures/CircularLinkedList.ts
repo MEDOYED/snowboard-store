@@ -2,13 +2,16 @@ export class CircularLinkedListNode<T> {
   value: T;
   next: CircularLinkedListNode<T> | null;
   prev: CircularLinkedListNode<T> | null;
+  id?: number;
 
   constructor(
     value: T,
+    id?: number,
     next?: CircularLinkedListNode<T> | null,
     prev?: CircularLinkedListNode<T> | null,
   ) {
     this.value = value;
+    this.id = id;
     this.next = next ?? null;
     this.prev = prev ?? null;
   }
@@ -24,15 +27,16 @@ export default class CircularLinkedList<T> {
   }
 
   public push(value: T) {
-    const newNode = new CircularLinkedListNode(value);
-
     if (this.head === null) {
+      const newNode = new CircularLinkedListNode(value, 1);
+
       this.head = newNode;
 
       newNode.prev = newNode;
       newNode.next = newNode;
     } else {
       const tail = this.head.prev!;
+      const newNode = new CircularLinkedListNode(value, tail.id! + 1);
 
       tail.next = newNode;
       newNode.prev = tail;
