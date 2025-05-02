@@ -25,31 +25,34 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
     new CircularLinkedList(),
   );
 
-  const [scope, animate] = useAnimate<HTMLDivElement>();
+  const [sliderTrackRef, animate] = useAnimate<HTMLDivElement>();
+
+  const createNodeAndKey = <T,>(
+    node: CircularLinkedListNode<T>,
+  ): NodeAndKey<T> => ({
+    node,
+    key: node.id! + Math.random(),
+  });
 
   useEffect(() => {
     listRef.current = CircularLinkedList.newFromArray(slides);
     const currentNode = listRef.current.getCurrentNode();
 
     const slidesArr: VisibleSlides<BlogSlide> = [
-      {
-        node: currentNode.prev!.prev!,
-        key: currentNode.prev!.prev!.id! + Math.random(),
-      },
-      { node: currentNode.prev!, key: currentNode.prev!.id! + Math.random() },
+      createNodeAndKey(currentNode.prev!.prev!),
+      createNodeAndKey(currentNode.prev!),
+
       { node: currentNode, key: currentNode.id! },
-      { node: currentNode.next!, key: currentNode.next!.id! + Math.random() },
-      {
-        node: currentNode.next!.next!,
-        key: currentNode.next!.next!.id! + Math.random(),
-      },
+
+      createNodeAndKey(currentNode.next!),
+      createNodeAndKey(currentNode.next!.next!),
     ];
 
     setVisibleSlides(slidesArr);
   }, [slides]);
 
   const getSlideWidth: () => number | null = () => {
-    const slide = scope.current?.querySelector(
+    const slide = sliderTrackRef.current?.querySelector(
       ".slide-blog",
     ) as HTMLElement | null;
 
@@ -58,8 +61,8 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
     } else return null;
   };
 
-  /** calculates offsetX for the sliderTrack, needed to keep it centered */
-  const sliderTractStartingPosition = (): number => {
+  /** Calculate offset to center the current slide in the track (middle of 5) */
+  const getSliderTrackCenterOffset = (): number => {
     return -2 * getSlideWidth()!;
   };
 
@@ -70,13 +73,13 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
    * - may have a better have a beter solution
    */
   useEffect(() => {
-    const sliderTrack = scope.current;
+    const sliderTrack = sliderTrackRef.current;
     if (!sliderTrack) return;
 
     const resizeObserver = new ResizeObserver(() => {
       animate(
         sliderTrack,
-        { x: sliderTractStartingPosition() },
+        { x: getSliderTrackCenterOffset() },
         { duration: 0 },
       );
     });
@@ -84,14 +87,14 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
     resizeObserver.observe(sliderTrack);
 
     return () => resizeObserver.disconnect();
-  }, [scope]);
+  }, [sliderTrackRef]);
 
   const nextSlide = async () => {
     const slideWidth = getSlideWidth()!;
 
     await animate(
-      scope.current,
-      { x: sliderTractStartingPosition() - slideWidth },
+      sliderTrackRef.current,
+      { x: getSliderTrackCenterOffset() - slideWidth },
       { type: "spring", stiffness: 300, damping: 30 },
     );
 
@@ -101,17 +104,16 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
 
       const prevLastSlide =
         prevVisibleSlidesCopy[prevVisibleSlidesCopy.length - 1];
-      const newLastSlide: NodeAndKey<BlogSlide> = {
-        node: prevLastSlide.node.next!,
-        key: prevLastSlide.node.next!.id! + Math.random(),
-      };
+      const newLastSlide: NodeAndKey<BlogSlide> = createNodeAndKey(
+        prevLastSlide.node.next!,
+      );
 
       return [...prevVisibleSlidesCopy, newLastSlide];
     });
 
     await animate(
-      scope.current,
-      { x: sliderTractStartingPosition() },
+      sliderTrackRef.current,
+      { x: getSliderTrackCenterOffset() },
       { duration: 0 },
     );
   };
@@ -120,8 +122,8 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
     const slideWidth = getSlideWidth()!;
 
     await animate(
-      scope.current,
-      { x: slideWidth + sliderTractStartingPosition() },
+      sliderTrackRef.current,
+      { x: slideWidth + getSliderTrackCenterOffset() },
       { type: "spring", stiffness: 300, damping: 30 },
     );
 
@@ -130,17 +132,16 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
       prevVisibleSlidesCopy.pop();
 
       const prevFirstSlide = prevVisibleSlidesCopy[0];
-      const newFirstSlide: NodeAndKey<BlogSlide> = {
-        node: prevFirstSlide.node.prev!,
-        key: prevFirstSlide.node.prev!.id! + Math.random(),
-      };
+      const newFirstSlide: NodeAndKey<BlogSlide> = createNodeAndKey(
+        prevFirstSlide.node.prev!,
+      );
 
       return [newFirstSlide, ...prevVisibleSlidesCopy];
     });
 
     await animate(
-      scope.current,
-      { x: sliderTractStartingPosition() },
+      sliderTrackRef.current,
+      { x: getSliderTrackCenterOffset() },
       { duration: 0 },
     );
   };
@@ -149,7 +150,7 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
     <section className="section-blog-slider">
       <motion.div
         className="section-blog-slider__slider-track slider-track"
-        ref={scope}
+        ref={sliderTrackRef}
       >
         {visibleSlides &&
           visibleSlides.map((slideWithKey) => (
