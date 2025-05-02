@@ -1,18 +1,12 @@
-import { motion } from "motion/react";
-
 import { BlogSlide } from "../../types/typesBlogSlider";
 
 import "./SlideBlog.scss";
 
 const SlideBlog: React.FC<{ slide: BlogSlide }> = ({ slide }) => {
   return (
-    <motion.article
+    <article
       className="slide-blog"
       style={{ backgroundColor: slide.backgroundColor }}
-      // initial={{ x: 50 }}
-      // animate={{ x: 0 }}
-      // exit={{ x: -50 }}
-      // transition={{ duration: 0.5 }}
     >
       <img
         src={slide.mediaUrl}
@@ -39,7 +33,7 @@ const SlideBlog: React.FC<{ slide: BlogSlide }> = ({ slide }) => {
           </a>
         </footer>
       </div>
-    </motion.article>
+    </article>
   );
 };
 
