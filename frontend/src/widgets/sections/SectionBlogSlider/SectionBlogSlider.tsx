@@ -17,6 +17,13 @@ type NodeAndKey<T> = {
   key: number;
 };
 
+/**
+ * starting position of the slider
+ * equals to `-2 * slideWidth`
+ * assigned afer slide render
+ */
+let SLIDER_STARTING_POSITION: number;
+
 const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
   const [visibleSlides, setVisibleSlides] =
     useState<VisibleSlides<BlogSlide> | null>(null);
@@ -28,14 +35,24 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
   /** used to center slider only once, when visibleSlides is populated */
   const hasAnimated = useRef<boolean>(false);
 
+  const useEffectNow = useRef<boolean>(false);
+
   useEffect(() => {
     listRef.current = CircularLinkedList.newFromArray(slides);
     const currentNode = listRef.current.getCurrentNode();
 
     const slidesArr: VisibleSlides<BlogSlide> = [
-      { node: currentNode.prev!, key: currentNode.prev!.id! },
+      {
+        node: currentNode.prev!.prev!,
+        key: currentNode.prev!.prev!.id! + Math.random(),
+      },
+      { node: currentNode.prev!, key: currentNode.prev!.id! + Math.random() },
       { node: currentNode, key: currentNode.id! },
-      { node: currentNode.next!, key: currentNode.next!.id! },
+      { node: currentNode.next!, key: currentNode.next!.id! + Math.random() },
+      {
+        node: currentNode.next!.next!,
+        key: currentNode.next!.next!.id! + Math.random(),
+      },
     ];
 
     setVisibleSlides(slidesArr);
@@ -50,11 +67,16 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
 
   useEffect(() => {
     if (!hasAnimated.current && visibleSlides !== null) {
+      SLIDER_STARTING_POSITION = -2 * getSlideWidth()!;
       const slideWidth = getSlideWidth();
 
       if (slideWidth) {
         // TODO: make this animation on scroll ?
-        animate(scope.current, { x: -slideWidth }, { duration: 0 });
+        animate(
+          scope.current,
+          { x: SLIDER_STARTING_POSITION },
+          { duration: 0 },
+        );
       }
 
       hasAnimated.current = true;
@@ -64,23 +86,9 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
   const nextSlide = async () => {
     const slideWidth = getSlideWidth()!;
 
-    setVisibleSlides((prevVisibleSlides) => {
-      const nextNextSlide =
-        prevVisibleSlides![prevVisibleSlides!.length - 1].node.next!;
-      const visibleSlides = [
-        ...prevVisibleSlides!,
-        { node: nextNextSlide, key: nextNextSlide.id! + Math.random() },
-      ];
-
-      return visibleSlides;
-    });
-
-    // a prayer to god
-    await new Promise((resolve) => requestAnimationFrame(resolve));
-
     await animate(
       scope.current,
-      { x: -2 * slideWidth },
+      { x: SLIDER_STARTING_POSITION - slideWidth },
       { type: "spring", stiffness: 300, damping: 30 },
     );
 
@@ -88,34 +96,29 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
       const prevVisibleSlidesCopy = [...prevVisibleSlides!];
       prevVisibleSlidesCopy.shift();
 
-      return prevVisibleSlidesCopy;
+      const prevLastSlide =
+        prevVisibleSlidesCopy[prevVisibleSlidesCopy.length - 1];
+      const newLastSlide: NodeAndKey<BlogSlide> = {
+        node: prevLastSlide.node.next!,
+        key: prevLastSlide.node.next!.id! + Math.random(),
+      };
+
+      return [...prevVisibleSlidesCopy, newLastSlide];
     });
 
-    await animate(scope.current, { x: -slideWidth }, { duration: 0 });
+    await animate(
+      scope.current,
+      { x: SLIDER_STARTING_POSITION },
+      { duration: 0 },
+    );
   };
 
   const prevSlide = async () => {
     const slideWidth = getSlideWidth()!;
 
-    setVisibleSlides((prevVisibleSlides) => {
-      const prevPrevSlide = prevVisibleSlides![0].node.prev!;
-      const visibleSlides = [
-        { node: prevPrevSlide, key: prevPrevSlide.id! + Math.random() },
-        ...prevVisibleSlides!,
-      ];
-
-      return visibleSlides;
-    });
-
-    // a prayer to god
-    // await new Promise((resolve) => requestAnimationFrame(resolve));
-
-    // TODO: MAKE THE prevSlide WORK PROPERLY
-    await animate(scope.current, { x: -2 * slideWidth }, { duration: 0 });
-
     await animate(
       scope.current,
-      { x: -slideWidth },
+      { x: slideWidth + SLIDER_STARTING_POSITION },
       { type: "spring", stiffness: 300, damping: 30 },
     );
 
@@ -123,9 +126,121 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
       const prevVisibleSlidesCopy = [...prevVisibleSlides!];
       prevVisibleSlidesCopy.pop();
 
-      return prevVisibleSlidesCopy;
+      const prevFirstSlide = prevVisibleSlidesCopy[0];
+      const newFirstSlide: NodeAndKey<BlogSlide> = {
+        node: prevFirstSlide.node.prev!,
+        key: prevFirstSlide.node.prev!.id! + Math.random(),
+      };
+
+      return [newFirstSlide, ...prevVisibleSlidesCopy];
     });
+
+    await animate(
+      scope.current,
+      { x: SLIDER_STARTING_POSITION },
+      { duration: 0 },
+    );
   };
+
+  // const nextSlide = async () => {
+  //   const slideWidth = getSlideWidth()!;
+  //
+  //   setVisibleSlides((prevVisibleSlides) => {
+  //     const nextNextSlide =
+  //       prevVisibleSlides![prevVisibleSlides!.length - 1].node.next!;
+  //     const visibleSlides = [
+  //       ...prevVisibleSlides!,
+  //       { node: nextNextSlide, key: nextNextSlide.id! + Math.random() },
+  //     ];
+  //
+  //     return visibleSlides;
+  //   });
+  //
+  //   // a prayer to god
+  //   await new Promise((resolve) => requestAnimationFrame(resolve));
+  //
+  //   await animate(
+  //     scope.current,
+  //     { x: -2 * slideWidth },
+  //     { type: "spring", stiffness: 300, damping: 30 },
+  //   );
+  //
+  //   setVisibleSlides((prevVisibleSlides) => {
+  //     const prevVisibleSlidesCopy = [...prevVisibleSlides!];
+  //     prevVisibleSlidesCopy.shift();
+  //
+  //     return prevVisibleSlidesCopy;
+  //   });
+  //
+  //   await animate(scope.current, { x: -slideWidth }, { duration: 0 });
+  // };
+  //
+  // const prevSlide = async () => {
+  //   const slideWidth = getSlideWidth()!;
+  //   useEffectNow.current = true;
+  //
+  //   setVisibleSlides((prevVisibleSlides) => {
+  //     const prevPrevSlide = prevVisibleSlides![0].node.prev!;
+  //     const visibleSlides = [
+  //       { node: prevPrevSlide, key: prevPrevSlide.id! + Math.random() },
+  //       ...prevVisibleSlides!,
+  //     ];
+  //
+  //     return visibleSlides;
+  //   });
+  //
+  //   // a prayer to god
+  //   await new Promise((resolve) => requestAnimationFrame(resolve));
+  //
+  //   // TODO: MAKE THE prevSlide WORK PROPERLY
+  //   await animate(scope.current, { x: -2 * slideWidth }, { duration: 0 });
+  //
+  //   animate(
+  //     scope.current,
+  //     { x: -slideWidth },
+  //     { type: "spring", stiffness: 300, damping: 30 },
+  //   );
+  //
+  //   await new Promise((resolve) => requestAnimationFrame(resolve));
+  //
+  //   setVisibleSlides((prevVisibleSlides) => {
+  //     const prevVisibleSlidesCopy = [...prevVisibleSlides!];
+  //     prevVisibleSlidesCopy.pop();
+  //
+  //     return prevVisibleSlidesCopy;
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   if (useEffectNow.current) {
+  //     const slideWidth = getSlideWidth()!;
+  //     useEffectNow.current = false;
+  //
+  //     const asyncFunc = async () => {
+  //       console.log("visibleSlides:", visibleSlides);
+  //
+  //       // TODO: MAKE THE prevSlide WORK PROPERLY
+  //       await animate(scope.current, { x: -2 * slideWidth }, { duration: 0 });
+  //
+  //       animate(
+  //         scope.current,
+  //         { x: -slideWidth },
+  //         { type: "spring", stiffness: 300, damping: 30 },
+  //       );
+  //
+  //       await new Promise((resolve) => requestAnimationFrame(resolve));
+  //
+  //       setVisibleSlides((prevVisibleSlides) => {
+  //         const prevVisibleSlidesCopy = [...prevVisibleSlides!];
+  //         prevVisibleSlidesCopy.pop();
+  //
+  //         return prevVisibleSlidesCopy;
+  //       });
+  //     };
+  //
+  //     asyncFunc();
+  //   }
+  // }, [visibleSlides]);
 
   // const nextSlide = async () => {
   //   const slideWidth = getSlideWidth();
@@ -177,9 +292,9 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
   //   needsAnimating.current = false;
   // }, [visibleSlides]);
 
+  // WORKS
   // const prevSlide = async () => {
   //   const slideWidth = getSlideWidth();
-  //   slideDirectionRef.current = "prev";
   //
   //   await animate(
   //     scope.current,
@@ -187,7 +302,15 @@ const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
   //     { type: "spring", stiffness: 300, damping: 30 },
   //   );
   //
-  //   rotateBuffer();
+  //   setVisibleSlides((prevVisibleSlides) => {
+  //     const [prev, current] = prevVisibleSlides!;
+  //
+  //     return [
+  //       { node: prev.node.prev!, key: prev.node.prev!.id! },
+  //       prev,
+  //       current,
+  //     ];
+  //   });
   //
   //   await animate(scope.current, { x: -slideWidth! }, { duration: 0 });
   // };
