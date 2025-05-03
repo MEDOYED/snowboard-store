@@ -1,97 +1,162 @@
 import { useEffect, useRef, useState } from "react";
+import { motion, useAnimate } from "motion/react";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
 import { BlogSlide } from "../../../shared/types/typesBlogSlider";
+import CircularLinkedList, {
+  CircularLinkedListNode,
+} from "../../../shared/data-structures/CircularLinkedList";
+import SlideBlog from "../../../shared/slides/SlideBlog/SlideBlog";
 
 import "./SectionBlogSlider.scss";
 
+type VisibleSlides<T> = NodeAndKey<T>[];
+
+type NodeAndKey<T> = {
+  node: CircularLinkedListNode<T>;
+  key: number;
+};
+
 const SectionBlogSlider: React.FC<{ slides: BlogSlide[] }> = ({ slides }) => {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
+  const [visibleSlides, setVisibleSlides] =
+    useState<VisibleSlides<BlogSlide> | null>(null);
 
-  /** used to calculate direction of the scroll */
-  const prevSlideIndexRef = useRef<number>(currentSlideIndex);
-  const slideTrackRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<CircularLinkedList<BlogSlide>>(
+    new CircularLinkedList(),
+  );
 
-  const nextSlide = (): void => {
-    setCurrentSlideIndex((prevSlideIndex) =>
-      prevSlideIndex !== slides.length - 1 ? prevSlideIndex + 1 : 0,
-    );
-    console.log("currentSlideIndex:", currentSlideIndex);
-  };
+  const [sliderTrackRef, animate] = useAnimate<HTMLDivElement>();
 
-  const prevSlide = (): void => {
-    setCurrentSlideIndex((prevSlideIndex) =>
-      prevSlideIndex !== 0 ? prevSlideIndex - 1 : slides.length - 1,
-    );
-    console.log("currentSlideIndex:", currentSlideIndex);
-  };
+  const createNodeAndKey = <T,>(
+    node: CircularLinkedListNode<T>,
+  ): NodeAndKey<T> => ({
+    node,
+    key: node.id! + Math.random(),
+  });
 
   useEffect(() => {
-    const slideTrack = slideTrackRef.current;
+    listRef.current = CircularLinkedList.newFromArray(slides);
+    const currentNode = listRef.current.getCurrentNode();
 
-    if (!slideTrack) {
-      return;
-    }
+    const slidesArr: VisibleSlides<BlogSlide> = [
+      createNodeAndKey(currentNode.prev!.prev!),
+      createNodeAndKey(currentNode.prev!),
 
-    const slide = slideTrack!.querySelector(".slide") as HTMLElement;
-    const slideWidth = slide.offsetWidth;
-    console.log("slideWidth:", slideWidth);
+      { node: currentNode, key: currentNode.id! },
 
-    // if (currentSlideIndex > prevSlideIndexRef.current) {
-    slideTrack.style.transform = `translateX(-${slideWidth * currentSlideIndex}px)`;
-    // } else if (currentSlideIndex < prevSlideIndexRef.current) {
-    //   slideTrack.style.transform = `translateX(-${slideWidth * currentSlideIndex}px)`;
-    // }
-    // console.log("From useEffect");
-    // console.log("currentSlideIndex:", currentSlideIndex);
+      createNodeAndKey(currentNode.next!),
+      createNodeAndKey(currentNode.next!.next!),
+    ];
 
-    prevSlideIndexRef.current = currentSlideIndex;
-  }, [currentSlideIndex]);
+    setVisibleSlides(slidesArr);
+  }, [slides]);
+
+  const getSlideWidth: () => number | null = () => {
+    const slide = sliderTrackRef.current?.querySelector(
+      ".slide-blog",
+    ) as HTMLElement | null;
+
+    if (slide) {
+      return slide.offsetWidth;
+    } else return null;
+  };
+
+  /** Calculate offset to center the current slide in the track (middle of 5) */
+  const getSliderTrackCenterOffset = (): number => {
+    return -2 * getSlideWidth()!;
+  };
+
+  /**
+   * Maintans offsetX for sliderTrack on resize
+   * keeping it at the center of visibleSlides
+   *
+   * - may have a better have a beter solution
+   */
+  useEffect(() => {
+    const sliderTrack = sliderTrackRef.current;
+    if (!sliderTrack) return;
+
+    const resizeObserver = new ResizeObserver(() => {
+      animate(
+        sliderTrack,
+        { x: getSliderTrackCenterOffset() },
+        { duration: 0 },
+      );
+    });
+
+    resizeObserver.observe(sliderTrack);
+
+    return () => resizeObserver.disconnect();
+  }, [sliderTrackRef]);
+
+  const nextSlide = async () => {
+    const slideWidth = getSlideWidth()!;
+
+    await animate(
+      sliderTrackRef.current,
+      { x: getSliderTrackCenterOffset() - slideWidth },
+      { type: "spring", stiffness: 300, damping: 30 },
+    );
+
+    setVisibleSlides((prevVisibleSlides) => {
+      const prevVisibleSlidesCopy = [...prevVisibleSlides!];
+      prevVisibleSlidesCopy.shift();
+
+      const prevLastSlide =
+        prevVisibleSlidesCopy[prevVisibleSlidesCopy.length - 1];
+      const newLastSlide: NodeAndKey<BlogSlide> = createNodeAndKey(
+        prevLastSlide.node.next!,
+      );
+
+      return [...prevVisibleSlidesCopy, newLastSlide];
+    });
+
+    await animate(
+      sliderTrackRef.current,
+      { x: getSliderTrackCenterOffset() },
+      { duration: 0 },
+    );
+  };
+
+  const prevSlide = async () => {
+    const slideWidth = getSlideWidth()!;
+
+    await animate(
+      sliderTrackRef.current,
+      { x: slideWidth + getSliderTrackCenterOffset() },
+      { type: "spring", stiffness: 300, damping: 30 },
+    );
+
+    setVisibleSlides((prevVisibleSlides) => {
+      const prevVisibleSlidesCopy = [...prevVisibleSlides!];
+      prevVisibleSlidesCopy.pop();
+
+      const prevFirstSlide = prevVisibleSlidesCopy[0];
+      const newFirstSlide: NodeAndKey<BlogSlide> = createNodeAndKey(
+        prevFirstSlide.node.prev!,
+      );
+
+      return [newFirstSlide, ...prevVisibleSlidesCopy];
+    });
+
+    await animate(
+      sliderTrackRef.current,
+      { x: getSliderTrackCenterOffset() },
+      { duration: 0 },
+    );
+  };
 
   return (
     <section className="section-blog-slider">
-      <div
+      <motion.div
         className="section-blog-slider__slider-track slider-track"
-        ref={slideTrackRef}
+        ref={sliderTrackRef}
       >
-        {slides.map((slide) => {
-          return (
-            <article
-              className="slider-track__slide slide"
-              style={{ backgroundColor: slide.backgroundColor }}
-              key={slide.title}
-            >
-              <img
-                src={slide.mediaUrl}
-                alt={slide.mediaAlt}
-                className="slide__img"
-              />
-
-              <div className="slide__text-wrapper text-wrapper">
-                <header className="text-wrapper__blog-header blog-header">
-                  <h4 className="blog-header__section-heading">Blogs</h4>
-                  <a href="#" className="blog-header__link">
-                    All blogs
-                  </a>
-                </header>
-
-                <div className="text-wrapper__blog-body blog-body">
-                  <h2 className="blog-body__blog-title">{slide.title}</h2>
-                  <p className="blog-body__blog-description">
-                    {slide.description}
-                  </p>
-                </div>
-
-                <footer className="text-wrapper__blog-footer blog-footer">
-                  <a href="#" className="blog-footer__link">
-                    Read more
-                  </a>
-                </footer>
-              </div>
-            </article>
-          );
-        })}
-      </div>
+        {visibleSlides &&
+          visibleSlides.map((slideWithKey) => (
+            <SlideBlog slide={slideWithKey.node.value} key={slideWithKey.key} />
+          ))}
+      </motion.div>
 
       <button
         className="section-blog-slider__slide-btn left"
