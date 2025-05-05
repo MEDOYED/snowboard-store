@@ -4,6 +4,7 @@ import { setSignInState } from "../../../app/store/signInSlice";
 import { Eye, EyeOff } from "lucide-react";
 
 import ButtonCloseModal from "../../../shared/UI/buttons/ButtonCloseModal/ButtonCloseModal";
+import FormSignUp from "../../forms/FormSignUp/FormSignUp";
 
 import "./ModalSignIn.scss";
 
@@ -44,6 +45,8 @@ const ModalSignIn = () => {
           <div className="modal-sign-in__content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-sign-in__sign-in modal-sign-in__auth-part">
               <h3 className="modal-sign-in__heading">Sign in</h3>
+
+              {/* refactor */}
               <form action="#" className="modal-sign-in__form">
                 <div className="modal-sign-in__input-fields">
                   <label>
@@ -83,33 +86,7 @@ const ModalSignIn = () => {
                 <ButtonCloseModal className="modal-sign-in__close-modal-btn" />
               </div>
 
-              <form action="#" className="modal-sign-in__form">
-                <div className="modal-sign-in__input-fields">
-                  <label>
-                    <span>Name*</span>
-                    <input type="text" required />
-                  </label>
-
-                  <label>
-                    <span>Email*</span>
-                    <input type="email" required />
-                  </label>
-
-                  <label>
-                    <span>Phone number</span>
-                    <input type="tel" />
-                  </label>
-                </div>
-
-                <div className="modal-sign-in__checkbox-row">
-                  <label className="modal-sign-in__checkbox-label">
-                    <input type="checkbox" />
-                    <span>I'm agreeing with terms of service</span>
-                  </label>
-                </div>
-
-                <button className="modal-sign-in__auth-btn">Create account</button>
-              </form>
+              <FormSignUp />
             </div>
           </div>
         </div>
