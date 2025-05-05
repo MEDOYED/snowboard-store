@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 import "./FormSignUp.scss";
 
@@ -24,8 +25,20 @@ const FormSignUp = () => {
 
   console.log(currentValue);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("https://your-backend-api.com/signup", currentValue);
+
+      console.log("server response: ", response.data);
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
+
   return (
-    <form action="#" className="modal-sign-in__form">
+    <form onSubmit={handleSubmit} className="modal-sign-in__form">
       <div className="modal-sign-in__input-fields">
         <label>
           <span>Name*</span>
@@ -62,7 +75,9 @@ const FormSignUp = () => {
         </label>
       </div>
 
-      <button className="modal-sign-in__auth-btn">Create account</button>
+      <button type="submit" className="modal-sign-in__auth-btn">
+        Create account
+      </button>
     </form>
   );
 };
