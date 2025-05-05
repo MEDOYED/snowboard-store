@@ -7,7 +7,7 @@ const FormSignUp = () => {
   const [currentValue, setCurrentValue] = useState({
     name: "",
     email: "",
-    phone: "",
+    password: "",
   });
 
   const onHandleChange = (e) => {
@@ -65,7 +65,7 @@ const FormSignUp = () => {
         <label>
           <span>Password</span>
           <input
-            name="phone"
+            name="password"
             type="password"
             value={currentValue.phone}
             onChange={onHandleChange}

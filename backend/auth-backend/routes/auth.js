@@ -9,7 +9,7 @@ const SECRET = process.env.JWT_SECRET || "my_secret_key";
 
 // Register
 router.post("/register", (req, res) => {
-  const { name, email, phone, password } = req.body;
+  const { name, email, password } = req.body;
   if (!name || !email || !password) {
     return res.status(400).json({ error: "Missing fields" });
   }
@@ -17,8 +17,8 @@ router.post("/register", (req, res) => {
   const hashedPassword = bcrypt.hashSync(password, 10);
 
   db.run(
-    `INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)`,
-    [name, email, phone, hashedPassword],
+    `INSERT INTO users (name, email, password) VALUES (?, ?, ?)`,
+    [name, email, hashedPassword],
     function (err) {
       if (err) return res.status(400).json({ error: "Email already used" });
       res.status(201).json({ id: this.lastID, name, email });

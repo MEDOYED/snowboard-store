@@ -6,7 +6,6 @@ db.serialize(() => {
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
-    phone TEXT,
     password TEXT NOT NULL
   )`);
 });
