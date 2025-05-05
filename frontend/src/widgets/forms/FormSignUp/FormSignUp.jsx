@@ -29,7 +29,7 @@ const FormSignUp = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://your-backend-api.com/signup", currentValue);
+      const response = await axios.post("http://localhost:4000/api/register", currentValue);
 
       console.log("server response: ", response.data);
     } catch (error) {
