@@ -63,8 +63,13 @@ const FormSignUp = () => {
         </label>
 
         <label>
-          <span>Phone number</span>
-          <input name="phone" type="tel" value={currentValue.phone} onChange={onHandleChange} />
+          <span>Password</span>
+          <input
+            name="phone"
+            type="password"
+            value={currentValue.phone}
+            onChange={onHandleChange}
+          />
         </label>
       </div>
 
