@@ -104,6 +104,23 @@ const dataNavigation = [
   },
   {
     navItem: "Surf",
+    CardSale: [
+      {
+        imageSrc: "/img/surf/1.jpg",
+        alt: "Surfer riding a powerful wave on a sunny day",
+        saleDesc: "Wave Mastery",
+      },
+      {
+        imageSrc: "/img/surf/2.jpg",
+        alt: "Surfer performing a cutback during a golden sunset",
+        saleDesc: "Golden Hour Glides",
+      },
+      {
+        imageSrc: "/img/surf/3.jpg",
+        alt: "Surfer deep inside a blue barrel wave",
+        saleDesc: "Inside the Barrel",
+      },
+    ],
   },
   {
     navItem: "Sup",
