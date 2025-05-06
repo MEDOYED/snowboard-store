@@ -84,6 +84,23 @@ const dataNavigation = [
   },
   {
     navItem: "Wakeboard",
+    CardSale: [
+      {
+        imageSrc: "/img/wakeboard/1.jpg",
+        alt: "Wakeboarder performing a jump at sunset",
+        saleDesc: "Sunset Session",
+      },
+      {
+        imageSrc: "/img/wakeboard/2.jpg",
+        alt: "Wakeboarder mid-air trick above tropical waters",
+        saleDesc: "Tropical Vibes",
+      },
+      {
+        imageSrc: "/img/wakeboard/3.jpg",
+        alt: "Wakeboarder executing a trick during twilight",
+        saleDesc: "Twilight Thrills",
+      },
+    ],
   },
   {
     navItem: "Surf",
