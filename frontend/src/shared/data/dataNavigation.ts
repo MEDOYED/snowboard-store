@@ -84,12 +84,63 @@ const dataNavigation = [
   },
   {
     navItem: "Wakeboard",
+    CardSale: [
+      {
+        imageSrc: "/img/wakeboard/1.jpg",
+        alt: "Wakeboarder performing a jump at sunset",
+        saleDesc: "Sunset Session",
+      },
+      {
+        imageSrc: "/img/wakeboard/2.jpg",
+        alt: "Wakeboarder mid-air trick above tropical waters",
+        saleDesc: "Tropical Vibes",
+      },
+      {
+        imageSrc: "/img/wakeboard/3.jpg",
+        alt: "Wakeboarder executing a trick during twilight",
+        saleDesc: "Twilight Thrills",
+      },
+    ],
   },
   {
     navItem: "Surf",
+    CardSale: [
+      {
+        imageSrc: "/img/surf/1.jpg",
+        alt: "Surfer riding a powerful wave on a sunny day",
+        saleDesc: "Wave Mastery",
+      },
+      {
+        imageSrc: "/img/surf/2.jpg",
+        alt: "Surfer performing a cutback during a golden sunset",
+        saleDesc: "Golden Hour Glides",
+      },
+      {
+        imageSrc: "/img/surf/3.jpg",
+        alt: "Surfer deep inside a blue barrel wave",
+        saleDesc: "Inside the Barrel",
+      },
+    ],
   },
   {
     navItem: "Sup",
+    CardSale: [
+      {
+        imageSrc: "/img/sup/1.jpg",
+        alt: "Two women relaxing on paddleboards in crystal clear water",
+        saleDesc: "Chill & Float",
+      },
+      {
+        imageSrc: "/img/sup/2.jpg",
+        alt: "Silhouette of a paddleboarder at sunset on a tranquil sea",
+        saleDesc: "Sunset Cruising",
+      },
+      {
+        imageSrc: "/img/sup/3.jpg",
+        alt: "Man in a straw hat paddleboarding near rocky shoreline",
+        saleDesc: "Coastal Explorer",
+      },
+    ],
   },
   {
     navItem: "Clothes",
