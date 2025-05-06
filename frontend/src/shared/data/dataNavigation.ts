@@ -124,6 +124,23 @@ const dataNavigation = [
   },
   {
     navItem: "Sup",
+    CardSale: [
+      {
+        imageSrc: "/img/sup/1.jpg",
+        alt: "Two women relaxing on paddleboards in crystal clear water",
+        saleDesc: "Chill & Float",
+      },
+      {
+        imageSrc: "/img/sup/2.jpg",
+        alt: "Silhouette of a paddleboarder at sunset on a tranquil sea",
+        saleDesc: "Sunset Cruising",
+      },
+      {
+        imageSrc: "/img/sup/3.jpg",
+        alt: "Man in a straw hat paddleboarding near rocky shoreline",
+        saleDesc: "Coastal Explorer",
+      },
+    ],
   },
   {
     navItem: "Clothes",
