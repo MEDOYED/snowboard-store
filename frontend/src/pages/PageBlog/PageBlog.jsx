@@ -1,10 +1,12 @@
+import SectionFilterBlog from "./layout/SectionFilterBlog/SectionFilterBlog";
+
 import "./PageBlog.scss";
 
 const PageBlog = () => {
   return (
-    <>
-      <div>PageBlog</div>
-    </>
+    <main className="page-blog">
+      <SectionFilterBlog />
+    </main>
   );
 };
 
