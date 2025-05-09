@@ -2,7 +2,8 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const db = require("../database");
+const db = require("../config/database");
+const logDatabase = require("../middlewares/logger");
 
 const router = express.Router();
 const SECRET = process.env.JWT_SECRET || "my_secret_key";
@@ -38,6 +39,8 @@ router.post("/login", (req, res) => {
 
     const token = jwt.sign({ id: user.id, email: user.email }, SECRET, { expiresIn: "1h" });
 
+    console.log("User logged in:", { email: user.email });
+    logDatabase("users");
     res.json({ token, name: user.name });
   });
 });

@@ -8,6 +8,7 @@ import App from "./app/App.jsx";
 import PageHelpCenter from "./pages/PageHelpCenter/PageHelpCenter.jsx";
 import Page404 from "./pages/Page404/Page404.jsx";
 import PageHome from "./pages/PageHome/PageHome.jsx";
+import PageBlog from "./pages/PageBlog/PageBlog.jsx";
 import PageProduct from "./pages/PageProduct/PageProduct.jsx";
 import PageCategories from "./pages/PageCategories/PageCategories.jsx";
 
@@ -26,16 +27,24 @@ const router = createBrowserRouter([
         element: <PageHome />, // or whatever component you want
       },
       {
+        path: "/blog",
+        element: <PageBlog />,
+      },
+      {
+        path: "/blog/:category",
+        element: <PageBlog />,
+      },
+      {
         path: "/help-center/:FaqEntry",
         element: <PageHelpCenter />,
       },
       {
-        path: "/product/:productSlug",
-        element: <PageProduct />,
-      },
-      {
         path: "/categories",
         element: <PageCategories />,
+      },
+      {
+        path: "/product/:productSlug",
+        element: <PageProduct />,
       },
       {
         path: "/categories/:parentSlug/:childSlug?",

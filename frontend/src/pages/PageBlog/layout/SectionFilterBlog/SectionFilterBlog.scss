@@ -1,0 +1,20 @@
+.section-filter-blog {
+  .title {
+    font-size: 3.5rem;
+    font-weight: 900;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 50%;
+
+    &__item {
+      color: rgba(0, 0, 0, 0.3);
+
+      .active {
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+}
