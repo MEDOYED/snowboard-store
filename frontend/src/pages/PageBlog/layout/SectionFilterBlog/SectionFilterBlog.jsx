@@ -8,22 +8,22 @@ const SectionFilterBlog = () => {
       <h2 className="title">Blog</h2>
       <ul className="list">
         <li className="list__item">
-          <Link>Surf</Link>
+          <Link to={"/blog/surf"}>Surf</Link>
         </li>
         <li className="list__item">
-          <Link>Skateboard</Link>
+          <Link to={"/blog/skateboard"}>Skateboard</Link>
         </li>
         <li className="list__item">
-          <Link>Snowboard</Link>
+          <Link to={"/blog/snowboard"}>Snowboard</Link>
         </li>
         <li className="list__item">
-          <Link>Clothes</Link>
+          <Link to={"/blog/clothes"}>Clothes</Link>
         </li>
         <li className="list__item">
-          <Link>Shoes</Link>
+          <Link to={"/blog/shoes"}>Shoes</Link>
         </li>
         <li className="list__item">
-          <Link>Kitesurfing</Link>
+          <Link to={"/blog/kitesurfing"}>Kitesurfing</Link>
         </li>
       </ul>
     </section>

@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         element: <PageBlog />,
       },
       {
+        path: "/blog/:category",
+        element: <PageBlog />,
+      },
+      {
         path: "/help-center/:FaqEntry",
         element: <PageHelpCenter />,
       },
