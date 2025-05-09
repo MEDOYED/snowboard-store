@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import IconDelivery from "../../../shared/UI/icons/IconDelivery/IconDelivery";
 import IconPaymentLocation from "../../../shared/UI/icons/IconPaymentLocation/IconPaymentLocation";
 import IconProductReturn from "../../../shared/UI/icons/IconProductReturn/IconProductReturn";
@@ -6,7 +8,6 @@ import RowIconText from "../../../shared/components/RowIconText/RowIconText";
 import ButtonDropDownMenu from "../../../shared/UI/buttons/ButtonDropDownMenu/ButtonDropDownMenu";
 
 import "./HeaderTop.scss";
-import { Link } from "react-router-dom";
 
 const HeaderTop = () => {
   return (
