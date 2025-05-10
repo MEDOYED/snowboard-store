@@ -1,0 +1,50 @@
+.card-blog {
+  width: 100%;
+  box-sizing: border-box;
+
+  img {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    button {
+      background-color: #000;
+      color: #fff;
+      padding: 0.5rem;
+    }
+  }
+
+  h2 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 3rem;
+  }
+
+  &__link {
+    p {
+      font-size: 2rem;
+      font-weight: 700;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        margin-right: 1rem;
+        border: 1px solid #000;
+        width: 2rem;
+        height: 0.1rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.section-blog-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-sizing: border-box;
+  width: 100%;
+  gap: 6rem;
+
+  margin: 5rem 0;
+}

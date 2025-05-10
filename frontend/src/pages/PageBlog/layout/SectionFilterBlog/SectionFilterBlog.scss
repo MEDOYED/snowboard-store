@@ -1,4 +1,8 @@
 .section-filter-blog {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
   .title {
     font-size: 3.5rem;
     font-weight: 900;
@@ -8,11 +12,12 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 50%;
+    gap: 1.8rem 0;
 
     &__item {
       color: rgba(0, 0, 0, 0.3);
 
-      .active {
+      &.active {
         color: rgb(0, 0, 0);
       }
     }
