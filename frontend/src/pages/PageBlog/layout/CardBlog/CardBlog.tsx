@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import { FC } from "react";
 
+import { TypeBlog } from "../../../../shared/types/typesBlog";
 import "./CardBlog.scss";
 
-const CardBlog = ({ card }) => {
+type PropsCardBlog = {
+  card: TypeBlog;
+};
+
+const CardBlog: FC<PropsCardBlog> = ({ card }) => {
   return (
     <article className="card-blog">
       <img src={card.imgUrl} alt={card.imgUrl || "Image description"} />

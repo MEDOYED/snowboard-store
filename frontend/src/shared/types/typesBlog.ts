@@ -1,4 +1,4 @@
-export type typeBlog = {
+export type TypeBlog = {
   id: number;
   imgUrl: string;
   imgAlt: string;

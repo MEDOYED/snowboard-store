@@ -1,6 +1,6 @@
-import { typeBlog } from "../types/typesBlog";
+import { TypeBlog } from "../types/typesBlog";
 
-const dataBlog: typeBlog[] = [
+const dataBlog: TypeBlog[] = [
   {
     id: 1,
     imgUrl: "/img/blog/1.jpg",
