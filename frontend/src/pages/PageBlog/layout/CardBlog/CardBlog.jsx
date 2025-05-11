@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
 
-import img from "/img/blog/1.jpg";
-
 import "./CardBlog.scss";
 
-const CardBlog = () => {
+const CardBlog = ({ card }) => {
   return (
     <article className="card-blog">
-      <img src={img} alt="temp alt" />
+      <img src={card.imgUrl} alt={card.imgUrl || "Image description"} />
       <div className="card-blog__buttons">
-        <button>Одежда</button>
-        <button>Подборка</button>
+        {card.categories.map((category, index) => (
+          <button type="button" aria-label={category} key={index}>
+            {category}
+          </button>
+        ))}
       </div>
-      <h2>Какую одежду для пробежки выбрать?</h2>
-      <h3>Подбираем подходящий аутфит для любой погоды</h3>
-      <Link className="card-blog__link">
+      <h2>{card.title}</h2>
+      <h3>{card.description}</h3>
+      <Link to={card.readMore} className="card-blog__link">
         <p>Read more</p>
       </Link>
     </article>
