@@ -9,6 +9,7 @@ import PageHelpCenter from "./pages/PageHelpCenter/PageHelpCenter.jsx";
 import Page404 from "./pages/Page404/Page404.jsx";
 import PageHome from "./pages/PageHome/PageHome.jsx";
 import PageBlog from "./pages/PageBlog/PageBlog.jsx";
+import PageBlogDescription from "./pages/PageBlogDescription/PageBlogDescription.jsx";
 import PageProduct from "./pages/PageProduct/PageProduct.jsx";
 import PageCategories from "./pages/PageCategories/PageCategories.jsx";
 
@@ -31,8 +32,12 @@ const router = createBrowserRouter([
         element: <PageBlog />,
       },
       {
-        path: "/blog/:category",
+        path: "/blog/category/:category",
         element: <PageBlog />,
+      },
+      {
+        path: "/blog/:slug",
+        element: <PageBlogDescription />,
       },
       {
         path: "/help-center/:FaqEntry",

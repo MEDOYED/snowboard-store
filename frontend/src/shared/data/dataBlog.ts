@@ -37,7 +37,7 @@ const dataBlog: TypeBlog[] = [
 ];
 
 dataBlog.forEach((blog) => {
-  blog.readMore = `/${titleToSlug(blog.title)}`;
+  blog.readMore = `/blog/${titleToSlug(blog.title)}`;
 });
 
 export default dataBlog;
