@@ -1,5 +1,15 @@
 import { TypeBlog } from "../types/typesBlog";
 
+function titleToSlug(title: string): string {
+  return title
+    .toLocaleLowerCase()
+    .replace(/[^a-z0-9\s]/g, "")
+    .split(" ")
+    .filter(Boolean)
+    .join("-")
+    .trim();
+}
+
 const dataBlog: TypeBlog[] = [
   {
     id: 1,
@@ -34,5 +44,9 @@ const dataBlog: TypeBlog[] = [
     readMore: "",
   },
 ];
+
+dataBlog.forEach((blog) => {
+  blog.readMore = `/${titleToSlug(blog.title)}`;
+});
 
 export default dataBlog;
