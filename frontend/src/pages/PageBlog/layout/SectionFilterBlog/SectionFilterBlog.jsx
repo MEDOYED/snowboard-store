@@ -7,27 +7,27 @@ import "./SectionFilterBlog.scss";
 const dataBlogsCategories = [
   {
     text: "Surf",
-    url: "/blog/surf",
+    url: "/surf",
   },
   {
     text: "Skateboard",
-    url: "/blog/skateboard",
+    url: "/skateboard",
   },
   {
     text: "Snowboard",
-    url: "/blog/snowboard",
+    url: "/snowboard",
   },
   {
     text: "Clothes",
-    url: "/blog/clothes",
+    url: "/clothes",
   },
   {
     text: "Shoes",
-    url: "/blog/shoes",
+    url: "/shoes",
   },
   {
     text: "Kitesurfing",
-    url: "/blog/kitesurfing",
+    url: "/kitesurfing",
   },
 ];
 
@@ -47,7 +47,7 @@ const SectionFilterBlog = () => {
             className={classNames("list__item", { active: activeIndex === index })}
             onClick={() => handleClick(index)}
             key={index}>
-            <Link to={item.url}>{item.text}</Link>
+            <Link to={`/blog/category${item.url}`}>{item.text}</Link>
           </li>
         ))}
       </ul>

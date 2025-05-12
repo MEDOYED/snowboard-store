@@ -1,3 +1,4 @@
+import { titleToSlug } from "../utils/strings/titleToSlug";
 import { TypeBlog } from "../types/typesBlog";
 
 const dataBlog: TypeBlog[] = [
@@ -34,5 +35,9 @@ const dataBlog: TypeBlog[] = [
     readMore: "",
   },
 ];
+
+dataBlog.forEach((blog) => {
+  blog.readMore = `/blog/${titleToSlug(blog.title)}`;
+});
 
 export default dataBlog;
