@@ -6,13 +6,25 @@ import "./SectionBlogHero.scss";
 
 const SectionBlogHero = () => {
   const { slug } = useParams();
-  console.log(slug);
 
   const currentCard = dataBlog.find((item) => item.readMore.slice(6) === slug);
 
   return (
     <section className="section-blog-hero">
-      <div>{currentCard.title}</div>
+      <img
+        className="section-blog-hero__image-bg"
+        src={currentCard.imgUrl}
+        alt={currentCard.imgAlt}
+      />
+      <div className="section-blog-hero__content">
+        <button>buttons</button>
+        <div className="title">
+          <div className="title__background">
+            <h2>{currentCard.title}</h2>
+          </div>
+        </div>
+        <p className="desctiption">{currentCard.description}</p>
+      </div>
     </section>
   );
 };
