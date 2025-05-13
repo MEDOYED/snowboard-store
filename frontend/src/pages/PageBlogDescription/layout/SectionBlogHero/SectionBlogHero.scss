@@ -1,0 +1,43 @@
+.section-blog-hero {
+  display: flex;
+  gap: 2rem;
+
+  &__image-bg {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    button {
+      width: fit-content;
+    }
+
+    .title {
+      position: relative;
+      margin-bottom: 3rem;
+
+      &__background {
+        position: absolute;
+        top: 0;
+        left: -30rem;
+        background-color: #000;
+        color: #fff;
+        padding: 1rem;
+        width: 100vw;
+
+        // background-color: #000;
+        // color: #fff;
+        // padding: 1rem;
+        // width: 100vw;
+        // margin-left: calc(-43vw + 50%);
+      }
+    }
+  }
+}
