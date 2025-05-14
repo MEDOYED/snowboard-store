@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 
+import BlogCategoryTags from "../BlogCategoryTags/BlogCategoryTags";
+
 import dataBlog from "../../../../shared/data/dataBlog";
 
 import "./SectionBlogHero.scss";
@@ -17,13 +19,15 @@ const SectionBlogHero = () => {
         alt={currentCard.imgAlt}
       />
       <div className="section-blog-hero__content">
-        <button>buttons</button>
+        <BlogCategoryTags card={currentCard} />
+
         <div className="title">
           <div className="title__background">
             <h2>{currentCard.title}</h2>
           </div>
         </div>
-        <p className="desctiption">{currentCard.description}</p>
+
+        <p className="desctiption">{currentCard.subtitle}</p>
       </div>
     </section>
   );

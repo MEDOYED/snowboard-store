@@ -1,12 +1,13 @@
-import SectionFilterBlog from "../PageBlog/layout/SectionFilterBlog/SectionFilterBlog";
-import SectionBlogCardDescription from "./layout/SectionBlogCardDescription/SectionBlogCardDescription";
+import SectionBlogDescription from "./layout/SectionBlogDescription/SectionBlogDescription";
+import SectionBlogHero from "./layout/SectionBlogHero/SectionBlogHero";
 
 import "./PageBlogDescription.scss";
 
 const PageBlogDescription = () => {
   return (
     <main className="page-blog-description">
-      <SectionBlogCardDescription />
+      <SectionBlogHero />
+      <SectionBlogDescription />
     </main>
   );
 };
