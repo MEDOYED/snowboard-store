@@ -16,7 +16,7 @@ const CardBlog: FC<PropsCardBlog> = ({ card }) => {
       <img src={card.imgUrl} alt={card.imgUrl || "Image description"} />
       <BlogCategoryTags card={card} />
       <h2>{card.title}</h2>
-      <h3>{card.description}</h3>
+      <h3>{card.subtitle}</h3>
       <Link to={card.readMore} className="card-blog__link">
         <p>Read more</p>
       </Link>

@@ -27,7 +27,7 @@ const SectionBlogHero = () => {
           </div>
         </div>
 
-        <p className="desctiption">{currentCard.description}</p>
+        <p className="desctiption">{currentCard.subtitle}</p>
       </div>
     </section>
   );
