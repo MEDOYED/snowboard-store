@@ -4,6 +4,10 @@ export type TypeBlog = {
   imgAlt: string;
   categories: string[];
   title: string;
-  description: string;
+  subtitle: string;
   readMore: string;
+  description: {
+    descriptionText: string;
+    descriptionImage: string;
+  }[];
 };
