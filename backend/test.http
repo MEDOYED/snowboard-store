@@ -1,0 +1,4 @@
+@host = http://localhost:7000
+
+### GET all products
+GET {{host}}/api/products
