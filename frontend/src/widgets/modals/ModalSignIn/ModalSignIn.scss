@@ -20,9 +20,7 @@
 
   background-color: rgba(0, 0, 0, 0.8);
 
-
   &__content {
-
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -30,20 +28,19 @@
   }
 
   &__auth-part {
-    transition: all .5s;
+    transition: all 0.5s;
   }
 
   &__content:has(&__auth-part:hover) &__auth-part:not(:hover) {
-    filter: blur(.2rem);
+    filter: blur(0.2rem);
     background-color: #e5e5e5;
   }
-
 
   &__sign-in {
     @include authenticationBlock();
 
     width: 50rem;
-    border-right: 1px solid rgba(0, 0, 0, .05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   &__sign-up {
@@ -51,7 +48,6 @@
 
     width: 50rem;
   }
-
 
   &__heading-wrapper {
     position: relative;
@@ -99,11 +95,11 @@
     }
 
     input:user-valid {
-      box-shadow: 0 0 0 .3rem rgba(21, 128, 61, .8);
+      box-shadow: 0 0 0 0.3rem rgba(21, 128, 61, 0.8);
     }
 
     input:user-invalid {
-      box-shadow: 0 0 0 .3rem rgba(185, 28, 28, .8);
+      box-shadow: 0 0 0 0.3rem rgba(185, 28, 28, 0.8);
     }
 
     &__pass-input-wrapper {
@@ -142,7 +138,7 @@
     input[type="checkbox"] {
       appearance: none;
       cursor: inherit;
-      transition: all .3s;
+      transition: all 0.3s;
 
       display: flex;
       justify-content: center;
@@ -158,7 +154,7 @@
     }
 
     input[type="checkbox"]:checked::after {
-      content: '✓';
+      content: "✓";
 
       font-size: 1.8rem;
       font-weight: 700;
@@ -175,7 +171,7 @@
 
   &__auth-btn {
     text-align: center;
-    transition: all .3s;
+    transition: all 0.3s;
 
     width: 100%;
     height: 5rem;
