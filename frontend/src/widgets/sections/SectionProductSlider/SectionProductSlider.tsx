@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import classNames from "classnames";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
 import CardProduct from "../../../shared/cards/CardProduct/CardProduct";
 import ButtonShowMore from "../../../shared/UI/buttons/ButtonShowMore/ButtonShowMore";
+import Product from "@sharedTypes/product";
 
 import "./SectionProductSlider.scss";
 
@@ -13,14 +14,24 @@ const btnVariants = {
   disabled: { opacity: 0.4, scale: 0.9 },
 };
 
-const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
-  const [products, setProducts] = useState([]);
+type CanScrollDirection = {
+  left: boolean;
+  right: boolean;
+};
+
+const SectionProductSlider: React.FC<{
+  sectionHeading: string;
+  productsJsonPath: string;
+}> = ({ sectionHeading, productsJsonPath }) => {
+  const [products, setProducts] = useState<Product[]>([]);
   const [cardWidth, setCardWidth] = useState(0);
-  const [canScrollDirection, setCanScrollDirection] = useState({
-    left: false,
-    right: true,
-  });
-  const cardsRef = useRef(null);
+  const [canScrollDirection, setCanScrollDirection] =
+    useState<CanScrollDirection>({
+      left: false,
+      right: true,
+    });
+
+  const cardsRef = useRef<HTMLUListElement>(null);
 
   // fetches products json
   useEffect(() => {
@@ -33,29 +44,30 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
 
   // does not worth optimizing with memo, prolly may take some refactoring
   // to not rerender all the cards on a single isFavorite toggle
-  const toggleFavorite = (slug) => {
-    setProducts((prevProducts) => {
-      return prevProducts.map((product) => {
-        return product.slug === slug
-          ? { ...product, isFavorite: !product.isFavorite }
-          : product;
-      });
-    });
-  };
+  // OLD CODE
+  // const toggleFavorite = (slug: string): void => {
+  //   setProducts((prevProducts) => {
+  //     return prevProducts.map((product) => {
+  //       return product.slug === slug
+  //         ? { ...product, isFavorite: !product.isFavorite }
+  //         : product;
+  //     });
+  //   });
+  // };
 
   // finds the width of one card
   // may need adjustments if card will change its width
   useEffect(() => {
-    if (!products.length) return;
+    if (!products.length || !cardsRef.current) return;
 
     const cardsContainer = cardsRef.current;
-    const card = cardsContainer.querySelector(".card-product");
+    const card = cardsContainer.querySelector(".card-product") as HTMLElement;
     setCardWidth(card.offsetWidth);
   }, [products]);
 
   // for disabling scroll btns when there is nothing left to scroll
   useEffect(() => {
-    const container = cardsRef.current;
+    const container = cardsRef.current!;
 
     const updateScrollButtons = () => {
       const { scrollLeft, clientWidth, scrollWidth } = container;
@@ -78,11 +90,11 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
   }, [cardWidth, products]);
 
   const handlePrev = () => {
-    cardsRef.current.scrollBy({ left: -cardWidth, behavior: "smooth" });
+    cardsRef.current!.scrollBy({ left: -cardWidth, behavior: "smooth" });
   };
 
   const handleNext = () => {
-    cardsRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
+    cardsRef.current!.scrollBy({ left: cardWidth, behavior: "smooth" });
   };
 
   return (
@@ -98,19 +110,7 @@ const SectionProductSlider = ({ sectionHeading, productsJsonPath }) => {
         >
           {products.map((product) => (
             <li key={product.slug}>
-              <CardProduct
-                linkSlug={product.slug}
-                img={product.image}
-                alt={product.altImage}
-                isFavorite={product.isFavorite}
-                toggleFavorite={() => toggleFavorite(product.slug)}
-                discount={product.discount}
-                brand={product.brand}
-                title={product.title}
-                price={product.price}
-                currency={product.currency}
-                discountedPrice={product.discountedPrice}
-              />
+              <CardProduct product={product} />
             </li>
           ))}
         </motion.ul>

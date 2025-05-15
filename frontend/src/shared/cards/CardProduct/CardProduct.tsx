@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import classNames from "classnames";
 
+import Product from "@sharedTypes/product";
+
 import "./CardProduct.scss";
 
 const MotionStarOutline = motion.create(IoStarOutline);
@@ -22,28 +24,24 @@ const setUpIconAnimations = {
   exit: "exit",
 };
 
-const CardProduct = ({
-  linkSlug,
-  brand,
-  title,
-  img,
-  alt,
-  isFavorite,
-  toggleFavorite,
-  discount,
-  price,
-  currency,
-  discountedPrice,
-}) => {
+// TEMP
+const isFavorite = false;
+const currency = "$";
+
+const CardProduct: React.FC<{ product: Product }> = ({ product }) => {
   return (
     <article className="card-product">
-      <Link to={`/product/${linkSlug}`}>
+      <Link to={`/product/${product.slug}`}>
         <figure className="card-product__product-photo product-photo">
-          <img src={img} alt={alt} className="product-photo__img" />
+          <img
+            src={product.image_url}
+            alt={product.image_alt ? product.image_alt : undefined}
+            className="product-photo__img"
+          />
 
-          {discount && (
+          {product.discount && (
             <figcaption className="product-photo__discount">
-              {discount}
+              {product.discount}
             </figcaption>
           )}
         </figure>
@@ -54,7 +52,7 @@ const CardProduct = ({
           "favorite-btn--is-favorite": isFavorite,
         })}
         aria-label="Toggle favorite"
-        onClick={toggleFavorite}
+        // onClick={toggleFavorite}
       >
         <AnimatePresence>
           {isFavorite ? (
@@ -74,22 +72,24 @@ const CardProduct = ({
       </button>
 
       <div className="card-product__describtion describtion">
-        <Link className="describtion__link" to={`/product/${linkSlug}`}>
-          <h3 className="describtion__brand-name">{brand}</h3>
-          <p className="describtion__title">{title}</p>
+        <Link className="describtion__link" to={`/product/${product.slug}`}>
+          <h3 className="describtion__brand-name">{product.brand_name}</h3>
+          <p className="describtion__title">{product.name}</p>
         </Link>
 
         <p className="describtion__price">
           <strong
-            className={discount ? "describtion__price--original" : undefined}
+            className={
+              product.discount ? "describtion__price--original" : undefined
+            }
           >
-            {price}
+            {product.price}
             {currency}
           </strong>
 
-          {discount && (
+          {product.discount && (
             <strong className="describtion__price--discounted">
-              {discountedPrice}
+              {product.discounted_price}
               {currency}
             </strong>
           )}

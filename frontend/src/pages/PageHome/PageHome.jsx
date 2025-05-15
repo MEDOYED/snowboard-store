@@ -1,7 +1,7 @@
 import SectionBrandsLogos from "../../widgets/sections/SectionBrandsLogos/SectionBrandsLogos.jsx";
 import PageHomeSlider from "./PageHomeSlider/PageHomeSlider.jsx";
 import SectionSalesCards from "../../widgets/sections/SectionSalesCards/SectionSalesCards.jsx";
-import SectionProductSlider from "../../widgets/sections/SectionProductSlider/SectionProductSlider.jsx";
+import SectionProductSlider from "../../widgets/sections/SectionProductSlider/SectionProductSlider.js";
 import PageHomeBanner from "./PageHomeBanner/PageHomeBanner.jsx";
 import SectionLoyaltyAndDiscount from "../../widgets/sections/SectionLoyaltyAndDiscount/SectionLoyaltyAndDiscount.jsx";
 import SectionBlogSlider from "../../widgets/sections/SectionBlogSlider/SectionBlogSlider.js";
@@ -28,7 +28,7 @@ const PageHome = () => {
       <div className="home-page__section-product-slider">
         <SectionProductSlider
           sectionHeading="New Products"
-          productsJsonPath={"/data/NEW_PRODUCTS.json"}
+          productsJsonPath="http://localhost:7000/api/products"
         />
       </div>
 
@@ -39,7 +39,7 @@ const PageHome = () => {
       <div className="home-page__section-product-slider">
         <SectionProductSlider
           sectionHeading="DC Shoes popular in collection"
-          productsJsonPath={"/data/NEW_PRODUCTS.json"}
+          productsJsonPath="http://localhost:7000/api/products"
         />
       </div>
 
