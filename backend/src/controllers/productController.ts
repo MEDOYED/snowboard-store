@@ -21,7 +21,8 @@ const getAllProducts = async (req: Request, res: Response) => {
         products.targeted_at,
         brands.name AS brand_name
       FROM products
-      LEFT JOIN brands ON products.brand_id = brands.id;
+      LEFT JOIN brands ON products.brand_id = brands.id
+      ORDER BY id DESC;
       `);
 
     const products = allProducts.rows.map((product) => {
