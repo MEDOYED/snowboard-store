@@ -28,7 +28,7 @@ const PageHome = () => {
       <div className="home-page__section-product-slider">
         <SectionProductSlider
           sectionHeading="New Products"
-          productsJsonPath="http://localhost:7000/api/products"
+          productsEndpoint="/api/products"
         />
       </div>
 
@@ -39,7 +39,7 @@ const PageHome = () => {
       <div className="home-page__section-product-slider">
         <SectionProductSlider
           sectionHeading="DC Shoes popular in collection"
-          productsJsonPath="http://localhost:7000/api/products"
+          productsEndpoint="/api/products"
         />
       </div>
 

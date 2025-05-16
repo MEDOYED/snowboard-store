@@ -18,6 +18,20 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- Name: audience; Type: TYPE; Schema: public; Owner: roverp_dev
+--
+
+CREATE TYPE public.audience AS ENUM (
+    'men',
+    'women',
+    'children',
+    'unisex'
+);
+
+
+ALTER TYPE public.audience OWNER TO roverp_dev;
+
+--
 -- Name: update_avg_rating(); Type: FUNCTION; Schema: public; Owner: roverp_dev
 --
 
@@ -133,7 +147,10 @@ CREATE TABLE public.products (
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     average_rating numeric(3,2) DEFAULT NULL::numeric,
     category_id integer,
-    brand_id integer
+    brand_id integer,
+    slug character varying(256),
+    image_alt character varying(1024),
+    targeted_at public.audience NOT NULL
 );
 
 
@@ -322,6 +339,14 @@ ALTER TABLE ONLY public.sizes
 
 ALTER TABLE ONLY public.categories
     ADD CONSTRAINT unique_category_name UNIQUE (name);
+
+
+--
+-- Name: products unique_slug; Type: CONSTRAINT; Schema: public; Owner: roverp_dev
+--
+
+ALTER TABLE ONLY public.products
+    ADD CONSTRAINT unique_slug UNIQUE (slug);
 
 
 --
