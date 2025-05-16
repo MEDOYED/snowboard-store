@@ -6,6 +6,7 @@ import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import CardProduct from "../../../shared/cards/CardProduct/CardProduct";
 import ButtonShowMore from "../../../shared/UI/buttons/ButtonShowMore/ButtonShowMore";
 import Product from "@sharedTypes/product";
+import { API_BASE_URL } from "../../../shared/utils/api";
 
 import "./SectionProductSlider.scss";
 
@@ -21,8 +22,8 @@ type CanScrollDirection = {
 
 const SectionProductSlider: React.FC<{
   sectionHeading: string;
-  productsJsonPath: string;
-}> = ({ sectionHeading, productsJsonPath }) => {
+  productsEndpoint: string;
+}> = ({ sectionHeading, productsEndpoint }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [cardWidth, setCardWidth] = useState(0);
   const [canScrollDirection, setCanScrollDirection] =
@@ -35,16 +36,16 @@ const SectionProductSlider: React.FC<{
 
   // fetches products json
   useEffect(() => {
-    if (!productsJsonPath) return;
-    fetch(productsJsonPath)
+    if (!productsEndpoint) return;
+    fetch(`${API_BASE_URL}${productsEndpoint}`)
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Failed to fetch products json", error));
-  }, [productsJsonPath]);
+  }, [productsEndpoint]);
 
+  // OLD CODE
   // does not worth optimizing with memo, prolly may take some refactoring
   // to not rerender all the cards on a single isFavorite toggle
-  // OLD CODE
   // const toggleFavorite = (slug: string): void => {
   //   setProducts((prevProducts) => {
   //     return prevProducts.map((product) => {
