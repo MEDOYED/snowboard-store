@@ -11,10 +11,11 @@ const SectionBlogDescription = () => {
   if (!blog) return null;
 
   return (
-    <section>
+    <section className="section-blog-description">
       {blog.description.map((blog, index) => (
-        <div key={index}>
-          <p>{blog.descriptionText}</p>
+        <div className="section-blog-description__content-block" key={index}>
+          {blog.descriptionTitle && <h2>{blog.descriptionTitle}</h2>}
+          {blog.descriptionText && <p>{blog.descriptionText}</p>}
           {blog.descriptionImage && <img src={blog.descriptionImage} alt="temt text" />}
         </div>
       ))}

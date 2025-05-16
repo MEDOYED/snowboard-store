@@ -1,0 +1,20 @@
+.section-blog-description {
+  padding: 3rem 0;
+  &__content-block {
+    display: block;
+
+    h2 {
+      margin-bottom: 3rem;
+      font-size: 3rem;
+    }
+
+    p {
+      margin-bottom: 3rem;
+    }
+
+    img {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+  }
+}

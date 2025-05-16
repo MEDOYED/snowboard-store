@@ -7,6 +7,7 @@ export type TypeBlog = {
   subtitle: string;
   readMore: string;
   description: {
+    descriptionTitle: string;
     descriptionText: string;
     descriptionImage: string;
   }[];
