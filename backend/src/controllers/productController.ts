@@ -3,6 +3,7 @@ import type { Request, Response } from "express";
 import pool from "../db.ts";
 import type Product from "@sharedTypes/product";
 import type { productQuery } from "src/shared/types/product";
+import { registerHooks } from "module";
 
 const getAllProducts = async (req: Request, res: Response) => {
   let sqlQuery = `
@@ -24,20 +25,58 @@ const getAllProducts = async (req: Request, res: Response) => {
       FROM products
       LEFT JOIN brands ON products.brand_id = brands.id
       LEFT JOIN categories ON products.category_id = categories.id
-      ORDER BY id DESC
-      `;
+  `;
 
+  const { brands, categories, orderBy, orderDirection, limit } =
+    req.query as productQuery;
+
+  const whereClauses: string[] = [];
   const values: unknown[] = [];
   let placeHolderIndex = 1;
 
-  const { limit } = req.query as productQuery;
-  const parsedLimit = limit ? parseInt(limit) : undefined;
-  console.log("parsedLimit:", parsedLimit);
+  if (brands) {
+    const parsedBrands: string[] = Array.isArray(brands) ? brands : [brands];
 
+    const brandPlaceholders = parsedBrands.map(() => `$${placeHolderIndex++}`);
+    whereClauses.push(`brands.name IN (${brandPlaceholders.join(", ")})`);
+    values.push(...parsedBrands);
+  }
+
+  if (categories) {
+    const parsedCategories: string[] = Array.isArray(categories)
+      ? categories
+      : [categories];
+
+    const categoryPlaceholders = parsedCategories.map(
+      () => `$${placeHolderIndex++}`,
+    );
+    whereClauses.push(
+      `categories.name IN (${categoryPlaceholders.join(", ")})`,
+    );
+    values.push(...parsedCategories);
+  }
+
+  if (whereClauses.length > 0) {
+    sqlQuery += ` WHERE ${whereClauses.join(" AND ")}`;
+  }
+
+  const allowedOrderBy = ["id", "price", "created_at"];
+  const allowedDirections = ["ASC", "DESC"];
+
+  const safeOrderBy = allowedOrderBy.includes(orderBy ?? "") ? orderBy : "id";
+  const safeOrderDirection = allowedDirections.includes(orderDirection ?? "")
+    ? orderDirection
+    : "DESC";
+
+  sqlQuery += `\nORDER BY ${safeOrderBy} ${safeOrderDirection}`;
+
+  const parsedLimit = limit ? parseInt(limit) : undefined;
   if (parsedLimit) {
-    sqlQuery += ` LIMIT $${placeHolderIndex}`;
+    sqlQuery += ` LIMIT $${placeHolderIndex++}`;
     values.push(parsedLimit);
   }
+
+  console.log("sqlQuery:", sqlQuery);
 
   try {
     const allProducts = await pool.query<Product>(sqlQuery, values);
