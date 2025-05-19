@@ -2,3 +2,18 @@
 
 ### GET all products
 GET {{host}}/api/products
+
+### GET products by brands
+GET {{host}}/api/products?brands=LIB TECH&brands=CAPiTA
+
+### GET products by categories
+GET {{host}}/api/products?categories=Freestyle
+
+### GET products by brands and categories
+GET {{host}}/api/products?brands=LIB TECH&brands=CAPiTA&categories=Snowboards
+
+### GET products sorted by $
+GET {{host}}/api/products?orderBy=price&orderDirection=ASC
+
+### GET limited amount of products
+GET {{host}}/api/products?limit=2
