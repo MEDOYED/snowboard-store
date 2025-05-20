@@ -34,6 +34,7 @@ const getAllProducts = async (req: Request, res: Response) => {
   const values: unknown[] = [];
   let placeHolderIndex = 1;
 
+  // brand WHERE clase
   if (brands) {
     const parsedBrands: string[] = Array.isArray(brands) ? brands : [brands];
 
@@ -42,6 +43,7 @@ const getAllProducts = async (req: Request, res: Response) => {
     values.push(...parsedBrands);
   }
 
+  // category WHERE clause
   if (categories) {
     const parsedCategories: string[] = Array.isArray(categories)
       ? categories
@@ -56,10 +58,12 @@ const getAllProducts = async (req: Request, res: Response) => {
     values.push(...parsedCategories);
   }
 
+  // push all the WHERE clauses
   if (whereClauses.length > 0) {
     sqlQuery += ` WHERE ${whereClauses.join(" AND ")}`;
   }
 
+  // ORDER clause
   const allowedOrderBy = ["id", "price", "created_at"];
   const allowedDirections = ["ASC", "DESC"];
 
@@ -70,6 +74,7 @@ const getAllProducts = async (req: Request, res: Response) => {
 
   sqlQuery += `\nORDER BY ${safeOrderBy} ${safeOrderDirection}`;
 
+  // LIMIT clause
   const parsedLimit = limit ? parseInt(limit) : undefined;
   if (parsedLimit) {
     sqlQuery += ` LIMIT $${placeHolderIndex++}`;
