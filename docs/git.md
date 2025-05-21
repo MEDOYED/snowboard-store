@@ -40,3 +40,5 @@ git reset --hard origin/main --> когда находимся на ветке m
 
 - `git commit --amend --no-edit`
   - внести изменения в последний комит
+
+git restore [paht-to-file] --> сбрасивает все измениния в етом файле до комита
